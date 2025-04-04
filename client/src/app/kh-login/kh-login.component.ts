@@ -1,22 +1,28 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
+import { FloatLabelModule } from "primeng/floatlabel"
+
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-kh-login',
   standalone: true,
-  imports: [FormsModule, InputTextModule, ButtonModule],
+  imports: [FormsModule, InputTextModule, ButtonModule, CommonModule, FloatLabelModule],
   templateUrl: './kh-login.component.html',
-  styleUrl: './kh-login.component.scss'
+  styleUrls: ['./kh-login.component.scss'] 
 })
 export class KhLoginComponent {
   email: string = '';
   password: string = '';
 
-  login() {
-    // Här ska vi lägga in logiken för att logga in
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
+  onSubmit(): void {
+      const {email, password} = this;
+
+
+      console.log(email, password);
+      // skicka dendär post /login
   }
+
 }

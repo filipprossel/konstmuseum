@@ -1,23 +1,102 @@
-<div class="body">
-  <h2 class="logginLogga">Konsthall Tornedalen</h2>
+<div class="loginWrapper">
+  <div class="loginInner">
+    <h2 class="loginLogga">Konsthall Tornedalen</h2>
 
-  <div class="khLogin">
-    <span class="p-float-label">
-      <input pInputText id="email" placeholder="Epost" [(ngModel)]="email" />
-    </span>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()" method="post">
+      
+      <div class="inputContainer">
+       <!---
+        <span class="p-float-label">
+          <input
+          id="email"
+          name="email" 
+          type="email"
+          [(ngModel)]="email"
+          placeholder="Epost"
+          #emailRef="ngModel"
+          required
+          email
+        />
+      </span>
+      <div *ngIf="emailRef.invalid && emailRef.dirty" class="errorText">
+        <small *ngIf="emailRef.errors?.['required']">E-post krävs</small>
+        <small *ngIf="emailRef.errors?.['email']">Ogiltig e-post</small>
+      </div>
+      </div>
+
+      <div class="inputContainer">
+        <span class="p-float-label">
+          <input
+            id="password"
+            name="password"  
+            [(ngModel)]="password"
+            type="password"
+            placeholder="Lössenord"
+            maxlength="255"
+            #passwordRef="ngModel"
+            required
+          />
+        </span>
+        <div *ngIf="passwordRef.invalid && passwordRef.dirty" class="inputError">
+            <small>
+                Lösenord krävs
+            </small>   
+         </div>
+      -->
+
+     <div class="inputInner">
+
+      <div class="inputContainer">
+        <p-floatlabel variant="in">
+          <input
+            pInputText
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            #emailRef="ngModel"
+            type="email"
+            required
+            class="inputTest"
+            email
+          />
+          <label for="email">E-postadress</label>
+        </p-floatlabel>
+      
+        <div *ngIf="emailRef.invalid && emailRef.dirty" class="errorText">
+          <small *ngIf="emailRef.errors?.['required']">E-post krävs</small>
+          <small *ngIf="emailRef.errors?.['email']">Ogiltig e-post</small>
+        </div>
+      </div>
+      
+      <div class="inputContainer">
+        <p-floatlabel variant="in">
+          <input
+          pInputText
+          [(ngModel)]="password"
+          id="password"
+          name="password"          
+          [(ngModel)]="password"
+          type="password"
+          #passwordRef="ngModel"
+          required
+          class="inputTest"
+          />
+          <label for="password">Lösenord</label>
+        </p-floatlabel>
+        <div *ngIf="passwordRef.invalid && passwordRef.dirty" class="inputError">
+          <small>
+              Lösenord krävs
+          </small>   
+       </div>
+      </div>
+    </div>
+      
+      <a class="glömtLössen">Glömt lösenord?</a>
+      
+      <button type="submit" class="loginBtn" [disabled]="loginForm.invalid">Logga in</button>
+    </div> 
+    </form>
+
+    <p class="skapaKontoText">Har du inget konto? <a class="skapaKontoLänk">Skapa konto</a></p>
   </div>
-
-  <div class="khLogin">
-    <span class="p-float-label">
-      <input pInputText id="password" type="password" placeholder="Lössenord" [(ngModel)]="password" />
-    </span>
-  </div>
-
-  <a class="glömtLössen">Glömt lösenord?</a>
-
-  <button pButton class="loginBtn" label="Logga in" (click)="login()"></button>
-
-  <p class="skapaKontoText">
-    Har du inget konto? <a class="skapaKontoLänk">Skapa konto</a>
-  </p>
 </div>
