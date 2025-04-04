@@ -13,7 +13,11 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './kh-login.component.html',
   styleUrl: './kh-login.component.scss'
 })
-export class KhLoginComponent {
 
+export class KhLoginComponent {
+  value1: string | undefined;
+
+    value2: string | undefined;  
 
 }
+

@@ -1,8 +1,13 @@
 <div >
-    <p-floatlabel 
-        [style]="{backgroundColor: 'red'}"
-    >
-        <input id="username" pInputText [(ngModel)]="value" />
-        <label for="username">Username</label>
-    </p-floatlabel>
+    <div class="card flex flex-wrap justify-center items-end gap-4">
+        <p-floatlabel variant="in">
+            <input pInputText id="in_label" [(ngModel)]="value1" autocomplete="off" />
+            <label for="in_label">In Label</label>
+        </p-floatlabel>
+    
+        <p-floatlabel variant="on">
+            <input pInputText id="on_label" [(ngModel)]="value2" autocomplete="off" />
+            <label for="on_label">On Label</label>
+        </p-floatlabel>
+    </div>
 </div>
