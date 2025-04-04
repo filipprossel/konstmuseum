@@ -3,7 +3,6 @@
 .loginWrapper {
   --b: #2a63f0;
 
-
   display: flex;
   height: 100dvh;
   flex-direction: column;
@@ -12,7 +11,7 @@
 
   .loginInner {
     width: 100%;
-    max-width: 400px; // Set the width you want everything to match
+    max-width: 400px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,10 +67,11 @@
   }
 
   .p-inputtext:user-valid {
-    background-color: #dae5ff;
+    background-color: #dae5ff !important;
     filter: brightness(1.05);
 
   }
+  
 
   .inputContainer {
     width: 100%;
