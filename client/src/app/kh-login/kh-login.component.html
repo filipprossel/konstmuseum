@@ -1,13 +1,23 @@
-<div >
-    <div class="card flex flex-wrap justify-center items-end gap-4">
-        <p-floatlabel variant="in">
-            <input pInputText id="in_label" [(ngModel)]="value1" autocomplete="off" />
-            <label for="in_label">In Label</label>
-        </p-floatlabel>
-    
-        <p-floatlabel variant="on">
-            <input pInputText id="on_label" [(ngModel)]="value2" autocomplete="off" />
-            <label for="on_label">On Label</label>
-        </p-floatlabel>
-    </div>
+<div class="body">
+  <h2 class="logginLogga">Konsthall Tornedalen</h2>
+
+  <div class="khLogin">
+    <span class="p-float-label">
+      <input pInputText id="email" placeholder="Epost" [(ngModel)]="email" />
+    </span>
+  </div>
+
+  <div class="khLogin">
+    <span class="p-float-label">
+      <input pInputText id="password" type="password" placeholder="Lössenord" [(ngModel)]="password" />
+    </span>
+  </div>
+
+  <a class="glömtLössen">Glömt lösenord?</a>
+
+  <button pButton class="loginBtn" label="Logga in" (click)="login()"></button>
+
+  <p class="skapaKontoText">
+    Har du inget konto? <a class="skapaKontoLänk">Skapa konto</a>
+  </p>
 </div>
