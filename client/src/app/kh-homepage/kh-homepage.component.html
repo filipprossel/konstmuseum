@@ -1,0 +1,77 @@
+<app-kh-header></app-kh-header>
+<p-panel class="hero" header="" [toggleable]="false">
+  <div class="hero-content">
+    <h1>Välkommen till Tornedalen Konsthall</h1>
+    <p class="welcomeMessage">En plats där konst möter natur.</p>
+
+    <button class="exploreButtom" pButton type="button" label="Utforska Utställningar" class="p-button-warning" severity="warn"></button>
+  </div>
+</p-panel>
+
+<section class="section">
+  <h2>Kommande Evenemang</h2>
+  <div class="p-grid events">
+    <div class="p-col-12 p-md-6">
+      <p-card
+      [style]="{borderRadius:'30px'}">
+        <ng-template pTemplate="header">
+          <img src="assets/konstart.png" alt="Guidning med konstnären" class="event-img">
+        </ng-template>
+        <div class="event-info">
+          <h3>Guidning med konstnären</h3>
+          <p>10 april 2024 13:00</p>
+          <button pButton type="button" label="Läs mer" class="p-button-warning p-button-sm" severity="warn"></button>
+        </div>
+      </p-card>
+    </div>
+
+    <div class="p-col-12 p-md-6">
+      <p-card
+        [style]="{borderRadius:'30px'}">
+        <ng-template pTemplate="header">
+          <img src="assets/konstart2.png" alt="Konstworkshop för barn" class="event-img">
+        </ng-template>
+        <div class="event-info">
+          <h3>Konstworkshop för barn</h3>
+          <p>22 mars 2024 17:00</p>
+          <button pButton type="button" label="Läs mer" class="p-button-warning p-button-sm" severity="warn"></button>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Konstnärer i Fokus</h2>
+  <div class="artist-circle-row">
+    <div class="artist-profile">
+      <img src="assets/artist1.jpg" alt="Anna Karisson">
+      <div class="artist-info">
+        <h3>Anna Karisson</h3>
+        <p>Ergonomisk Konst.</p>
+      </div>
+    </div>
+    <div class="artist-profile">
+      <img src="assets/artist2.jpg" alt="Erik Lindström">
+      <div class="artist-info">
+        <h3>Erik Lindström</h3>
+        <p>Ai Konstnär.</p>
+      </div>
+    </div>
+    <div class="artist-profile">
+      <img src="assets/artist3.jpg" alt="Maria Sjoberg">
+      <div class="artist-info">
+        <h3>Martin Sjoberg</h3>
+        <p>Naturkonst.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section about">
+  <h2>Om Tornedal Konsthall</h2>
+  <p>
+    Konsthall Tornedalen är en plats där konst och den storslagna nordiska naturen sammanflätas i en unik upplevelse fyld med spännande upptäkter.
+  </p>
+</section>
