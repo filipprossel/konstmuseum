@@ -1,0 +1,49 @@
+.headerWrapper {
+    width: 100%;
+    height: 60px;
+
+    header {
+        display: flex;
+        margin: 0 30px;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logoWrapper {
+
+            h2 {
+                font-size: 24px;
+                border-bottom: 1px solid black;
+                border-top: 1px solid black;
+            }
+        }
+
+        nav {
+            display: inline-flex;
+            gap: 20px;
+            font-size: 16px;
+
+            a {
+
+                .active, &:hover{
+                    color: var(--kh-primary-color);
+                }
+            }
+        }
+
+        .profileButtons {
+            display: inline-flex;
+            gap: 20px;
+            height: 100%;
+            align-items: center;
+
+            .profileButton {
+                height: 75%;
+                aspect-ratio: 1/1;
+                border-radius: 100%;
+                border: 1px solid var(--kh-light-border-color);
+            }
+        }
+    }
+}
