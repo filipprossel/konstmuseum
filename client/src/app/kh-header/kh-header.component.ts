@@ -8,8 +8,8 @@ import { RouterModule } from '@angular/router';
   styleUrl: './kh-header.component.scss'
 })
 export class KhHeaderComponent {
-  homeLink = "/";
-  exploreLink = "/";
-  eventLink = "/";
-  forumLink = "/";
+  homeLink = "/homepage";
+  exploreLink = "/a";
+  eventLink = "/b";
+  forumLink = "/c";
 }
