@@ -1,0 +1,155 @@
+<div class="loginWrapper">
+    <div class="loginInner">
+        <h2 class="loginLogga">Konsthall Tornedalen</h2>
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()" method="post">
+        
+        <div class="inputContainer">
+  
+       <div class="inputInner">
+  
+
+        <div class="inputContainer">
+            <p-floatlabel variant="in">
+              <input
+              pInputText
+              [(ngModel)]="firstname"
+              id="firstname"
+              name="firstname"          
+              type="text"
+              #firstNameRef="ngModel"
+              required
+              class="inputTest"
+              />
+              <label for="password">Förnamn</label>
+            </p-floatlabel>
+            <div *ngIf="firstNameRef.invalid && firstNameRef.dirty" class="inputError">
+              <small>
+                  Ange ditt förnamn
+              </small>   
+           </div>
+          </div>
+    
+
+
+
+           <div class="inputContainer">
+             <p-floatlabel variant="in">
+               <input
+               pInputText
+               id="lastname"
+               name="lastname"          
+               [(ngModel)]="lastname"
+               type="text"
+               #lastNameRef="ngModel"
+               required
+               class="inputTest"
+               />
+               <label for="password">Efternamn</label>
+             </p-floatlabel>
+             <div *ngIf="lastNameRef.invalid && lastNameRef.dirty" class="inputError">
+               <small>
+                Ange ditt efternamn
+            </small>   
+            </div>
+           </div>
+       
+        
+
+
+      <div class="inputContainer">
+        <p-floatlabel variant="in">
+          <input
+            pInputText
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            #emailRef="ngModel"
+            type="email"
+            required
+            class="inputTest"
+            email
+          />
+          <label for="email">E-postadress</label>
+        </p-floatlabel>
+      
+        <div *ngIf="emailRef.invalid && emailRef.dirty" class="errorText">
+          <small *ngIf="emailRef.errors?.['required']">E-post krävs</small>
+          <small *ngIf="emailRef.errors?.['email']">Ogiltig e-post</small>
+        </div>
+      </div>
+
+      <div class="inputContainer">
+        <input
+          pInputText
+          [(ngModel)]="dateOfBirth"
+          id="dateOfBirth"
+          name="dateOfBirth"
+          pattern="^([12]\d{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+          type="date"
+          #dateOfBirthRef="ngModel"
+          required
+          pa
+          class="inputTest"
+          min="1990-01-01"
+          [attr.max]="today"
+        />
+      
+        <div *ngIf="dateOfBirthRef.touched" class="inputError">
+          <small *ngIf="!isValidDate(dateOfBirth)">Ogiltigt datum</small>
+        </div>
+      </div>
+      
+      <div class="inputContainer">
+        <p-floatlabel variant="in">
+          <input
+          pInputText
+          [(ngModel)]="password"
+          id="password"
+          name="password"          
+          [(ngModel)]="password"
+          type="password"
+          #passwordRef="ngModel"
+          required
+          class="inputTest"
+            />
+          <label for="password">Lösenord</label>
+        </p-floatlabel>
+        <div *ngIf="passwordRef.invalid && passwordRef.dirty" class="inputError">
+          <small>
+              Lösenord krävs
+          </small>   
+       </div>
+      </div>
+
+      <div class="inputContainer">
+        <p-floatlabel variant="in">
+          <input
+          pInputText
+          id="passwordVerification"
+          name="passwordVerification"          
+          [(ngModel)]="passwordVerification"
+          type="password"
+          #passwordVerificationRef="ngModel"
+          [pattern]="password"
+          required
+          class="inputTest"
+          />
+          <label for="passwordVerification">Verifiera lösenord</label>
+        </p-floatlabel>
+        <div *ngIf="passwordVerificationRef.touched" class="inputError">
+            <small  *ngIf="passwordVerification !== password">Lösenorden matchar inte</small>
+       </div>
+      </div>
+
+       </div>
+        
+        <!-- <a class="glömtLössen">Glömt lösenord?</a> -->
+        
+        <button type="submit" class="loginBtn" [disabled]="loginForm.invalid || !isValidDate(dateOfBirthRef.value) || passwordVerification !== password" >Skapa användare</button>
+      </div> 
+      </form>
+  
+      <p class="skapaKontoText">Har du inget konto? <a class="skapaKontoLänk" href="/">Logga in</a></p>
+    </div>
+  </div>
+  
