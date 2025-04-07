@@ -17,8 +17,7 @@
 }
 
 html {
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  overflow: hidden;
 }
 
 body {
@@ -28,6 +27,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.app {
+  height: calc(100vh - 60px);
+  margin-top: 60px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
 
 // Lite reset CSS
 a {
