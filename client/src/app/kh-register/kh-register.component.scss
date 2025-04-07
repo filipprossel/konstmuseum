@@ -2,21 +2,20 @@
 
 .loginWrapper {
     --b: #2a63f0;
-  
+
     display: flex;
-    height: 100dvh;
+    /*height: 100dvh;*/
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
     .loginInner {
       width: 100%;
-      max-width: 400px; 
+      max-width: 400px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-  
+
     .loginLogga {
       font-size: 40px;
       font-weight: bold;
@@ -30,13 +29,13 @@
       white-space: nowrap;
       text-align: center;
     }
-  
+
     form {
       display: flex;
       flex-direction: column;
       width: 100%;
     }
-  
+
     .inputTest {
       width: 100%;
       height: 50px;
@@ -46,11 +45,11 @@
       border: 1px solid #ccc;
       font-size: 16px;
       padding: 35px 25px 25px 22.5px;
-      transition: .3s ease-in-out;    
+      transition: .3s ease-in-out;
     }
-  
-    .p-floatlabel-in .p-inputtext  {}  /* kasnke ta bort */ 
-  
+
+    .p-floatlabel-in .p-inputtext  {}  /* kasnke ta bort */
+
     .p-floatlabel label {
       transform: translateX(12.5px) translateY(-50%);
       opacity: .6;
@@ -60,31 +59,31 @@
       color: inherit;
       top: 1rem;
     }
-  
+
     .p-inputtext:enabled:focus {
       outline: 2px solid #dae5ff;
       filter: brightness(1.05);
     }
-  
+
     .p-inputtext:user-valid {
       background-color: #dae5ff !important;
       filter: brightness(1.05);
-  
+
     }
-    
-  
+
+
     .inputContainer {
       width: 100%;
-  
+
       .inputInner {
         display: flex;
         flex-direction: column;
         gap: 1em;
       }
-  
+
       .p-float-label {
         width: 100%;
-  
+
         input {
           width: 100%;
           height: 50px;
@@ -95,11 +94,11 @@
           font-size: 16px;
           transition: .3s ease-in-out;
         }
-  
+
         input:first-of-type {
           margin-bottom: 1em;
         }
-  
+
         label {
           margin-left: 20px;
           font-size: 14px;
@@ -107,11 +106,11 @@
         }
       }
     }
-  
+
     input:user-invalid  {
       border-color: rgb(230, 32, 32) !important;
     }
-  
+
     .glömtLössen {
       color: var(--b);
       text-align: right;
@@ -121,7 +120,7 @@
       margin-right: 10px;
       font-size: 14px;
     }
-  
+
     .loginBtn {
       margin-top: 1em;
       width: 100%;
@@ -139,11 +138,11 @@
       cursor: default;
       opacity: .3;
     }
-  
+
     .skapaKontoText {
       margin-top: 20px;
       font-size: 16px;
-  
+
       .skapaKontoLänk {
         color: var(--b);
         cursor: pointer;
@@ -151,14 +150,14 @@
       }
     }
   }
-  
+
   input[type="date"]:not(:valid) {
     font-weight: var(--p-floatlabel-font-weight);
     inset-inline-start: var(--p-floatlabel-position-x);
     color: rgba(71, 85, 105, 0.6);
     text-transform: uppercase; /*? */
 
-    &:user-valid, &:user-invalid { 
+    &:user-valid, &:user-invalid {
         color: rgba(71, 85, 105,1);
     }
 }
