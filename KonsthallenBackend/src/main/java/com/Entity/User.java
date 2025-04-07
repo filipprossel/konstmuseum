@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 @Table(name="Users")
 public class User {
 
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int user_id;
@@ -22,6 +23,19 @@ public class User {
     private int role_id;
     private String user_pfp;
 
+    protected User(){}
+    public User(String first_name, String last_name, String date_of_birth, String email, String password, String join_date, String user_description, String last_online, int role_id, String user_pfp){
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.date_of_birth = date_of_birth;
+        this.email = email;
+        this.password = password;
+        this.join_date = join_date;
+        this.user_description = user_description;
+        this.last_online = last_online;
+        this.role_id = role_id;
+        this.user_pfp = user_pfp;
+    }
 
 
 }
