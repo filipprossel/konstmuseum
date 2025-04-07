@@ -79,20 +79,22 @@
       </div>
 
       <div class="inputContainer">
+        <p-floatlabel variant="in">
         <input
           pInputText
           [(ngModel)]="dateOfBirth"
           id="dateOfBirth"
           name="dateOfBirth"
           pattern="^([12]\d{3})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
-          type="date"
+          type="text"
           #dateOfBirthRef="ngModel"
           required
-          pa
           class="inputTest"
           min="1990-01-01"
           [attr.max]="today"
         />
+        <label for="email">Födelsedatum (YYYY-MM--DD )</label>
+      </p-floatlabel>
       
         <div *ngIf="dateOfBirthRef.touched" class="inputError">
           <small *ngIf="!isValidDate(dateOfBirth)">Ogiltigt datum</small>
