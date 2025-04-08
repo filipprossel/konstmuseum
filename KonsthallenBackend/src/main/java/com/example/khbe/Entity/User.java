@@ -61,5 +61,48 @@ public class User {
     public String getEmail(){return email;}
     public String getPassword(){return password;}
     public Date getJoin_date(){return join_date;}
+    public String getUser_description(){return user_description;}
+    public Integer getRole_id(){return role_id;}
+    public OffsetTime getLast_online(){return last_online;}
+    public String getUser_pfp(){return user_pfp;}
 
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
+    }
+
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
+    }
+
+    public void setDate_of_birth(Date date_of_birth) {
+        this.date_of_birth = date_of_birth;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setJoin_date(Date join_date) {
+        this.join_date = join_date;
+    }
+
+    public void setLast_online(OffsetTime last_online) {
+        this.last_online = last_online;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRole_id(int role_id) {
+        this.role_id = role_id;
+    }
+
+    public void setUser_description(String user_description) {
+        this.user_description = user_description;
+    }
+
+    public void setUser_pfp(String user_pfp) {
+        this.user_pfp = user_pfp;
+    }
 }
