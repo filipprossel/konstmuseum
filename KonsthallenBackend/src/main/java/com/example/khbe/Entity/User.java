@@ -8,7 +8,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name="Users")
+@Table(name="users")
 public class User {
 
 
@@ -55,7 +55,11 @@ public class User {
     public Integer getId(){
         return user_id;
     }
-
-
+    public String getFirst_name(){return first_name;}
+    public String getLast_name(){return last_name;}
+    public Date getDate_of_birth(){return date_of_birth;}
+    public String getEmail(){return email;}
+    public String getPassword(){return password;}
+    public Date getJoin_date(){return join_date;}
 
 }
