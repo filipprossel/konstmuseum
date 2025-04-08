@@ -25,7 +25,6 @@ public class User {
 
     protected User(){}
     public User(String first_name){
-        this.user_id = user_id;
         this.first_name = first_name;
     }
     public User(String first_name, String last_name, String date_of_birth, String email, String password, String join_date, String user_description, String last_online, int role_id, String user_pfp){
