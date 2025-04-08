@@ -1,5 +1,9 @@
 package com.example.khbe.Entity;
 
+import java.sql.Date;
+import java.time.OffsetDateTime;
+import java.time.OffsetTime;
+
 import jakarta.persistence.*;
 
 
@@ -9,39 +13,49 @@ public class User {
 
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int user_id;
     private String first_name;
     private String last_name;
-    private String date_of_birth;
+    private Date date_of_birth;
     private String email;
     private String password;
-    private String join_date;
+    private Date join_date;
     private String user_description;
-    private String last_online;
+    private OffsetTime last_online;
     @JoinColumn
     private int role_id;
     private String user_pfp;
 
     protected User(){}
-    public User(String first_name){
+    public User(
+        String first_name, 
+        String lastname, 
+        Date date_of_birth, 
+        String email, 
+        String password, 
+        Date join_date, 
+        String user_description, 
+        int role_id, 
+        OffsetTime last_online,
+        String user_pfp
+    ){
         this.first_name = first_name;
-    }
-    public User(String first_name, String last_name, String date_of_birth, String email, String password, String join_date, String user_description, String last_online, int role_id, String user_pfp){
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.last_name = lastname;
         this.date_of_birth = date_of_birth;
         this.email = email;
         this.password = password;
         this.join_date = join_date;
         this.user_description = user_description;
-        this.last_online = last_online;
         this.role_id = role_id;
+        this.last_online = last_online;
         this.user_pfp = user_pfp;
     }
+
     public Integer getId(){
         return user_id;
     }
+
 
 
 }
