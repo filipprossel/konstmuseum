@@ -1,2 +1,3 @@
 client/angular.json
 *node_modules/*
+KonsthallenBackend/src/main/resources/application.properties
