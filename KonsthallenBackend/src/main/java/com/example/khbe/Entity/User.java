@@ -1,4 +1,4 @@
-package com.Entity;
+package com.example.khbe.Entity;
 
 import jakarta.persistence.*;
 
@@ -24,6 +24,10 @@ public class User {
     private String user_pfp;
 
     protected User(){}
+    public User(String first_name){
+        this.user_id = user_id;
+        this.first_name = first_name;
+    }
     public User(String first_name, String last_name, String date_of_birth, String email, String password, String join_date, String user_description, String last_online, int role_id, String user_pfp){
         this.first_name = first_name;
         this.last_name = last_name;
@@ -35,6 +39,9 @@ public class User {
         this.last_online = last_online;
         this.role_id = role_id;
         this.user_pfp = user_pfp;
+    }
+    public Integer getId(){
+        return user_id;
     }
 
 
