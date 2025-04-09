@@ -4,6 +4,9 @@
   --kh-secondary-color: #4A635D;
   --kh-complement-color: #F0A05A;
   --kh-light-border-color: #CCCCCC;
+  --scroll-bar-width: 15px;
+  --main-padding: 100px;
+  --header-footer-margin: calc(var(--main-padding) / 2);
   --p-form-field-float-label-focus-color: red;
 }
 
@@ -28,9 +31,10 @@ body {
 }
 
 .app {
-  height: calc(100vh - 60px);
+  padding: 0 var(--main-padding);
+  height: calc(100dvh - 60px);
   margin-top: 60px;
-  overflow-y: scroll;
+  overflow-y: auto;
   scroll-behavior: smooth;
 }
 

@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 })
 export class KhHeaderComponent {
   homeLink = "/homepage";
-  exploreLink = "/a";
+  exploreLink = "/test";
   eventLink = "/b";
   forumLink = "/c";
 }
