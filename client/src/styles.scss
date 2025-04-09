@@ -7,7 +7,6 @@
   --scroll-bar-width: 15px;
   --main-padding: 100px;
   --header-height: 60px;
-  --footer-height: 100px;
   --header-footer-margin: calc(var(--main-padding) / 2);
   --p-form-field-float-label-focus-color: red;
 }
@@ -32,21 +31,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*.app-wrapper {
-  margin-top: var(--header-height);
-  height: calc(100dvh - var(--header-height)); 
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  display: flex;
-  flex-direction: column;
-
-  .app {
-    min-height: calc(100dvh - var(--header-height) - var(--footer-height));
-    height: 100%;
-    padding: 0 var(--main-padding);
-  }
-}*/
-
 .app-wrapper {
   margin-top: var(--header-height);
   height: calc(100vh - var(--header-height)); 
@@ -65,7 +49,7 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 a:hover {

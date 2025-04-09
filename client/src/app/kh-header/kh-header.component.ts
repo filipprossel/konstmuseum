@@ -10,6 +10,6 @@ import { RouterModule } from '@angular/router';
 export class KhHeaderComponent {
   homeLink = "/homepage";
   exploreLink = "/test";
-  eventLink = "/b";
+  eventLink = "/profile";
   forumLink = "/c";
 }
