@@ -1,5 +1,7 @@
 <app-kh-header *ngIf="shouldShowHeaderFooter()"></app-kh-header>
-<main class="app">
-    <router-outlet></router-outlet>
-</main>
-
+<div class="app-wrapper">
+    <main class="app">
+        <router-outlet></router-outlet> 
+    </main>
+    <app-kh-footer *ngIf="shouldShowHeaderFooter()"></app-kh-footer>
+</div>

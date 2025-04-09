@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { KhHeaderComponent } from "./kh-header/kh-header.component";
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { KhFooterComponent } from "./kh-footer/kh-footer.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, KhHeaderComponent,CommonModule],
+  imports: [RouterOutlet, KhHeaderComponent, CommonModule, KhFooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
