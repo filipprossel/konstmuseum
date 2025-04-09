@@ -32,6 +32,7 @@ export class KhLoginComponent {
       this.KhLoginServiceService.loginUser(email, password).subscribe((data) => {
         console.log(data);
         this.user = data;
+        // göra mycket saker
       })
        
 
