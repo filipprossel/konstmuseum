@@ -1,4 +1,5 @@
 package com.example.khbe.Entity;
+import java.util.HashMap;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,4 +19,15 @@ public class UserController {
     public List<User> getAllUsers(){
         return userService.getAllUsers();
     }
+
+    @PostMapping("/login")
+    public User loginUser(@RequestBody HashMap<String, String> loginData) {
+        String email = loginData.get("email");
+        String password = loginData.get("password");
+
+        return userService.loginUser(email, password);
+    }
+    
+
+
 }

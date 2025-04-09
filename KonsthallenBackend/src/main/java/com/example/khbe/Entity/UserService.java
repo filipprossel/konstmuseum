@@ -22,4 +22,10 @@ public class UserService {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    public User loginUser(String email, String password) {
+        
+        return userRepository.findByEmailAndPassword(email, password);
+    }    
 }
+
