@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*")
 //@RequestMapping("KonsthallenBackend/src/main/java/com/example/khbe/Entity/Users")
 @RequestMapping("/api/users")
 public class UserController {
@@ -24,7 +25,7 @@ public class UserController {
     public User loginUser(@RequestBody HashMap<String, String> loginData) {
         String email = loginData.get("email");
         String password = loginData.get("password");
-
+        System.out.println("hej" + " " + email + " " + password);
         return userService.loginUser(email, password);
     }
     
