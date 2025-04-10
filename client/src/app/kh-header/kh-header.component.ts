@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../auth.service'; // Import AuthService to access user data
+import { AuthService } from '../auth.service';
+import { ProfileDropdownComponent } from "./profile-dropdown/profile-dropdown.component"; // Import AuthService to access user data
 
 @Component({
   selector: 'app-kh-header',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, ProfileDropdownComponent],
   templateUrl: './kh-header.component.html',
   styleUrls: ['./kh-header.component.scss']
 })

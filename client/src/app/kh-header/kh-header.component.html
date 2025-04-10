@@ -14,6 +14,9 @@
                 <div class="profileButton"></div>
             </div>
             <div class="profile">
+
+                <app-profile-dropdown class="dropdown"></app-profile-dropdown>
+
                 <p>{{ userName }}</p>
                 <div class="profileButton">
                     <img *ngIf="userPfp" [src]="userPfp" alt="User Profile Picture" class="user-pfp"/>

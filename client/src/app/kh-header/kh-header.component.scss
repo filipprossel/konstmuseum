@@ -41,13 +41,15 @@
     .profileButtons {
       display: inline-flex;
       gap: 20px;
-      height: 75%;
+      height: 100%;
       align-items: center;
 
       .extra {
         width: 100%;
         height: 100%;
         display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 10px;
       }
 
@@ -58,6 +60,24 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+
+        .dropdown {
+          position: absolute;
+          top: 100%; // Placera precis under .profile
+          border-radius: 6px;
+          z-index: 1001;
+          opacity: 0;
+          transform: translateY(-10px);
+          pointer-events: none;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        &:hover .dropdown {
+          opacity: 1;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
       }
 
       .profileButton {
@@ -73,7 +93,7 @@
         .user-pfp {
           width: 120%;
           height: 120%;
-          object-fit: cover; /* Ensure image covers the circle */
+          object-fit: cover;
         }
       }
     }
