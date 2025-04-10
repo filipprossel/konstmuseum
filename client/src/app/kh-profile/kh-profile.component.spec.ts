@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { KhProfileComponent } from './kh-profile.component';
 
 describe('KhProfileComponent', () => {

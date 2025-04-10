@@ -1,12 +1,19 @@
-<p>kh-profile works!</p>
+<div id="container">
 <div id="backgroundGradient">
     <button></button><!--Byt ut mot primeng-->
 </div>
 <div id="profileContainer"></div>
-<div id="menu"></div>
-<div id="aktivitetsContainer">
-    <p-button label="Primary" [rounded]="true" />
-    <p-button label="Primary" [rounded]="true" />
-    <p-button label="Primary" [rounded]="true" />
+<p id="name">Namn</p>
+<div id="buttonMenu">
+    <p-button label="Aktivitet"  [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderBottom: 'solid 3px', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
+    <p-button label="Profil"  [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderBottom: 'solid 3px', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
+    <p-button label="Om"  [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderBottom: 'solid 3px', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
 </div>
-<!--<p-button label="Submit" />-->
+<div id="aktivitetsContainer">
+    <div class="aktivitet">
+        <p></p>
+        <div></div><!--Icon-->
+    </div>
+</div>
+</div>
+<!--<p-button label="Submit" /> [style]="{backgroundColor: 'blue'}-->
