@@ -14,7 +14,7 @@ import { KhFooterComponent } from "./kh-footer/kh-footer.component";
 export class AppComponent {
   constructor(public router: Router) {}
 
-  hiddenRoutes = ['/', '/signup'];
+  hiddenRoutes = ['/login', '/signup'];
   title = 'client';
 
   shouldShowHeaderFooter(): boolean {

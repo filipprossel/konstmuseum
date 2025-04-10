@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { KhLoginServiceService } from './kh-loginServices/kh-login-service.service';
 
 import { CommonModule } from '@angular/common';
+import { Router, RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-kh-login',
@@ -22,7 +23,7 @@ export class KhLoginComponent {
   password: string = '';
   user: any;
 
-  constructor(private KhLoginServiceService: KhLoginServiceService){}
+  constructor(private KhLoginServiceService: KhLoginServiceService, private router: Router){}
   
 
   onSubmit(): void {
@@ -32,7 +33,10 @@ export class KhLoginComponent {
       this.KhLoginServiceService.loginUser(email, password).subscribe((data) => {
         console.log(data);
         this.user = data;
+        localStorage.setItem("user", JSON.stringify(this.user));
         // göra mycket saker
+        this.router.navigate(["/"]);
+        
       })
        
 
