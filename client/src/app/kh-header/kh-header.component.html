@@ -9,9 +9,16 @@
             <a [routerLink]="forumLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Forum</a>
         </nav>
         <div class="profileButtons">
-            <div class="profileButton"></div>
-            <div class="profileButton"></div>
-            <div class="profileButton"></div>
+            <div class="extra">
+                <div class="profileButton"></div>
+                <div class="profileButton"></div>
+            </div>
+            <div class="profile">
+                <p>{{ userName }}</p>
+                <div class="profileButton">
+                    <img *ngIf="userPfp" [src]="userPfp" alt="User Profile Picture" class="user-pfp"/>
+                </div>
+            </div>
         </div>
     </header>
 </div>
