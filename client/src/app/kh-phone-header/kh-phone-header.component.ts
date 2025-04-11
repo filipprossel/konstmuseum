@@ -13,7 +13,7 @@ export class KhPhoneHeaderComponent {
   profileLink = "/profile";
   exploreLink = '/a';
   eventLink = '/b';
-  forumLink = '/c';
+  forumLink = '/forms';
   utstallLink = "/d";
 
   isMenuOpen = false;

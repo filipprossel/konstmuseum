@@ -15,5 +15,5 @@ export const routes: Routes = [
     {path: '', component: KhHomepageComponent, canActivate: [authGuard]},
     {path: 'signup', component: KhRegisterComponent},
     {path: 'profile', component: KhProfileComponent, canActivate: [authGuard]},
-  {path: 'forms', component: KhFormsComponent, canActivate: [authGuard]},
+    {path: 'forms', component: KhFormsComponent, canActivate: [authGuard]},
 ];
