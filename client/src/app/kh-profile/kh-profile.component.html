@@ -1,19 +1,34 @@
 <div id="container">
 <div id="backgroundGradient">
-    <button></button><!--Byt ut mot primeng-->
+    <i class="pi pi-cog"></i>
 </div>
 <div id="profileContainer"></div>
-<p id="name">Namn</p>
+<div id="name">
+    <p id="name">Namn</p> 
+    <i class="pi pi-pencil"></i>
+</div>
+
 <div id="buttonMenu">
-    <p-button label="Aktivitet"  [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderBottom: 'solid 3px', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
-    <p-button label="Profil"  [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderBottom: 'solid 3px', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
-    <p-button label="Om"  [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderBottom: 'solid 3px', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
+    <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()" [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
+    <p-button id = "buttonP" label="Profil" (onClick)="porfileButton()" [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderBottom: 'solid 3px', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
+    <p-button id = "buttonO" label="Om" (onClick)="omButton()" [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderBottom: 'solid 3px', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
 </div>
 <div id="aktivitetsContainer">
     <div class="aktivitet">
         <p></p>
         <div></div><!--Icon-->
     </div>
+</div>
+<div id="profileActivityContainer"></div>
+<div id="omContent">
+    
+    <div class = aboutInformation> <p>Förnamn</p><p>Antung</p></div>
+    <p class="övreText">Efternamn</p>
+    <div class = aboutInformation><p>Shung</p></div>
+    <p class="övreText">Email</p>
+    <div class = aboutInformation><p>testatgmail.com</p></div>
+    <p class="övreText">Telefonnummer</p>
+    <div class = aboutInformation><p>07001235678</p></div>
 </div>
 </div>
 <!--<p-button label="Submit" /> [style]="{backgroundColor: 'blue'}-->

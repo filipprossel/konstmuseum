@@ -5,10 +5,29 @@
     align-items: center;
 }
 #backgroundGradient{
+    display: flex;
+    justify-content: end;
     width: 100%;
     min-height: 26vh;
     background: rgb(255,238,180);
     background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 21%, rgba(50,95,255,0.07) 49%);
+    i{
+        padding-top: 20px;
+        padding-right: 20px;
+    }
+}
+#name{
+    display: flex;
+  
+    i{
+        align-self: flex-start;
+        margin-left: 50px;
+    }
+    p{
+        
+        margin-left: 65px;
+    }
+
 }
 #profileContainer{
     height: 60vw;
@@ -35,7 +54,7 @@
 #aktivitetsContainer{
     width: 100%;
     height: 30vh; /*FIXA DETTA*/
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -51,3 +70,29 @@
     border-radius: 1px;
     border-radius: 40rem;
 }
+#omContent{
+    width: 100%;
+    height: 50vh; /*FIXA DETTA*/
+    background: rgb(255,238,180);
+    background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 40%, rgba(50,95,255,0.2) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.aboutInformation{
+    margin-top: 1vh;
+    width: 80%;
+    border-radius: 100px;
+    background-color: lightgray;
+    border: solid 1px;
+    border-color: darkgrey;
+    height: 6vh;
+    color: grey;
+    align-content: center;
+    p{
+        margin-left: 20px;
+    }
+   
+}
+
