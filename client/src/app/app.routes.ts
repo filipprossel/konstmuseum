@@ -4,7 +4,10 @@ import { KhTestpageComponent } from './kh-testpage/kh-testpage.component';
 import {KhHomepageComponent} from './kh-homepage/kh-homepage.component';
 import { KhRegisterComponent } from './kh-register/kh-register.component';
 import { KhProfileComponent } from './kh-profile/kh-profile.component';
+import {KhFormsComponent} from './kh-forms/kh-forms.component';
 import { authGuard } from './auth.guard';
+
+
 
 export const routes: Routes = [
     {path: 'login', component: KhLoginComponent },
@@ -12,4 +15,5 @@ export const routes: Routes = [
     {path: '', component: KhHomepageComponent, canActivate: [authGuard]},
     {path: 'signup', component: KhRegisterComponent},
     {path: 'profile', component: KhProfileComponent, canActivate: [authGuard]},
+  {path: 'forms', component: KhFormsComponent, canActivate: [authGuard]},
 ];
