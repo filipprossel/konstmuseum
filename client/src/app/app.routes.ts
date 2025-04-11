@@ -5,7 +5,9 @@ import {KhHomepageComponent} from './kh-homepage/kh-homepage.component';
 import { KhRegisterComponent } from './kh-register/kh-register.component';
 import { KhProfileComponent } from './kh-profile/kh-profile.component';
 import {KhFormsComponent} from './kh-forms/kh-forms.component';
+import {KhPostsComponent} from './kh-post/kh-post.component';
 import { authGuard } from './auth.guard';
+
 
 
 
