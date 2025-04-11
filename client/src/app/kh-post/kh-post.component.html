@@ -1,0 +1,22 @@
+<div class="kh-post">
+  <div class="posts-overlay">
+    <p-carousel
+      class="custom-carousel"
+      [value]="posts"
+      [numVisible]="4"
+      [numScroll]="1"
+      [showIndicators]="false"
+      orientation="vertical"
+      verticalViewPortHeight="480px"
+      contentClass="flex flex-col items-center gap-4">
+
+      <ng-template let-post #item>
+        <div class="post-card">
+          <i class="{{ post.icon }}"></i>
+          <span class="post-message">{{ post.message }}</span>
+          <a [routerLink]="post.link" class="read-more">Läs mer</a>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</div>

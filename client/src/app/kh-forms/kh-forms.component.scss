@@ -29,5 +29,10 @@
 .large-button {
   padding: 1.5rem 3rem;
   font-size: 1.2rem;
-  border-radius: 1rem;
+  border-radius: 30px;
+
+}
+.active-button {
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.4); // gul/orange glow
+  transform: scale(1.03);
 }

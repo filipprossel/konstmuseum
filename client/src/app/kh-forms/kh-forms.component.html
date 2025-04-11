@@ -1,13 +1,14 @@
 <div class="kh-forms">
   <div class="forms-overlay">
     <div class="button-group">
-      <button
+      <button class=".large-button"
         pButton
         type="button"
-        label="Inlägg"
+        label="Skapad Konst"
         icon="pi pi-file-edit"
         class="p-button-warning large-button"
-      severity="warn">
+              severity="warn"
+        (click)="goToPosts()">
       </button>
 
       <button
@@ -15,8 +16,7 @@
         type="button"
         label="Skapad Konst"
         icon="pi pi-file-edit"
-        class="p-button-warning large-button"
-      severity="warn">
+        class="p-button-warning large-button" severity="warn">
       </button>
     </div>
   </div>

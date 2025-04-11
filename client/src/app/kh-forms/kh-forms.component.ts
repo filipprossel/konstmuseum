@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule } from '@angular/common';
+import {Router} from '@angular/router';
+
+
 
 @Component({
   selector: 'app-kh-forms',
@@ -9,4 +12,10 @@ import { CommonModule } from '@angular/common';
   templateUrl: './kh-forms.component.html',
   styleUrls: ['./kh-forms.component.scss']
 })
-export class KhFormsComponent {}
+export class KhFormsComponent {
+  constructor(private router: Router) {}
+
+  goToPosts() {
+    this.router.navigate(['/posts']);
+  }
+}
