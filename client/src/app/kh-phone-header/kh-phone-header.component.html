@@ -1,0 +1,20 @@
+<header>
+    <div class="logoWrapper">
+        <h2><a [routerLink]="homeLink">Konsthall Tornedalen</a></h2>
+    </div>
+    <div class="hamburgerWrapper">
+        <button (click)="toggleMenu()" [class.open]="isMenuOpen">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+    </div>
+</header>
+
+<nav class="menu" *ngIf="isMenuOpen">
+    <a [routerLink]="homeLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Hem</a>
+    <a [routerLink]="exploreLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Utforska</a>
+    <a [routerLink]="eventLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Evenemang</a>
+    <a [routerLink]="utstallLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Utställningar</a>
+    <a [routerLink]="forumLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Forum</a>
+</nav>

@@ -1,6 +1,6 @@
 .headerWrapper {
   width: 100%;
-  height: 60px;
+  height: var(--header-height);
   position: fixed;
   top: 0;
   left: 0;
@@ -12,6 +12,7 @@
     display: flex;
     margin: 0 var(--header-footer-margin);
     height: 100%;
+    gap: 20px;
     justify-content: space-between;
     align-items: center;
 
@@ -20,13 +21,15 @@
         font-size: 24px;
         border-bottom: 1px solid black;
         border-top: 1px solid black;
+        white-space: nowrap;
       }
     }
 
     nav {
       display: inline-flex;
-      gap: 20px;
       font-size: 16px;
+      flex-wrap: wrap;
+      gap: 20px;
 
       a {
         text-decoration: none;
@@ -97,5 +100,19 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .headerWrapper header .profileButtons {
+    gap: 0px;
+  }
+
+  .headerWrapper header .profile p {
+    display: none;
+  }
+
+  .headerWrapper header nav {
+    gap: 5px;
   }
 }

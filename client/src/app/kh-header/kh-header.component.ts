@@ -15,6 +15,7 @@ export class KhHeaderComponent implements OnInit {
   exploreLink = "/a";
   eventLink = "/b";
   forumLink = "/c";
+  utstallLink = "/d";
 
   userPfp: string = ''; 
   userName: string = '';

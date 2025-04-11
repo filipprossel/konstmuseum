@@ -11,9 +11,28 @@
   --header-footer-margin: calc(var(--main-padding) / 2);
   --p-form-field-float-label-focus-color: red;
 }
-@media (max-width: 430px){
+
+app-kh-header {
+  display: block;
+}
+
+app-kh-phone-header {
+  display: none;
+}
+
+@media (max-width: 768px){
   :root{
-    --main-padding: 0x
+    --header-height: 60px;
+    --main-padding: 0px;
+    --header-footer-margin: 25px;
+  }
+
+  app-kh-header {
+    display: none;
+  }
+
+  app-kh-phone-header {
+    display: block;
   }
 }
 
