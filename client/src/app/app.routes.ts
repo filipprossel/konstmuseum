@@ -6,7 +6,6 @@ import { KhRegisterComponent } from './kh-register/kh-register.component';
 import { KhProfileComponent } from './kh-profile/kh-profile.component';
 import {KhFormsComponent} from './kh-forms/kh-forms.component';
 import { authGuard } from './auth.guard';
-import {KhPostsComponent} from './kh-post/kh-post.component';
 
 
 
@@ -18,4 +17,5 @@ export const routes: Routes = [
     {path: 'profile', component: KhProfileComponent, canActivate: [authGuard]},
   {path: 'forms', component: KhFormsComponent, canActivate: [authGuard]},
   {path: 'posts', component: KhPostsComponent, canActivate: [authGuard]},
+    {path: 'forms', component: KhFormsComponent, canActivate: [authGuard]},
 ];

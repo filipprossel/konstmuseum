@@ -11,16 +11,19 @@
         </nav>
         <div class="profileButtons">
             <div class="extra">
-                <div class="profileButton"></div>
-                <div class="profileButton"></div>
+                <div class="profileButton">
+                    <i class="pi pi-bell" style="font-size: 22.5px"></i>
+                </div>
+                <div class="profileButton">
+                    <i class="pi pi-comment" style="font-size: 22.5px"></i>
+                </div>
             </div>
             <div class="profile">
-
                 <app-profile-dropdown class="dropdown"></app-profile-dropdown>
-
                 <p>{{ userName }}</p>
                 <div class="profileButton">
                     <img *ngIf="userPfp" [src]="userPfp" alt="User Profile Picture" class="user-pfp"/>
+                    <i class="pi pi-arrow-down"></i>
                 </div>
             </div>
         </div>
