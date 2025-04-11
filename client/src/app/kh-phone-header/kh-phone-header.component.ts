@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class KhPhoneHeaderComponent {
   homeLink = "/";
+  profileLink = "/profile";
   exploreLink = '/a';
   eventLink = '/b';
   forumLink = '/c';
