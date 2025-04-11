@@ -59,3 +59,16 @@ footer {
         align-items: flex-start;
     }
 }
+
+@media (max-width: 650px) {
+    footer .upper .left h2 {
+        font-size: 24px;
+    }
+
+    footer .upper {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+}
+
