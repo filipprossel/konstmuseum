@@ -27,17 +27,25 @@ export class KhProfileComponent {
       profileContent.style.display = "none";
       omContent.style.display = "none";
       aktivitetContent.style.display = "flex";
-      buttonA.style.borderBottom = "solid"
+      buttonA.style.textDecoration = "underline"
+      buttonP.style.textDecoration = "none"
+      buttonO.style.textDecoration = "none"
     }
     else if(nextDocument === "profil"){
       profileContent.style.display = "flex";
       omContent.style.display = "none";
       aktivitetContent.style.display = "none";
+      buttonP.style.textDecoration = "underline"
+      buttonA.style.textDecoration = "none"
+      buttonO.style.textDecoration = "none"
     }
     else{
       profileContent.style.display = "none";
       omContent.style.display = "flex";
       aktivitetContent.style.display = "none";
+      buttonO.style.textDecoration = "underline"
+      buttonA.style.textDecoration = "none"
+      buttonP.style.textDecoration = "none"
     }
   }
 

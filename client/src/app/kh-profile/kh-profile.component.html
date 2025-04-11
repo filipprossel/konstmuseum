@@ -9,9 +9,9 @@
 </div>
 
 <div id="buttonMenu">
-    <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()" [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
-    <p-button id = "buttonP" label="Profil" (onClick)="porfileButton()" [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderBottom: 'solid 3px', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
-    <p-button id = "buttonO" label="Om" (onClick)="omButton()" [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderBottom: 'solid 3px', borderRadius: '0px', paddingBottom:'1px', padding:'3px'}"/>
+    <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()"ng [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderRadius: '0px', paddingBottom:'1px', padding:'3px', textDecoration: 'underline'}"/>
+    <p-button id = "buttonP" label="Profil" (onClick)="porfileButton()" [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderRadius: '0px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'} "/>
+    <p-button id = "buttonO" label="Om" (onClick)="omButton()" [style]="{backgroundColor: 'white', color: 'black', fontSize: '1.3rem', border: 'none', borderRadius: '0px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'}"/>
 </div>
 <div id="aktivitetsContainer">
     <div class="aktivitet">
@@ -19,10 +19,26 @@
         <div></div><!--Icon-->
     </div>
 </div>
-<div id="profileActivityContainer"></div>
+<div id="profileActivityContainer">
+    <div class="infoBlock">
+        <i class="pi pi-heart-fill" style="font-size: 5.5rem" [style]="{color: 'white'}"></i>
+        <p id="number">15</p>
+        <P class="infoText">Gillade Konstverk</P>
+    </div>
+    <div class="infoBlock">
+        <i class="pi pi-heart-fill" style="font-size: 5.5rem" [style]="{color: 'white'}"></i>
+        <p id="number">15</p>
+        <P class="infoText">Gillade Konstverk</P>
+    </div>
+    <div class="infoBlock">
+        <i class="pi pi-heart-fill" style="font-size: 5.5rem" [style]="{color: 'white'}"></i>
+        <p id="number">15</p>
+        <P class="infoText">Gillade Konstverk</P>
+    </div>
+</div>
 <div id="omContent">
-    
-    <div class = aboutInformation> <p>Förnamn</p><p>Antung</p></div>
+    <p class="övreText">Förnamn</p>
+    <div class = aboutInformation><p>Antung</p></div>
     <p class="övreText">Efternamn</p>
     <div class = aboutInformation><p>Shung</p></div>
     <p class="övreText">Email</p>
