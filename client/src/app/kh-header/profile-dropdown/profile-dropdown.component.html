@@ -2,7 +2,7 @@
     <button>
         <a [routerLink]="profileLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Profil</a>
     </button>
-    <button>
+    <button (click)="logOut()">
         <button>Logga ut</button>
     </button>
 </div>

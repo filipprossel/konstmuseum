@@ -8,5 +8,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './kh-footer.component.scss'
 })
 export class KhFooterComponent {
-  homeLink = "/homepage";
+  homeLink = "/";
 }
