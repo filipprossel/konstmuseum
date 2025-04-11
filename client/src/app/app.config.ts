@@ -23,6 +23,12 @@ export const appConfig: ApplicationConfig = {
         options: {
           // Stänger av darkmode
           darkModeSelector: false || 'none',
+          options: {
+            cssLayer: {
+              name: 'primeng',
+              order: 'app-styles, primeng'
+            }
+          }
       }
       }
     })

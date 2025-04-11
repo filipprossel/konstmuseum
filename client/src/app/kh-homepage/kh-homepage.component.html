@@ -12,31 +12,23 @@
   <h2>Kommande Evenemang</h2>
   <div class="p-grid events">
     <div class="p-col-12 p-md-6">
-      <p-card
-        [style]="{width:'40em', borderRadius:'30px'}">
-        <ng-template pTemplate="header">
-          <img src="assets/konstart.png" alt="Guidning med konstnären" class="event-img">
+      <p-carousel
+        [value]="Events"
+        [numVisible]="1"
+        [numScroll]="1"
+        verticalViewPortHeight="330px"
+        contentClass="flex items-center">
+        <ng-template let-event #item>
+          <div class="event-card p-4 border rounded shadow-sm text-center">
+            <img [src]="event.image" [alt]="event.title" class="event-img mb-3" />
+            <div class="event-info">
+              <h3>{{ event.title }}</h3>
+              <p>{{ event.date }}</p>
+              <button pButton type="button" label="Läs mer" class="p-button-warning p-button-sm mt-2" severity="warn"></button>
+            </div>
+          </div>
         </ng-template>
-        <div class="event-info">
-          <h3>Guidning med konstnären</h3>
-          <p>10 april 2024 13:00</p>
-          <button pButton type="button" label="Läs mer" class="p-button-warning p-button-sm" severity="warn"></button>
-        </div>
-      </p-card>
-    </div>
-
-    <div class="p-col-12 p-md-6">
-      <p-card
-      [style]="{width:'40em', borderRadius:'30px'}">
-        <ng-template pTemplate="header">
-          <img src="assets/konstart2.png" alt="Konstworkshop för barn" class="event-img">
-        </ng-template>
-        <div class="event-info">
-          <h3>Konstworkshop för barn</h3>
-          <p>22 mars 2024 17:00</p>
-          <button pButton type="button" label="Läs mer" class="p-button-warning p-button-sm" severity="warn"></button>
-        </div>
-      </p-card>
+      </p-carousel>
     </div>
   </div>
 </section>

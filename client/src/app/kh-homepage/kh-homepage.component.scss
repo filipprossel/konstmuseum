@@ -1,6 +1,7 @@
-.welomeTitle{
+.welomeTitle {
   font-weight: normal;
 }
+
 .hero {
   .hero-content {
     background-image: url('/assets/homepage.png');
@@ -90,44 +91,63 @@
   gap: 5rem;
   display: flex;
   justify-content: center;
+}
 
-  .p-card {
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-    background: white;
+.event-card {
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  width: auto;
 
-    &:hover {
-      transform: translateY(-5px);
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .event-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+
+  .event-info {
+    padding: 1rem;
+    text-align: center;
+
+    h3 {
+      font-size: 1.1rem;
+      margin: 0.5rem 0 0.2rem;
+      color: #081235;
     }
 
-    .event-img {
-      width: 40px;
-      height: 10px;
-      object-fit: cover;
-    }
-
-    .event-info {
-      padding: 1rem;
-      text-align: left;
-
-      h3 {
-        font-size: 1.1rem;
-        margin: 0 0 0.5rem;
-        color: #081235;
-      }
-
-      p {
-        font-size: 0.95rem;
-        color: #081235;
-        margin: 0 0 1rem;
-      }
+    p {
+      font-size: 0.95rem;
+      color: #081235;
+      margin: 0 0 1rem;
     }
   }
 }
- button{
-   margin-top: 10px;
-   border-radius: 30px;
 
- }
+button {
+  margin-top: 10px;
+  border-radius: 30px;
+}
+
+.product-item {
+  .product-item-content {
+    border: 1px solid var(--surface-d);
+    border-radius: 3px;
+    margin: 0.3rem;
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .product-image {
+    width: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+}
+
