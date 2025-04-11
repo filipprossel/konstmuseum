@@ -1,0 +1,33 @@
+.kh-forms {
+  background-image: url('/assets/homepage.png'); // ändra vid behov
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.forms-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6); // halvgenomskinlig dimma
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.large-button {
+  padding: 1.5rem 3rem;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+}
