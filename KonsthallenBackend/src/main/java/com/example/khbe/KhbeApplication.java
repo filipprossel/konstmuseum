@@ -9,6 +9,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+
+import java.time.LocalDate;
+import java.time.OffsetTime;
+import java.time.ZoneOffset;
+import java.sql.Date;
+
 @SpringBootApplication
 public class KhbeApplication implements CommandLineRunner {
     @Autowired
@@ -19,9 +25,12 @@ public class KhbeApplication implements CommandLineRunner {
     //Test för att se att en användare kan sparas
     @Override
     public void run(String...args) throws Exception{
-        User user = new User("Test2");
-        userService.saveUser(user);
-        System.out.println(user);
+        LocalDate birthDate = LocalDate.of(2004, 12, 12);
+        LocalDate joinDate = LocalDate.of(2004, 12, 12); // ändra till dagens datum
+
+        // User user = new User("BOber", "kurva", Date.valueOf(birthDate), "filipprossel@hotmail.com", "passwrod", Date.valueOf(joinDate), "hello im bober", 1,     OffsetTime.parse("12:00:00+02:00"), "Bober png"    );
+        // userService.saveUser(user);
+        //  System.out.println(user + "hejejejejej");
     }
 
 }

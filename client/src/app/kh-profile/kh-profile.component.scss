@@ -1,0 +1,151 @@
+#container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#backgroundGradient{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    min-height: 26vh;
+    background: rgb(255,238,180);
+    background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 21%, rgba(50,95,255,0.07) 49%);
+    i{
+        padding-top: 20px;
+        padding-right: 20px;
+    }
+}
+#name{
+    display: flex;
+  
+    i{
+        align-self: flex-start;
+        margin-left: 50px;
+    }
+    p{
+        
+        margin-left: 65px;
+    }
+
+}
+#profileContainer{
+    height: 60vw;
+    width: 60vw;
+    background-color: lightgrey;
+    margin-top: -16vh;
+    border-radius: 100%;
+}
+#name{
+    font-size: 2rem;
+    text-decoration: underline 0.5px;
+    text-underline-offset: 8px;
+    margin-bottom: 5vh;
+}
+#buttonMenu{
+    width: 90%;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+}
+#aktivitetsContainer{
+    width: 100%;
+    height: 30vh; /*FIXA DETTA*/
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-top: solid 1px;
+    background: rgb(255,238,180);
+    background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 40%, rgba(50,95,255,0.2) 100%);
+}
+.aktivitet{
+    margin-top: 2rem;
+    height: 7vh;
+    width: 80vw;
+    border: solid 1px;
+    border-radius: 1px;
+    border-radius: 40rem;
+}
+#omContent{
+    width: 100%;
+    height: 50vh; /*FIXA DETTA*/
+    background: rgb(255,238,180);
+    background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 40%, rgba(50,95,255,0.2) 100%);
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.aboutInformation{
+    margin-top: 1vh;
+    width: 80%;
+    border-radius: 100px;
+    background-color: #656565;
+    border: solid 1px;
+    border-color: darkgrey;
+    height: 6vh;
+    color: white;
+    align-content: center;
+    p{
+        margin-left: 20px;
+    }
+}
+
+.övreText{
+    align-self: self-start;
+    margin-bottom: -25px;
+    margin-left: 15vw;
+    margin-top: 2.8vh;
+    font-size: 0.9rem;
+}
+label{
+    text-decoration: underline;
+}
+.buttonA-custom:hover{
+    text-decoration: white;
+}
+#profileActivityContainer{
+    width: 100%;
+    height: 50vh; /*FIXA DETTA*/
+    background: rgb(255,238,180);
+    background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 40%, rgba(50,95,255,0.2) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+}
+.infoBlock{
+    margin-top: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    i{
+        margin-right: -70px;
+        z-index: 1;
+    }
+    .infoText{
+        background-color: #656565;
+        padding: 10px;
+        padding-right: 50px;
+        padding-left: 70px;
+        border-radius: 15px;
+        margin-left: -8%;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    #number{
+        justify-self: center;
+        color: #8898CF;
+        font-size: 2rem;
+        font-weight: 700;
+        z-index: 3;
+        margin-left: 2.8%;
+        margin-bottom: 2%;
+    }
+}

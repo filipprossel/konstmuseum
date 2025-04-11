@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { Panel } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
-import { Carousel } from 'primeng/carousel';
-import { CommonModule } from '@angular/common';
-import { KhHeaderComponent } from '../kh-header/kh-header.component';
 
 interface EventItem {
   title: string;
@@ -20,7 +17,7 @@ interface EventItem {
     Panel,
     ButtonModule,
     Carousel,
-    KhHeaderComponent
+    KhHeaderComponent,
   ],
   styleUrls: ['./kh-homepage.component.scss']
 })

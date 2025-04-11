@@ -1,0 +1,29 @@
+.wrapper {
+    --border-color: #a5a5a5;
+    border-radius: 15px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 16px;
+    gap: 10px;
+    border: 1px solid var(--border-color);
+    background-color: #fff;
+
+    > * {
+        width: 150px;
+    }
+
+    > *:not(:last-child) {
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    button {
+        text-align: left;
+        padding: 0; /* 0 top/bottom and 10px left/right padding */
+        border: none;   /* or adjust as needed */
+    }
+    
+}
