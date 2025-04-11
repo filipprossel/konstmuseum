@@ -12,10 +12,28 @@
 </header>
 
 <nav class="menu" *ngIf="isMenuOpen">
-    <a [routerLink]="homeLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Hem</a>
-    <a [routerLink]="profileLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Profil</a>
-    <a [routerLink]="exploreLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Utforska</a>
-    <a [routerLink]="eventLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Evenemang</a>
-    <a [routerLink]="utstallLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Utställningar</a>
-    <a [routerLink]="forumLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Forum</a>
+    <a [routerLink]="homeLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>Hem</span>
+        <i class="pi pi-home"></i>
+    </a>
+    <a [routerLink]="profileLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>Profil</span>
+        <i class="pi pi-user"></i>
+    </a>
+    <a [routerLink]="exploreLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>Utforska</span>
+        <i class="pi pi-compass"></i>
+    </a>
+    <a [routerLink]="eventLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>Evenemang</span>
+        <i class="pi pi-calendar"></i>
+    </a>
+    <a [routerLink]="utstallLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>Utställningar</span>
+        <i class="pi pi-palette"></i>
+    </a>
+    <a [routerLink]="forumLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <span>Forum</span>
+        <i class="pi pi-comments"></i>
+    </a>
 </nav>

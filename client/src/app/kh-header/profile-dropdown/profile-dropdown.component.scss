@@ -1,29 +1,29 @@
 .wrapper {
-    --border-color: #a5a5a5;
-    border-radius: 15px;
-    width: fit-content;
-    height: fit-content;
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    font-size: 16px;
-    gap: 10px;
-    border: 1px solid var(--border-color);
+    width: fit-content;
+    align-items: center;
     background-color: #fff;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
 
-    > * {
-        width: 150px;
-    }
-
-    > *:not(:last-child) {
-        padding-bottom: 10px;
-        border-bottom: 1px solid var(--border-color);
-    }
-    
     button {
+        min-width: 150px;
+        padding: 10px;
         text-align: left;
-        padding: 0; /* 0 top/bottom and 10px left/right padding */
-        border: none;   /* or adjust as needed */
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover{
+            color: var(--kh-primary-color);
+            background-color: #f8f8f8;
+          }
     }
-    
+
+    button:not(:last-child) {
+        border-bottom: 1px solid #e0e0e0;
+    }
 }
