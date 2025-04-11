@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { Panel } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
+import { Carousel } from 'primeng/carousel';
+import { CommonModule } from '@angular/common';
+
 
 interface EventItem {
   title: string;
   date: string;
   image: string;
 }
-
 @Component({
   selector: 'app-kh-homepage',
   templateUrl: './kh-homepage.component.html',
@@ -17,7 +19,6 @@ interface EventItem {
     Panel,
     ButtonModule,
     Carousel,
-    KhHeaderComponent,
   ],
   styleUrls: ['./kh-homepage.component.scss']
 })
