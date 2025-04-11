@@ -1,8 +1,10 @@
 <div class="wrapper">
     <button>
         <a [routerLink]="profileLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Profil</a>
+        <i class="pi pi-user" style="color: #888888"></i>
     </button>
     <button (click)="logOut()">
-        <button>Logga ut</button>
+        <p>Logga ut</p>
+        <i class="pi pi-sign-out" style="color: #888888"></i>
     </button>
 </div>
