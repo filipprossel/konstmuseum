@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kh-phone-header',
@@ -20,5 +22,15 @@ export class KhPhoneHeaderComponent {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  authService!: AuthService;
+
+  constructor(authService: AuthService,private router: Router) {
+    this.authService = authService;
+  }
+
+  logOut() {
+    this.authService.logOut();
   }
 }
