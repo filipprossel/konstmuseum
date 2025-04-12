@@ -8,6 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 export class KhEventShowcaseComponent {
 
+  cardClick: boolean = false;
+
   @Input() event!: { name: string, place: string; done: boolean};
 
+  infoClick() {
+    this.cardClick = !this.cardClick;
+  }
 }
