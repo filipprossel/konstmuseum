@@ -14,7 +14,7 @@ export class KhPhoneHeaderComponent {
   homeLink = "/";
   profileLink = "/profile";
   exploreLink = '/a';
-  eventLink = '/b';
+  eventLink = '/event';
   forumLink = '/forms';
   utstallLink = "/d";
 

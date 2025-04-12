@@ -1,0 +1,42 @@
+<main>
+    <section class="title">
+      <h2>Event</h2>
+    </section>
+  
+    <section class="buttons">
+        <div class="left">
+            <button 
+            [ngClass]="{'active': filter === 1}" 
+            (click)="applyFilter(1)">Kommande</button>
+            <button 
+            [ngClass]="{'active': filter === 2}" 
+            (click)="applyFilter(2)">Avklarade</button>
+            <button 
+            [ngClass]="{'active': filter === 3}" 
+            (click)="applyFilter(3)">Alla</button>
+        </div>
+        
+        <div class="right">
+            <div class="paginator">
+                <button (click)="previousPage()" [disabled]="currentPage === 1">
+                <i class="pi pi-angle-left"></i>
+                </button>
+                <span>{{ currentPage }} / {{ totalPages }}</span>
+                <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+                    <i class="pi pi-angle-right"></i>
+                </button>
+            </div>
+            <button>Filter</button>
+        </div>
+    </section>
+  
+    <section class="event-showcase">
+      <div class="grid-container">
+        <app-kh-event-showcase
+          *ngFor="let event of paginatedEvents"
+          [event]="event">
+        </app-kh-event-showcase>
+      </div>
+    </section>
+  </main>
+  

@@ -1,0 +1,45 @@
+.active {
+    color: aqua;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    div {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.event-showcase {
+    display: flex;
+    justify-content: center; /* Center the grid horizontally */
+    width: fit-content;
+  }
+  
+  .grid-container {
+    width: fit-content;
+    --card-width: 350px;
+    --card-gap: 30px;
+    --max-cards-per-row: 4;
+  
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
+    gap: var(--card-gap);
+    width: calc(var(--card-width) * var(--max-cards-per-row) + var(--card-gap) * (var(--max-cards-per-row) - 1));
+    box-sizing: border-box;
+  }
+  

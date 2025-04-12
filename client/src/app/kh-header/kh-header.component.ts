@@ -13,7 +13,7 @@ import { ProfileDropdownComponent } from "./profile-dropdown/profile-dropdown.co
 export class KhHeaderComponent implements OnInit {
   homeLink = "/";
   exploreLink = "/a";
-  eventLink = "/b";
+  eventLink = "/event";
   forumLink = "/forms";
   utstallLink = "/d";
 
