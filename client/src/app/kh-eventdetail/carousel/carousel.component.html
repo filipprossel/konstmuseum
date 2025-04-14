@@ -1,0 +1,29 @@
+<div class="carousel-wrapper">
+    <div class="carousel">
+        <div
+        class="item"
+        *ngFor="let img of images; let i = index"
+        [ngClass]="{
+            'active': i === currentIndex,
+            'prev': i === currentIndex - 1,
+            'prevprev': i === currentIndex - 2,
+            'next': i === currentIndex + 1,
+            'nextnext': i === currentIndex + 2,
+            'inactivenext': i > currentIndex + 2,
+            'inactiveprev': i < currentIndex - 2
+        }"
+        >
+        <img [src]="img" alt="Artwork" />
+        </div>
+    </div>
+    <div class="controls">
+        <input
+            type="range"
+            [min]="0"
+            [max]="images.length - 1"
+            [(ngModel)]="currentIndex"
+            class="slider"
+        />
+    </div>    
+</div>
+  

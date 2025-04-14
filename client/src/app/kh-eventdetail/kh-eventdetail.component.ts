@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CarouselComponent } from "./carousel/carousel.component";
 
 @Component({
   selector: 'app-kh-event-detail',
   templateUrl: './kh-eventdetail.component.html',
-  styleUrls: ['./kh-eventdetail.component.scss']
+  styleUrls: ['./kh-eventdetail.component.scss'],
+  imports: [CarouselComponent]
 })
 export class KhEventDetailComponent implements OnInit {
   eventId: string | null = null;
