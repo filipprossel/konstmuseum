@@ -11,7 +11,7 @@ export class KhEventShowcaseComponent {
 
   cardClick: boolean = false;
 
-  @Input() event!: { name: string, place: string; done: boolean};
+  @Input() event!: { name: string, place: string; done: boolean, img: string};
 
   infoClick() {
     this.cardClick = !this.cardClick;
