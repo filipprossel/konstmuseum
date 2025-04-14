@@ -10,19 +10,32 @@
                 <p id="omText">Jag är från piteå och gillar konst verk och systembolaget med mång abra skaer som bord och stolar med gym och laddre till dator</p>
                 <!--<i class="pi pi-pencil"></i>-->
              </div>
-        <i class="pi pi-cog"></i>
+        <i id="cog" class="pi pi-cog"></i>
    </div>
    <hr>
    <div id="buttonMenu">
-       <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()"ng [style]="{backgroundColor: 'transparent', color: 'black', fontSize: 'calc(150% + 0.5vw)', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px'}"/>
-       <p-button id = "buttonP" label="Profil" (onClick)="porfileButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: 'calc(150% + 0.5vw)', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'} "/>
-       <p-button id = "buttonO" label="Om" (onClick)="omButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: 'calc(150% + 0.5vw)', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'}"/>
+       <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()"ng [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px'}"/>
+       <p-button id = "buttonP" label="Profil" (onClick)="porfileButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'} "/>
+       <p-button id = "buttonO" label="Om" (onClick)="omButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'}"/>
    </div>
    <div id="aktivitetsContainer">
        <div class="aktivitet">
-           <p></p>
-           <div></div><!--Icon-->
+           <p>Gillade Konstverket</p>
+           <i class="pi pi-heart" style="font-size: 2em"></i>
        </div>
+       <div class="aktivitet">
+        <p>Gillade Konstverket</p>
+        <i class="pi pi-calendar" style="font-size: 2em"></i>
+    </div>
+    <div class="aktivitet">
+        <p>Gillade Konstverket</p>
+        <i class="pi pi-comment" style="font-size: 2em"></i>
+    </div>
+    <div class="aktivitet">
+        <p>Gillade Konstverket</p>
+        <i class="pi pi-envelope" style="font-size: 2em"></i>
+    </div>
+    
    </div>
    <div id="profileActivityContainer">
        <div class="infoBlock">
@@ -40,6 +53,7 @@
            <p id="number">15</p>
            <P class="infoText">Gillade Konstverk</P>
        </div>
+       
    </div>
    <div id="omContent">
        <p class="övreText">Förnamn</p>

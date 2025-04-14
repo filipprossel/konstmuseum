@@ -26,8 +26,8 @@
     height: 20px;
     background-color: #6AB589;
     border-radius: 100%;
-    margin-top: 13vh;
-    margin-left: -2vw;
+    margin-top: 175px;
+    margin-left: -25px;
     margin-right: 3vw;
 }
 #text{
@@ -64,7 +64,7 @@ hr{
     width: 95%;
     align-self: center;
 }
-.pi{
+#cog{
     align-self: flex-start;
     margin-left: calc(50vw - 11%);
     margin-top: 0.5vh;
@@ -79,6 +79,7 @@ hr{
 #buttonMenu{
     display: flex;
     align-items: flex-start;
+    font-size: 12px;
     margin-left: 3%;
     margin-top: 2%;
     #buttonA{
@@ -97,7 +98,6 @@ hr{
         justify-content: center;
         width: 200px;
         border-radius: 50px;
-        margin-left: 2vw;
         /*background-color: #cccccc40;*/
         border-radius: 50px;
         border: solid 1px transparent;
@@ -109,7 +109,6 @@ hr{
         justify-content: center;
         width: 200px;
         border-radius: 50px;
-        margin-left: 2vw;
         /*background-color: #cccccc40;*/
         border-radius: 50px;
         border: solid 1px transparent;
@@ -120,10 +119,12 @@ hr{
 
 @media (max-width: 768px){
 #backgroundGradient{
+    height: 100vh;
     margin-top: 0vh;
     display: flex;
     flex-direction: column;
     justify-content: start;
+    border-radius: 0%;
     width: 100%;
     min-height: 100%;
     background: rgb(255,238,180);
@@ -133,7 +134,10 @@ hr{
         padding-right: 20px;
     }
 }
-.pi{
+#cog {
+    position: absolute;
+    margin-top: -290px;
+    margin-left: 85%;
 }
 #profilText{
     margin-top: 20px;
@@ -173,9 +177,11 @@ hr{
 }
 #buttonMenu{
     display: flex;
-    align-items: flex-start;
-    font-size: 3vw;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
     margin-left: 3%;
+    margin-right: 3%;
     margin-top: 2%;
     #buttonA{
         display: flex;
@@ -214,28 +220,35 @@ hr{
 }
 #aktivitetsContainer{
     width: 100%;
-    height: 30vh; /*FIXA DETTA*/
-    display: none;
+    height: 150vh; /*FIXA DETTA*/
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    border-top: solid 1px;
-    background: rgb(255,238,180);
-    background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 40%, rgba(50,95,255,0.2) 100%);
 }
 .aktivitet{
     margin-top: 2rem;
-    height: 7vh;
+    height: 65px;
     width: 80vw;
-    border: solid 1px;
-    border-radius: 1px;
-    border-radius: 40rem;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px #00000025;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .pi{
+        margin-top: -20px;
+    }
+    p{
+        margin-left: 20px;
+        font-size: 1.2rem;
+        font-weight: 400;
+    }
+   
 }
 #omContent{
     width: 100%;
     height: 50vh; /*FIXA DETTA*/
-    background: rgb(255,238,180);
-    background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 40%, rgba(50,95,255,0.2) 100%);
     display: none;
     flex-direction: column;
     justify-content: space-around;
@@ -272,12 +285,14 @@ label{
 #profileActivityContainer{
     width: 100%;
     height: 50vh; /*FIXA DETTA*/
-    background: rgb(255,238,180);
-    background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 40%, rgba(50,95,255,0.2) 100%);
     display: none;
     flex-direction: column;
     align-items: center;
     justify-content: start;
+    .pi{
+        margin-left: -30px;
+        margin-bottom: 10px;
+    }
 }
 .infoBlock{
     margin-top: 7%;
@@ -286,28 +301,27 @@ label{
     justify-content: center;
     
     i{
-        margin-right: -70px;
         z-index: 1;
     }
     .infoText{
         background-color: #656565;
         padding: 10px;
-        padding-right: 50px;
+        padding-right: 30px;
         padding-left: 70px;
         border-radius: 15px;
-        margin-left: -8%;
+        margin-left: -25px;
         color: white;
         font-size: 1.5rem;
         font-weight: 500;
     }
     #number{
-        justify-self: center;
+        justify-self: flex-start;
+        margin-left: -80px;
         color: #8898CF;
         font-size: 2rem;
         font-weight: 700;
         z-index: 3;
-        margin-left: 2.8%;
-        margin-bottom: 2%;
+        
     }
 }
 }
