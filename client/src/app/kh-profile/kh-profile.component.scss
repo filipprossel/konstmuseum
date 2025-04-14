@@ -22,8 +22,8 @@
     align-self: flex-start;
 }
 #activeStatus{
-    width: 1.5vw;
-    height: 1.5vw;
+    width: 20px;
+    height: 20px;
     background-color: #6AB589;
     border-radius: 100%;
     margin-top: 13vh;
@@ -75,6 +75,7 @@ hr{
 #omContent{
     display: none;
 }
+
 #buttonMenu{
     display: flex;
     align-items: flex-start;
@@ -119,10 +120,12 @@ hr{
 
 @media (max-width: 768px){
 #backgroundGradient{
+    margin-top: 0vh;
     display: flex;
-    justify-content: end;
+    flex-direction: column;
+    justify-content: start;
     width: 100%;
-    min-height: 26vh;
+    min-height: 100%;
     background: rgb(255,238,180);
     background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 21%, rgba(50,95,255,0.07) 49%);
     i{
@@ -130,46 +133,84 @@ hr{
         padding-right: 20px;
     }
 }
+.pi{
+}
+#profilText{
+    margin-top: 20px;
+    margin-bottom: -7px;
+    font-size: 0.9rem;
+}
+#text{
+    width: 90%;
+}
 #name{
-    display: flex;
-  
-    i{
-        align-self: flex-start;
-        margin-left: 50px;
-    }
-    p{
-        
-        margin-left: 65px;
-    }
-
+    font-size: 1.5rem;
+}
+#om{
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+#omText{
+    font-size: 0.75rem;
+}
+#activeStatus{
+    margin: 0;
+    margin-left: 150px;
+    margin-top: -20px;
 }
 #profileContainer{
+    margin-left: 5%;
     display: flex;
     flex-direction: column;
-    margin-top: -16vh;
+    align-items: start;
     justify-content: center;
-    align-items: center;
 }
 #ProfileImg{
-    height: 50vw;
-    width: 50vw;
+    height: 175px;
+    width: 175px;
     background-color: lightgrey;
     border-radius: 100%;
 }
-#name{
-    font-size: 2rem;
-    text-decoration: underline 0.5px;
-    text-underline-offset: 8px;
-    margin-bottom: 5vh;
-}
 #buttonMenu{
-    width: 90%;
-    margin-bottom: 2vh;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-
+    align-items: flex-start;
+    font-size: 3vw;
+    margin-left: 3%;
+    margin-top: 2%;
+    #buttonA{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        /*background-color: #cccccc40;*/
+        border-radius: 50px;
+        border: solid 1px transparent;
+        /*border-color: #cccccc75;*/
+    }
+    #buttonP{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        border-radius: 50px;
+        margin-left: 2vw;
+        /*background-color: #cccccc40;*/
+        border-radius: 50px;
+        border: solid 1px transparent;
+        /*border-color: #cccccc75;*/
+    }
+    #buttonO{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        border-radius: 50px;
+        margin-left: 2vw;
+        /*background-color: #cccccc40;*/
+        border-radius: 50px;
+        border: solid 1px transparent;
+        /*border-color: #cccccc75;*/
+    }
 }
 #aktivitetsContainer{
     width: 100%;
