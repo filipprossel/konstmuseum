@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-kh-event-showcase',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './kh-event-showcase.component.html',
   styleUrl: './kh-event-showcase.component.scss'
 })

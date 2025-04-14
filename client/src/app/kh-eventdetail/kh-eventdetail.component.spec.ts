@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KhTestpageComponent } from './kh-testpage.component';
+import { KhEventdetailComponent } from './kh-eventdetail.component';
 
-describe('KhTestpageComponent', () => {
-  let component: KhTestpageComponent;
-  let fixture: ComponentFixture<KhTestpageComponent>;
+describe('KhEventdetailComponent', () => {
+  let component: KhEventdetailComponent;
+  let fixture: ComponentFixture<KhEventdetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [KhTestpageComponent]
+      imports: [KhEventdetailComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(KhTestpageComponent);
+    fixture = TestBed.createComponent(KhEventdetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

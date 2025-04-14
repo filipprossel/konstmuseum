@@ -13,6 +13,6 @@
         
     </div>
     <div class="extraInfo" [class.transformed]="cardClick">
-        <p>Anton grönlund är snygg som fan, han gillar också snopp</p>
+        <a [routerLink]="['/event', event.name]">View Event</a>
     </div>
 </div>

@@ -13,31 +13,27 @@ export class KhEventComponent {
   filter: 1 | 2 | 3 = 3;
 
   eventList = [
-    { name: "Art Show", place: "Tornedalen Konsthall", done: false },
-    { name: "Concert", place: "Tornedalen Konsthall", done: true },
-    { name: "Workshop", place: "Tornedalen Konsthall", done: false },
-    { name: "Fair", place: "Tornedalen Konsthall", done: false },
-    { name: "Run", place: "Tornedalen Konsthall", done: true },
-    { name: "Tech Talk", place: "Tornedalen Konsthall", done: false },
-    { name: "Film", place: "Tornedalen Konsthall", done: false },
-    { name: "Show", place: "Tornedalen Konsthall", done: true },
-    { name: "Photo Walk", place: "Tornedalen Konsthall", done: false },
-    { name: "Talk", place: "Tornedalen Konsthall", done: true },
-    { name: "Food Fest", place: "Tornedalen Konsthall", done: false },
-    { name: "Pitch", place: "Tornedalen Konsthall", done: false },
-    { name: "Auction", place: "Tornedalen Konsthall", done: true },
-    { name: "Yoga", place: "Tornedalen Konsthall", done: false },
-    { name: "Tournament", place: "Tornedalen Konsthall", done: true },
-    { name: "Tasting", place: "Tornedalen Konsthall", done: false },
-    { name: "Meetup", place: "Tornedalen Konsthall", done: true },
-    { name: "Dance", place: "Tornedalen Konsthall", done: false },
-    { name: "Festival", place: "Tornedalen Konsthall", done: false },
-    { name: "Expo", place: "Tornedalen Konsthall", done: true },
-    { name: "Adventure", place: "Tornedalen Konsthall", done: false },
-    { name: "Comedy", place: "Tornedalen Konsthall", done: false },
-    { name: "Competition", place: "Tornedalen Konsthall", done: true },
-    { name: "Craft", place: "Tornedalen Konsthall", done: false },
-  ]  
+    { name: "Impressionism", place: "Tornedalen Konsthall", done: false },
+    { name: "Renaissance Art", place: "Tornedalen Konsthall", done: true },
+    { name: "Modern Art", place: "Tornedalen Konsthall", done: false },
+    { name: "Picasso", place: "Tornedalen Konsthall", done: false },
+    { name: "Classical Sculpture", place: "Tornedalen Konsthall", done: true },
+    { name: "Contemporary Art", place: "Tornedalen Konsthall", done: false },
+    { name: "Abstract Art", place: "Tornedalen Konsthall", done: false },
+    { name: "Photography", place: "Tornedalen Konsthall", done: true },
+    { name: "Baroque", place: "Tornedalen Konsthall", done: false },
+    { name: "Dali", place: "Tornedalen Konsthall", done: true },
+    { name: "Ancient Art", place: "Tornedalen Konsthall", done: false },
+    { name: "Digital Art", place: "Tornedalen Konsthall", done: false },
+    { name: "Dutch Masters", place: "Tornedalen Konsthall", done: true },
+    { name: "Art Nouveau", place: "Tornedalen Konsthall", done: false },
+    { name: "Antique Sculptures", place: "Tornedalen Konsthall", done: true },
+    { name: "Modern Photography", place: "Tornedalen Konsthall", done: false },
+    { name: "Cubism", place: "Tornedalen Konsthall", done: true },
+    { name: "Expressionism", place: "Tornedalen Konsthall", done: false },
+    { name: "Surrealism", place: "Tornedalen Konsthall", done: false },
+  ];
+  
 
   filteredEvent: { name: string; place: string; done: boolean }[] = this.eventList;
 
