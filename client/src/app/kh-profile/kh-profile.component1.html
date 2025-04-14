@@ -1,0 +1,56 @@
+
+    <!--<p-button label="Submit" /> [style]="{backgroundColor: 'blue'}-->
+    <div id="dator">
+        <div id="container">
+        <div id="backgroundGradient">
+            <i class="pi pi-cog"></i>
+        </div>
+        <div id="profileContainer">
+            <div id="ProfileImg"></div>
+            <div id="name">
+             <p id="name">Namn</p> 
+                <i class="pi pi-pencil"></i>
+            </div>
+        </div>
+        
+        <div id="buttonMenu">
+            <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()"ng [style]="{backgroundColor: 'white', color: 'black', fontSize: '5vw', border: 'none', borderRadius: '0px', paddingBottom:'1px', padding:'3px', textDecoration: 'underline'}"/>
+            <p-button id = "buttonP" label="Profil" (onClick)="porfileButton()" [style]="{backgroundColor: 'white', color: 'black', fontSize: '5vw', border: 'none', borderRadius: '0px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'} "/>
+            <p-button id = "buttonO" label="Om" (onClick)="omButton()" [style]="{backgroundColor: 'white', color: 'black', fontSize: '5vw', border: 'none', borderRadius: '0px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'}"/>
+        </div>
+        <div id="aktivitetsContainer">
+            <div class="aktivitet">
+                <p></p>
+                <div></div><!--Icon-->
+            </div>
+        </div>
+        <div id="profileActivityContainer">
+            <div class="infoBlock">
+                <i class="pi pi-heart-fill" style="font-size: 5.5rem" [style]="{color: 'white'}"></i>
+                <p id="number">15</p>
+                <P class="infoText">Gillade Konstverk</P>
+            </div>
+            <div class="infoBlock">
+                <i class="pi pi-heart-fill" style="font-size: 5.5rem" [style]="{color: 'white'}"></i>
+                <p id="number">15</p>
+                <P class="infoText">Gillade Konstverk</P>
+            </div>
+            <div class="infoBlock">
+                <i class="pi pi-heart-fill" style="font-size: 5.5rem" [style]="{color: 'white'}"></i>
+                <p id="number">15</p>
+                <P class="infoText">Gillade Konstverk</P>
+            </div>
+        </div>
+        <div id="omContent">
+            <p class="övreText">Förnamn</p>
+            <div class = aboutInformation><p>Antung</p></div>
+            <p class="övreText">Efternamn</p>
+            <div class = aboutInformation><p>Shung</p></div>
+            <p class="övreText">Email</p>
+            <div class = aboutInformation><p>testatgmail.com</p></div>
+            <p class="övreText">Telefonnummer</p>
+            <div class = aboutInformation><p>07001235678</p></div>
+        </div>
+        </div>
+        </div>
+    
