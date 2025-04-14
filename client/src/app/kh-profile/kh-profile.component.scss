@@ -6,7 +6,7 @@
     justify-content: start;
     border-radius: 2vw;
     width: 100%;
-    min-height: 35vh;
+    min-height: 45vh;
     background: rgb(255,238,180);
     background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 21%, rgba(50,95,255,0.07) 49%);
     i{
@@ -66,15 +66,54 @@ hr{
 }
 .pi{
     align-self: flex-start;
-    margin-left: calc(50vw - 8vh);
-    margin-top: 1vh;
+    margin-left: calc(50vw - 11%);
+    margin-top: 0.5vh;
 }
-
 #profileActivityContainer{
     display: none;
 }
 #omContent{
     display: none;
+}
+#buttonMenu{
+    display: flex;
+    align-items: flex-start;
+    margin-left: 3%;
+    margin-top: 2%;
+    #buttonA{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        /*background-color: #cccccc40;*/
+        border-radius: 50px;
+        border: solid 1px transparent;
+        /*border-color: #cccccc75;*/
+    }
+    #buttonP{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        border-radius: 50px;
+        margin-left: 2vw;
+        /*background-color: #cccccc40;*/
+        border-radius: 50px;
+        border: solid 1px transparent;
+        /*border-color: #cccccc75;*/
+    }
+    #buttonO{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+        border-radius: 50px;
+        margin-left: 2vw;
+        /*background-color: #cccccc40;*/
+        border-radius: 50px;
+        border: solid 1px transparent;
+        /*border-color: #cccccc75;*/
+    }
 }
 
 

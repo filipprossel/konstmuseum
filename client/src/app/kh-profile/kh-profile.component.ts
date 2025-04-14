@@ -27,25 +27,34 @@ export class KhProfileComponent {
       profileContent.style.display = "none";
       omContent.style.display = "none";
       aktivitetContent.style.display = "flex";
-      buttonA.style.textDecoration = "underline"
-      buttonP.style.textDecoration = "none"
-      buttonO.style.textDecoration = "none"
+      buttonP.style.backgroundColor = "transparent";
+      buttonA.style.backgroundColor = "#cccccc40";
+      buttonO.style.backgroundColor = "transparent"
+      buttonO.style.borderColor = "transparent";
+      buttonA.style.borderColor = "#cccccc75";
+      buttonP.style.borderColor = "transparent";
     }
     else if(nextDocument === "profil"){
       profileContent.style.display = "flex";
       omContent.style.display = "none";
       aktivitetContent.style.display = "none";
-      buttonP.style.textDecoration = "underline"
-      buttonA.style.textDecoration = "none"
-      buttonO.style.textDecoration = "none"
+      buttonP.style.backgroundColor = "#cccccc40";
+      buttonA.style.backgroundColor = "transparent";
+      buttonO.style.backgroundColor = "transparent"
+      buttonO.style.borderColor = "transparent";
+      buttonA.style.borderColor = "transparent";
+      buttonP.style.borderColor = "#cccccc75";
     }
     else{
       profileContent.style.display = "none";
       omContent.style.display = "flex";
       aktivitetContent.style.display = "none";
-      buttonO.style.textDecoration = "underline"
-      buttonA.style.textDecoration = "none"
-      buttonP.style.textDecoration = "none"
+      buttonO.style.backgroundColor = "#cccccc40";
+      buttonA.style.backgroundColor = "transparent";
+      buttonP.style.backgroundColor = "transparent";
+      buttonO.style.borderColor = "#cccccc75";
+      buttonA.style.borderColor = "transparent";
+      buttonP.style.borderColor = "transparent";
     }
   }
 
