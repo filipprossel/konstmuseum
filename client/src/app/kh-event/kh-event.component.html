@@ -14,6 +14,11 @@
             <button 
             [ngClass]="{'active': filter === 3}" 
             (click)="applyFilter(3)">Alla</button>
+            <button 
+            class="createEvent" *ngIf="role === 4"
+            (click)="panelShow()">
+              <i class="pi pi-plus"></i>
+            </button>
         </div>
         
         <div class="right">
@@ -39,3 +44,8 @@
     </section>
   </main>
   
+
+  <div class="panel"
+    [class.shown]="showPanel">
+    <app-upload-panel (cancel)="panelShow()"></app-upload-panel>
+  </div>

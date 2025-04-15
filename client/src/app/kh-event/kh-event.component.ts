@@ -1,14 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { KhEventShowcaseComponent } from './kh-event-showcase/kh-event-showcase.component';
+import { AuthService } from '../auth.service';
+import { FloatLabelModule } from "primeng/floatlabel"
+import { FormsModule, NgForm } from '@angular/forms';
+import { UploadPanelComponent } from "./upload-panel/upload-panel.component";
 
 @Component({
   selector: 'app-kh-event',
-  imports: [CommonModule, KhEventShowcaseComponent],
+  imports: [CommonModule, KhEventShowcaseComponent, FloatLabelModule, FormsModule, UploadPanelComponent],
   templateUrl: './kh-event.component.html',
   styleUrls: ['./kh-event.component.scss']
 })
-export class KhEventComponent {
+export class KhEventComponent implements OnInit {
+
+  role: number | null = null;
+
+  authService!: AuthService; 
+
+  constructor(authService: AuthService) {
+    this.authService = authService; 
+  }
+
+  ngOnInit(): void {
+    const user = this.authService.getUser(); 
+    if (user) {
+      this.role = user.role_id;
+    }
+  }
 
   filter: 1 | 2 | 3 = 3;
 
@@ -19,8 +38,6 @@ export class KhEventComponent {
     { name: "Warhol", place: "Tornedalen Konsthall", done: true, img: "https://images.unsplash.com/photo-1584448098255-234156529929?q=80&w=1982&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
     { name: "Lokala", place: "Tornedalen Konsthall", done: true, img: "https://images.unsplash.com/photo-1596661893368-66e7d2510fa4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
   ]
-  
-  
 
   filteredEvent: { name: string; place: string; done: boolean,img: string }[] = this.eventList;
 
@@ -64,4 +81,12 @@ export class KhEventComponent {
     const endIndex = this.currentPage * this.itemsPerPage;
     this.paginatedEvents = this.filteredEvent.slice(startIndex, endIndex);
   }
+
+  showPanel: boolean = false;
+
+  panelShow() {
+    this.showPanel = !this.showPanel;
+  }
+
+  exhibitionName: string = '';
 }
