@@ -28,7 +28,10 @@ public class UserController {
         System.out.println("hej" + " " + email + " " + password);
         return userService.loginUser(email, password);
     }
-    
+    @PostMapping("/edit")
+    public User editUser(@RequestBody HashMap<String, String> userData) {
+        return userService.editUser(userData);
+    }
 
 
 }

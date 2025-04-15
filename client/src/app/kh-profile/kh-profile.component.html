@@ -7,7 +7,7 @@
                 <p id="profilText">Profil</p>
                 <p id="name">Antung Shung</p> 
                 <p id="om">Om</p>
-                <p id="omText">Jag är från piteå och gillar konst verk och systembolaget med mång abra skaer som bord och stolar med gym och laddre till dator</p>
+                <p id="omText">Jag är från piteå och gillar konstverk och systembolaget med många bra saker som bord och stolar med gym och laddre till dator</p>
                 <!--<i class="pi pi-pencil"></i>-->
              </div>
         <i id="cog" class="pi pi-cog"></i>
@@ -15,7 +15,7 @@
    <hr>
    <div id="buttonMenu">
        <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()"ng [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px'}"/>
-       <p-button id = "buttonP" label="Profil" (onClick)="porfileButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'} "/>
+       <p-button id = "buttonP" label="Profil" (onClick)="profileButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'} "/>
        <p-button id = "buttonO" label="Om" (onClick)="omButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'}"/>
    </div>
    <div id="aktivitetsContainer">
@@ -56,14 +56,49 @@
        
    </div>
    <div id="omContent">
-       <p class="övreText">Förnamn</p>
-       <div class = aboutInformation><p>Antung</p></div>
-       <p class="övreText">Efternamn</p>
-       <div class = aboutInformation><p>Shung</p></div>
-       <p class="övreText">Email</p>
-       <div class = aboutInformation><p>testatgmail.com</p></div>
-       <p class="övreText">Telefonnummer</p>
-       <div class = aboutInformation><p>07001235678</p></div>
-   </div>
-   </div>
+    <div>
+        <p class="header">Förnamn</p>
+        <div class="infoValue">
+            <p>{{this.user.first_name}}</p>
+            <i class="pi pi-pencil" (click)="showDialog()" [style]="{color: 'black'}"></i>
+        </div>
+    </div>
+    <div>
+        <p class="header">Efternamn</p>
+        <div class="infoValue">
+            <p>{{this.user.last_name}}</p>
+            <i class="pi pi-pencil" (click)="showDialog()" [style]="{color: 'black'}"></i>
+        </div>
+    </div>
+    <div>
+        <p class="header">E-post</p>
+        <div class="infoValue">
+            <p>{{this.user.email}}</p>
+            <i class="pi pi-pencil" (click)="showDialog()" [style]="{color: 'black'}"></i>
+        </div>
+    </div>
+    <div>
+        <p class="header">Om</p>
+        <div class="infoValue">
+            <p>{{this.user.user_description}}</p>
+            <i class="pi pi-pencil" (click)="showDialog()" [style]="{color: 'black'}"></i>
+        </div>
+    </div>
+    <p-dialog header="Redigera Informaiton" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+        <span class="p-text-secondary block mb-8">Uppdatera din information</span>
+        <div class="flex items-center gap-4 mb-4">
+            <label for="username" class="font-semibold w-24" [style]="{textDecoration: 'none', fontWeight: '800'}">Förnamn:</label>
+            <input pInputText id="username" class="flex-auto" autocomplete="off" />
+        </div>
+        <div class="flex items-center gap-4 mb-8">
+            <label for="email" class="font-semibold w-24"[style]="{textDecoration: 'none', fontWeight: '800'}">E-post:</label>
+            <input pInputText id="email" class="flex-auto" autocomplete="off" />
+        </div>
+        <div class="flex justify-end gap-2">
+            <p-button label="Cancel" severity="secondary" (click)="visible = false" />
+            <p-button label="Save" (click)="visible = false" />
+        </div>
+    </p-dialog>
+</div>
+</div>
 <!--<p-button label="Submit" /> [style]="{backgroundColor: 'blue'}-->

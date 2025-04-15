@@ -221,7 +221,7 @@ hr{
 #aktivitetsContainer{
     width: 100%;
     height: 150vh; /*FIXA DETTA*/
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -248,34 +248,34 @@ hr{
 }
 #omContent{
     width: 100%;
-    height: 50vh; /*FIXA DETTA*/
-    display: none;
+    height: 20%;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-}
-.aboutInformation{
-    margin-top: 1vh;
-    width: 80%;
-    border-radius: 100px;
-    background-color: #656565;
-    border: solid 1px;
-    border-color: darkgrey;
-    height: 6vh;
-    color: white;
-    align-content: center;
-    p{
-        margin-left: 20px;
+    .infoValue{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #B9B9B9;
+        background-color: white;
+        width: 70vw;
+        padding: 10px;
+        border-radius: 15px;
+        border: 1px solid #B9B9B9;
+
+    }
+    i{
+        margin-top: -20px;
+        margin-right: -10px;
+    }
+    .header{
+        margin-top: 30px;
+        margin-left: 15px;
     }
 }
 
-.övreText{
-    align-self: self-start;
-    margin-bottom: -25px;
-    margin-left: 15vw;
-    margin-top: 2.8vh;
-    font-size: 0.9rem;
-}
+
 label{
     text-decoration: underline;
 }
@@ -323,5 +323,6 @@ label{
         z-index: 3;
         
     }
+
 }
 }

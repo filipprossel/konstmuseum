@@ -2,16 +2,33 @@ import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
-
+import { FieldsetModule } from 'primeng/fieldset';
+import { PanelModule } from 'primeng/panel';
+import { AuthService } from '../auth.service';
+import { DialogModule } from 'primeng/dialog';
 @Component({
   selector: 'app-kh-profile',
   standalone: true,
-  imports: [CommonModule, ButtonModule],
+  imports: [CommonModule, ButtonModule, PanelModule, DialogModule],
   templateUrl: './kh-profile.component.html',
   styleUrl: './kh-profile.component.scss',
   providers: [HttpClient]
 })
 export class KhProfileComponent {
+  user: any;
+  userName: any;
+  authService!: AuthService
+  visible: boolean= false;
+  constructor(authService: AuthService) {
+    this.authService = authService; 
+  }
+
+  ngOnInit(): void {
+    this.user = this.authService.getUser();
+  }
+  showDialog(){
+    this.visible = true;
+  }
 
   disable(nextDocument: any): void{ 
       let aktivitetContent = document.getElementById("aktivitetsContainer")!;
@@ -64,7 +81,7 @@ export class KhProfileComponent {
   omButton(): void{
     this.disable("om")
   }
-  porfileButton(): void{
+  profileButton(): void{
     this.disable("profil")
   }
 

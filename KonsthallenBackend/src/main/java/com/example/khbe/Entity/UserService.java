@@ -9,7 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class UserService {
@@ -28,15 +30,31 @@ public class UserService {
             System.err.println(DIVE);
             return null;
         }
-
     }
-
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
     public User loginUser(String email, String password) {
         return userRepository.findByEmailAndPassword(email, password);
-    }    
+    }
+
+    public User editUser(HashMap<String, String> newData){
+            User oldUser = userRepository.findByEmailAndPassword(newData.get("email"), newData.get("password"));
+
+            if(!newData.get("first_name").equals("first_name")){
+                oldUser.setFirst_name(newData.get("first_name"));
+            }
+            if(!newData.get("last_name").equals(oldUser.getLast_name())){
+                oldUser.setLast_name(newData.get("last_name"));
+            }
+            if(!newData.get("email").equals(oldUser.getEmail())){
+                oldUser.setEmail(newData.get("email"));
+            }
+            if(!newData.get("user_description").equals(oldUser.getUser_description())){
+                oldUser.setUser_description(newData.get("user_description"));
+            }
+            return userRepository.save(oldUser);
+    }
 }
 
