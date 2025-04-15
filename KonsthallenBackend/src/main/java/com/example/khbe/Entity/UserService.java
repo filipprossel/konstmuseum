@@ -42,16 +42,16 @@ public class UserService {
     public User editUser(HashMap<String, String> newData){
             User oldUser = userRepository.findByEmailAndPassword(newData.get("email"), newData.get("password"));
 
-            if(!newData.get("first_name").equals("first_name")){
+            if(!newData.get("first_name").isEmpty()){
                 oldUser.setFirst_name(newData.get("first_name"));
             }
-            if(!newData.get("last_name").equals(oldUser.getLast_name())){
+            if(!newData.get("last_name").isEmpty()){
                 oldUser.setLast_name(newData.get("last_name"));
             }
-            if(!newData.get("email").equals(oldUser.getEmail())){
+            if(!newData.get("email").isEmpty()){
                 oldUser.setEmail(newData.get("email"));
             }
-            if(!newData.get("user_description").equals(oldUser.getUser_description())){
+            if(!newData.get("user_description").isEmpty()){
                 oldUser.setUser_description(newData.get("user_description"));
             }
             return userRepository.save(oldUser);
