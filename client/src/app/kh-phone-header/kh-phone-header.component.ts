@@ -13,10 +13,10 @@ import { Router } from '@angular/router';
 export class KhPhoneHeaderComponent {
   homeLink = "/";
   profileLink = "/profile";
-  exploreLink = '/a';
+  exploreLink = '/';
   eventLink = '/event';
   forumLink = '/forms';
-  utstallLink = "/d";
+  utstallLink = "/exhibition";
 
   isMenuOpen = false;
 
