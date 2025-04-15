@@ -2,8 +2,7 @@
   <div class="hero-content">
     <h1 class="welomeTitle">Välkommen till Tornedalen Konsthall</h1>
     <p class="welcomeMessage">En plats där konst och natur möts.</p>
-
-    <button class="exploreButtom" pButton type="button" label="Utforska Utställningar" class="p-button-warning" severity="warn"></button>
+    <button pButton type="button" severity="warn" class="exploreButton">Utforska Utställningar</button>
   </div>
 </p-panel>
 
@@ -13,10 +12,12 @@
     <div class="p-col-12 p-md-6">
       <p-carousel
         [value]="Events"
+        [showNavigators]="false"
         [numVisible]="1"
         [numScroll]="1"
-        verticalViewPortHeight="330px"
-        contentClass="flex items-center">
+        [verticalViewPortHeight]="'auto'"
+        contentClass="flex flex-col items-center"
+      >
         <ng-template let-event #item>
           <div class="event-card p-4 border rounded shadow-sm text-center">
             <img [src]="event.image" [alt]="event.title" class="event-img mb-3" />

@@ -1,5 +1,9 @@
+body {
+  overflow-x: hidden;
+}
 .welomeTitle {
   font-weight: normal;
+
 }
 
 .hero {
@@ -133,6 +137,7 @@
 button {
   margin-top: 10px;
   border-radius: 30px;
+  padding: 0.5rem 1.5rem;
 }
 
 .product-item {
@@ -145,12 +150,57 @@ button {
   }
 
   .product-image {
-    width: 50%;
+    width:50%;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
     0 3px 6px rgba(0, 0, 0, 0.23);
   }
 }
-.p-button-warn{
-  width: 6vw;
+.p-button-warn {
+  width: 25%; // standard på desktop
+
+  @media (max-width: 768px) {
+    width: 75%; // full bredd på mobil
+  }
 }
 
+@media (max-width: 768px) {
+  .events {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+
+  .event-card {
+    width: 100% !important;
+    padding: 1rem !important;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .event-img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+
+  .event-info {
+    h3 {
+      font-size: 1.1rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+  }
+
+  .p-carousel-items-content {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  ::ng-deep .p-carousel-item {
+    width: 100% !important;
+  }
+}
