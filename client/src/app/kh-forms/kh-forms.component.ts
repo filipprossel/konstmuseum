@@ -18,4 +18,7 @@ export class KhFormsComponent {
   goToPosts() {
     this.router.navigate(['/posts']);
   }
+  goToArt() {
+    this.router.navigate(['/art']);
+  }
 }
