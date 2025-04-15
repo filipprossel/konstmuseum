@@ -1,0 +1,23 @@
+<div class="gallery-wrapper">
+  <h2>Konst galleri</h2>
+
+  <div class="gallery-grid">
+    <div class="gallery-card" *ngFor="let image of galleryImages" (click)="openImage(image)">
+      <img [src]="image.src" [alt]="image.title" />
+      <div class="image-info">
+        <h3>{{ image.title }}</h3>
+        <p>Av: {{ image.artist }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="lightbox" *ngIf="selectedImage" (click)="closeImage()">
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <img [src]="selectedImage.src" [alt]="selectedImage.title" />
+    <h3>{{ selectedImage.title }}</h3>
+    <p>Av: {{ selectedImage.artist }}</p>
+    <button (click)="closeImage()" class="close-btn">Stäng</button>
+  </div>
+</div>
