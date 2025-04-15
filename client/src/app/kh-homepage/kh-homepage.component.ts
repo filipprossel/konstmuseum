@@ -3,6 +3,7 @@ import { Panel } from 'primeng/panel';
 import { ButtonModule } from 'primeng/button';
 import { Carousel } from 'primeng/carousel';
 import { CommonModule } from '@angular/common';
+import {Router} from '@angular/router';
 
 
 interface EventItem {
@@ -55,5 +56,10 @@ export class KhHomepageComponent {
         image: 'assets/konstart2.png'
       }
     ];
+  }
+  constructor(private router: Router) {}
+
+  goToExhibition() {
+    this.router.navigate(['/exhibition']);
   }
 }
