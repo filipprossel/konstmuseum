@@ -7,16 +7,35 @@
       [numScroll]="1"
       [showIndicators]="false"
       orientation="vertical"
-      verticalViewPortHeight="480px"
+      [verticalViewPortHeight]="carouselHeight"
       contentClass="flex flex-col items-center gap-4">
 
       <ng-template let-post #item>
         <div class="post-card">
           <i class="{{ post.icon }}"></i>
           <span class="post-message">{{ post.message }}</span>
-          <a [routerLink]="post.link" class="read-more">Läs mer</a>
+          <p-button
+            (click)="openPost(post)"
+            label="Läs mer..."
+            [style]="{ borderRadius: '30px', width:'8rem' }"
+          ></p-button>
         </div>
       </ng-template>
     </p-carousel>
   </div>
+
+  <!-- Dialogen visas när man klickar på ett inlägg -->
+  <p-dialog
+    header="Inlägg"
+    [(visible)]="visible"
+    [modal]="true"
+    [style]="{ width: '100rem', color: 'white', backgroundColor: 'orange' }"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }"
+  >
+    <ng-container *ngIf="selectedPost">
+      <h3>{{ selectedPost.author }}</h3>
+      <p><i>{{ selectedPost.date }}</i></p>
+      <p class="discussion">{{ selectedPost.message }}</p>
+    </ng-container>
+  </p-dialog>
 </div>

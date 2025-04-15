@@ -1,26 +1,22 @@
-
-.posts-overlay{
-  background-image: url('/assets/homepage.png');
-  background-color: rgba(255, 255, 255, 0.6); // halvgenomskinlig dimma
-
-}
-
 .kh-posts {
-
-  background-size: cover;
-  background-position: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 40vh;
   width: 100%;
-  height: 100vh;
   position: relative;
 }
 
 .posts-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.6);
+  flex-grow: 1;
+  background-image: url('/assets/homepage.png');
+  background-size: cover;
+  background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .post-card {
@@ -58,10 +54,12 @@
     text-decoration: underline;
     white-space: nowrap;
   }
+
   .p-button-text.p-button-secondary {
     background: orange;
   }
 }
+
 .custom-carousel .p-carousel-container > .p-carousel-prev,
 .custom-carousel .p-carousel-container > .p-carousel-next {
   background-color: orange !important;
@@ -75,10 +73,30 @@
   border: none !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
+
 .p-button-text.p-button-secondary {
   background: orange;
 
   .p-icon {
     color: white;
+  }
+
+  .discussion {
+    color: white;
+  }
+  @media (max-width: 600px) {
+    .post-card {
+      flex-direction: column;
+      text-align: left;
+      padding: 1rem;
+    }
+
+    .posts-overlay {
+      padding: 1rem;
+    }
+
+    .custom-carousel {
+      width: 100%;
+    }
   }
 }
