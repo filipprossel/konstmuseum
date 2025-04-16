@@ -35,7 +35,18 @@
         border: none;
         cursor: not-allowed;
       }
-      
+    }
+
+    .createEvent {
+      padding: 0;
+      aspect-ratio: 1;
+      color: #696969;
+      border-radius: 50%;
+      transition: transform 0.1s ease;
+
+      &:hover {
+        transform: rotate(45deg);
+      }
     }
   }
 
@@ -117,4 +128,26 @@
     justify-content: center;
     align-items: center;
   }
+  
+  .panel {
+    position: fixed;
+    inset: 0; // shorthand for top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px) grayscale(0.3);
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &.shown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+  }
+  
   
