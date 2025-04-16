@@ -33,4 +33,8 @@ export class UploadPanelComponent {
   onCancelClick() {
     this.cancel.emit();
   }
+
+  uploadEvent() {
+    
+  }
 }
