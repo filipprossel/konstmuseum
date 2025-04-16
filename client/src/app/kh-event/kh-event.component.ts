@@ -25,32 +25,14 @@ export class KhEventComponent implements OnInit {
   role: number | null = null;
   filter: 1 | 2 | 3 = 3;
 
-  eventList: {
-    name: string;
-    place: string;
-    done: boolean;
-    img: string;
-  }[] = [];
-
-  filteredEvent: {
-    name: string;
-    place: string;
-    done: boolean;
-    img: string;
-  }[] = [];
-
-  paginatedEvents: {
-    name: string;
-    place: string;
-    done: boolean;
-    img: string;
-  }[] = [];
+  eventList: (Exhibition)[] = [];
+  filteredEvent: (Exhibition)[] = [];
+  paginatedEvents: (Exhibition)[] = [];  
 
   currentPage = 1;
   itemsPerPage = 12;
   totalPages = 1;
   showPanel: boolean = false;
-  exhibitionName: string = '';
 
   constructor(
     private authService: AuthService,
@@ -69,12 +51,7 @@ export class KhEventComponent implements OnInit {
   loadEventsFromBackend(): void {
     this.exhibitionService.getExhibitions().subscribe(
       (data: Exhibition[]) => {
-        this.eventList = data.map(exhibition => ({
-          name: exhibition.exhibition_name,
-          place: 'Tornedalen Konsthall',
-          done: Math.random() < 0.5, // random for now
-          img: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YXJ0fGVufDB8fDB8fHww' + exhibition.exhibition_id
-        }));
+        this.eventList = data;
         this.applyFilter(this.filter);
       },
       error => {
@@ -82,22 +59,31 @@ export class KhEventComponent implements OnInit {
       }
     );
   }
-
+  
   applyFilter(filter: 1 | 2 | 3) {
     this.filter = filter;
-
-    if (filter === 1) {
-      this.filteredEvent = this.eventList.filter(event => event.done);
-    } else if (filter === 2) {
-      this.filteredEvent = this.eventList.filter(event => !event.done);
-    } else {
-      this.filteredEvent = [...this.eventList];
-    }
-
+    const today = new Date();
+  
+    this.filteredEvent = this.eventList.filter(event => {
+      if (!event.exhibition_date) return false; // skip if no date
+  
+      if (filter === 1) {
+        // Show past events
+        return new Date(event.exhibition_date) < today;
+      } else if (filter === 2) {
+        // Show future/upcoming events
+        return new Date(event.exhibition_date) >= today;
+      } else {
+        // Show all events
+        return true;
+      }
+    });
+  
     this.currentPage = 1;
     this.totalPages = Math.ceil(this.filteredEvent.length / this.itemsPerPage);
     this.updatePaginatedEvents();
   }
+  
 
   previousPage() {
     if (this.currentPage > 1) {

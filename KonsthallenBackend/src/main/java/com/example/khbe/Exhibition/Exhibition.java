@@ -1,9 +1,11 @@
 package com.example.khbe.Exhibition;
 import jakarta.persistence.*;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.example.khbe.Artphoto.Artphoto;
+import com.example.khbe.Artist.Artist;
 
 @Entity
 @Table(name="exhibition")
@@ -13,6 +15,24 @@ public class Exhibition {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int exhibitionId;
     private String exhibition_name;
+    private Date exhibition_date;
+    private String exhibition_desc;
+
+    public String getExhibition_desc() {
+        return exhibition_desc;
+    }
+
+    public void setExhibition_desc(String exhibition_desc) {
+        this.exhibition_desc = exhibition_desc;
+    }
+    
+    public Date getExhibition_date() {
+        return exhibition_date;
+    }
+
+    public void setExhibition_date(Date exhibition_date) {
+        this.exhibition_date = exhibition_date;
+    }
 
     @OneToMany(mappedBy = "exhibition", cascade = CascadeType.ALL)
     private List<Artphoto> photos;
@@ -39,5 +59,17 @@ public class Exhibition {
 
     public void setExhibition_name(String exhibition_name) {
         this.exhibition_name = exhibition_name;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "artist_id", referencedColumnName = "artistId")
+    private Artist artist;
+
+    public Artist getArtist() {
+        return artist;
+    }
+
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 }

@@ -1,15 +1,17 @@
 <main>
     <section class="carousel"> 
-        <app-carousel></app-carousel>
+        <app-carousel
+        [exhibition]="exhibition"
+        ></app-carousel>
     </section>
     <section class="info">
-        <h1>{{ eventId }}</h1>
+        <h1>{{ exhibition?.exhibition_name }}</h1>
         <div class="intresse">
             <p>Intresserad?</p>
             <button>Intresse anmäl!</button>
         </div>
     </section>
     <section class="text">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt velit eveniet libero rerum tempore rem ullam consectetur perferendis beatae quisquam veniam quam, voluptates modi, autem eligendi maxime sapiente! Possimus earum nobis iusto doloribus cupiditate ex tempora quisquam temporibus laborum, laudantium enim amet consequatur iure nisi sed alias rerum numquam, nemo nam. Cumque, beatae! Quam corporis quia pariatur laboriosam similique enim voluptates, tempora ex cupiditate nemo repellendus inventore laudantium debitis dicta expedita. Reprehenderit odit ab inventore hic accusamus eum deleniti accusantium assumenda vel saepe, unde sunt nostrum cupiditate tempora neque voluptate quaerat consequuntur sint. Eum in libero rerum repudiandae suscipit reiciendis!</p>
+        <p>{{exhibition?.exhibition_desc}}</p>
     </section>
 </main>

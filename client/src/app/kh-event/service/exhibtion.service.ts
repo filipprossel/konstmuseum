@@ -15,4 +15,8 @@ export class ExhibitionService {
   getExhibitions(): Observable<Exhibition[]> {
     return this.http.get<Exhibition[]>(this.apiUrl);
   }
+
+  getExhibitionById(id: number): Observable<Exhibition> {
+    return this.http.get<Exhibition>(`${this.apiUrl}/${id}`);
+  }
 }
