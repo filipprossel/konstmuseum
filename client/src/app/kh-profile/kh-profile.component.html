@@ -39,17 +39,17 @@
    </div>
    <div id="profileActivityContainer">
        <div class="infoBlock">
-           <P class="infoText">Gillade Konstverk</P>
+           <P class="infoText">Skogens hemligheter</P>
            <div class="stats">
             <p class="date">20240-04-03</p>
             <p class="avgRate">7.6/10</p>
            </div>
        </div>
        <div class="infoBlock">
-           <P class="infoText">Gillade Konstverk</P>
+           <P class="infoText">Isbjörn på fjället</P>
        </div>
        <div class="infoBlock">
-           <P class="infoText">Gillade Konstverk</P>
+           <P class="infoText">Fiskmås</P>
        </div>
        
    </div>
@@ -58,43 +58,75 @@
         <p class="header">Förnamn</p>
         <div class="infoValue">
             <p>{{this.user.first_name}}</p>
-            <i class="pi pi-pencil" (click)="showDialog()" [style]="{color: 'black'}"></i>
+            <i class="pi pi-pencil" (click)="showDialog(1)" [style]="{color: 'black'}"></i>
         </div>
     </div>
     <div>
         <p class="header">Efternamn</p>
         <div class="infoValue">
             <p>{{this.user.last_name}}</p>
-            <i class="pi pi-pencil" (click)="showDialog()" [style]="{color: 'black'}"></i>
+            <i class="pi pi-pencil" (click)="showDialog(2)" [style]="{color: 'black'}"></i>
         </div>
     </div>
     <div>
         <p class="header">E-post</p>
         <div class="infoValue">
             <p>{{this.user.email}}</p>
-            <i class="pi pi-pencil" (click)="showDialog()" [style]="{color: 'black'}"></i>
+            <i class="pi pi-pencil" (click)="showDialog(3)" [style]="{color: 'black'}"></i>
         </div>
     </div>
     <div>
         <p class="header">Om</p>
         <div class="infoValue">
             <p>{{this.user.user_description}}</p>
-            <i class="pi pi-pencil" (click)="showDialog()" [style]="{color: 'black'}"></i>
+            <i class="pi pi-pencil" (click)="showDialog(4)" [style]="{color: 'black'}"></i>
         </div>
     </div>
-    <p-dialog header="Redigera Informaiton" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
-        <span class="p-text-secondary block mb-8">Uppdatera din information</span>
+    <p-dialog header="Redigera Informaiton" [modal]="true" [(visible)]="visible1" [style]="{ width: '25rem' }">
+        <span class="p-text-secondary block mb-8">Uppdatera ditt Förnamn</span>
         <div class="flex items-center gap-4 mb-4">
-            <label for="username" class="font-semibold w-24" [style]="{textDecoration: 'none', fontWeight: '800'}">Förnamn:</label>
-            <input pInputText id="username" class="flex-auto" autocomplete="off" />
-        </div>
-        <div class="flex items-center gap-4 mb-8">
-            <label for="email" class="font-semibold w-24"[style]="{textDecoration: 'none', fontWeight: '800'}">E-post:</label>
-            <input pInputText id="email" class="flex-auto" autocomplete="off" />
+            <label for="first_name" class="font-semibold w-24" [style]="{textDecoration: 'none', fontWeight: '800'}">Nytt förnamn:</label>
+            <input pInputText id="first_name" class="flex-auto" autocomplete="off"/>
         </div>
         <div class="flex justify-end gap-2">
-            <p-button label="Cancel" severity="secondary" (click)="visible = false" />
-            <p-button label="Save" (click)="visible = false" />
+            <p-button label="Cancel" severity="secondary" (click)="visible1 = false" />
+            <p-button label="Save" (click)="visible1 = false;sendEdit('first_name')"/>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="Redigera Informaiton" [modal]="true" [(visible)]="visible2" [style]="{ width: '25rem' }">
+        <span class="p-text-secondary block mb-8">Uppdatera ditt efternamn</span>
+        <div class="flex items-center gap-4 mb-4">
+            <label for="last_name" class="font-semibold w-24" [style]="{textDecoration: 'none', fontWeight: '800'}">Nytt efternamn:</label>
+            <input pInputText id="last_name" class="flex-auto" autocomplete="off"/>
+        </div>
+        <div class="flex justify-end gap-2">
+            <p-button label="Cancel" severity="secondary" (click)="visible2 = false" />
+            <p-button label="Save" (click)="visible2 = false;sendEdit('last_name')"/>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="Redigera Informaiton" [modal]="true" [(visible)]="visible3" [style]="{ width: '25rem' }">
+        <span class="p-text-secondary block mb-8">Uppdatera din e-post</span>
+        <div class="flex items-center gap-4 mb-4">
+            <label for="email" class="font-semibold w-24" [style]="{textDecoration: 'none', fontWeight: '800'}">Ny e-post:</label>
+            <input pInputText id="email" class="flex-auto" autocomplete="off"/>
+        </div>
+        <div class="flex justify-end gap-2">
+            <p-button label="Cancel" severity="secondary" (click)="visible3 = false" />
+            <p-button label="Save" (click)="visible3 = false;sendEdit('email')"/>
+        </div>
+    </p-dialog>
+
+    <p-dialog header="Redigera Informaiton" [modal]="true" [(visible)]="visible4" [style]="{ width: '25rem' }">
+        <span class="p-text-secondary block mb-8">Uppdatera din beskrivning</span>
+        <div class="flex items-center gap-4 mb-4">
+            <label for="user_description" class="font-semibold w-24" [style]="{textDecoration: 'none', fontWeight: '800'}">Ny beskrivning:</label>
+            <input pInputText id="user_description" class="flex-auto" autocomplete="off"/>
+        </div>
+        <div class="flex justify-end gap-2">
+            <p-button label="Cancel" severity="secondary" (click)="visible4 = false" />
+            <p-button label="Save" (click)="visible4 = false;sendEdit('user_description')"/>
         </div>
     </p-dialog>
 </div>

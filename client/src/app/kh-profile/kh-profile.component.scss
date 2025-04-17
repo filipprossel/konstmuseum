@@ -236,17 +236,26 @@ label{
     justify-content: start;
 }
 .infoBlock{
-    margin-top: 7%;
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    background-color: #CCCCCC;
+    background-color: white;
+    border: 0.5px solid #CCCCCC;
     height: 70px;
     width: 80%;
     border-radius: 10px;
     .stats{
+        
         display: flex;
+        width: 170px;
+        justify-content: space-between;
+        margin-left: 20px;
+    }
+    .infoText{
+        margin-left: 20px;
+        font-weight: 600;
     }
     i{
         z-index: 1;
@@ -316,6 +325,13 @@ label{
         margin-left: 3%;
     }
     .aktivitet{
+        width: 90%;
+    }
+    #profileActivityContainer{
+        align-items: flex-start;
+        margin-left: 3%;
+    }
+    .infoBlock{
         width: 90%;
     }
 }

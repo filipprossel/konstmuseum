@@ -28,8 +28,10 @@ public class UserController {
         System.out.println("hej" + " " + email + " " + password);
         return userService.loginUser(email, password);
     }
+    @CrossOrigin(origins = "*")
     @PostMapping("/edit")
     public User editUser(@RequestBody HashMap<String, String> userData) {
+        System.out.println("Test");
         return userService.editUser(userData);
     }
 

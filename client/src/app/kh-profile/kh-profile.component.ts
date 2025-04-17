@@ -6,6 +6,7 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { PanelModule } from 'primeng/panel';
 import { AuthService } from '../auth.service';
 import { DialogModule } from 'primeng/dialog';
+import { KhProfileServiceService } from './kh-profile-service/kh-profile-service.service';
 @Component({
   selector: 'app-kh-profile',
   standalone: true,
@@ -18,16 +19,70 @@ export class KhProfileComponent {
   user: any;
   userName: any;
   authService!: AuthService
-  visible: boolean= false;
-  constructor(authService: AuthService) {
+  profileService!: KhProfileServiceService
+  visible1: boolean= false;
+  visible2: boolean= false;
+  visible3: boolean= false;
+  visible4: boolean= false;
+  constructor(authService: AuthService, profileService: KhProfileServiceService) {
     this.authService = authService; 
+    this.profileService = profileService;
   }
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
+    
   }
-  showDialog(){
-    this.visible = true;
+  showDialog(number: any){
+    if(number === 1){
+      this.visible1 = true;
+    }
+    if(number === 2){
+      this.visible2 = true;
+    }
+    if(number === 3){
+      this.visible3 = true;
+    }
+    if(number === 4){
+      this.visible4 = true;
+    }
+    
+  }
+  sendEdit(edit: String){
+    let lastname = document.getElementById("last_name") as HTMLInputElement;
+    let firstname = document.getElementById("first_name") as HTMLInputElement;
+    let email = document.getElementById("email") as HTMLInputElement;
+    let userDescription = document.getElementById("user_description") as HTMLInputElement;
+    let oldEmail= this.user.email;
+    let password = this.user.password;
+    console.log(this.user);
+    if(edit === 'first_name'){
+      console.log('log')
+      this.profileService.editUser(firstname.value, '', oldEmail, password, '').subscribe((data) => {
+        this.user = data;
+        localStorage.setItem("user", JSON.stringify(this.user));
+      });
+    }
+    if(edit === 'last_name'){
+      this.profileService.editUser('', lastname.value, oldEmail, password, '').subscribe((data) => {
+        this.user = data;
+        localStorage.setItem("user", JSON.stringify(this.user));
+      });
+    }
+    if(edit === 'email_name'){
+      this.profileService.editUser('', '', email.value, password, '').subscribe((data) => {
+        this.user = data;
+        localStorage.setItem("user", JSON.stringify(this.user));
+      });
+    }
+    if(edit === 'user_description'){
+      console.log('Terqwewqe')
+      console.log('Test:', oldEmail, password, userDescription.value);
+      this.profileService.editUser('', '', oldEmail, password, userDescription.value).subscribe((data) => {
+        this.user = data;
+        localStorage.setItem("user", JSON.stringify(this.user));
+      });
+    }
   }
 
   disable(nextDocument: any): void{ 
