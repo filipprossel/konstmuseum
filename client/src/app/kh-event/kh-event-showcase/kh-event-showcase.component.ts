@@ -16,6 +16,7 @@ export class KhEventShowcaseComponent {
   @Input() exhibition!: Exhibition;
 
   infoClick() {
+    console.log(this.exhibition.photos[0].art_link);
     this.cardClick = !this.cardClick;
   }
 }

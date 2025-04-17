@@ -1,6 +1,6 @@
 <div class="event-card" (click)="infoClick()">
     <div class="info">
-        <div class="background" [style.backgroundImage]="'url(' + (exhibition.photos && exhibition.photos.length > 0 ? exhibition.photos[0].art_link : 'assets/default.jpg') + ')'"></div>
+        <div class="background" [style.backgroundImage]="'url(http://localhost:8080' + (exhibition.photos[0].art_link || '/assets/default.jpg') + ')'"></div>
         <div class="title">
             <h2>{{ exhibition.exhibition_name }}</h2>
             <p>{{ exhibition.artist.artist_name }}</p>

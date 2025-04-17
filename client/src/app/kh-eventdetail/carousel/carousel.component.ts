@@ -16,8 +16,8 @@ export class CarouselComponent {
   currentIndex = 0;
 
   get images(): string[] {
-    return this.exhibition?.photos?.map(photo => photo.art_link) || [];
-  }
+    return this.exhibition?.photos?.map(photo => `http://localhost:8080${photo.art_link}`) || [];
+  }  
 
   prev() {
     if (this.currentIndex > 0) {

@@ -19,4 +19,8 @@ export class ExhibitionService {
   getExhibitionById(id: number): Observable<Exhibition> {
     return this.http.get<Exhibition>(`${this.apiUrl}/${id}`);
   }
+
+  uploadFiles(formData: FormData): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/api/exhibitions/upload', formData);
+  }
 }

@@ -14,10 +14,21 @@ public class Exhibition {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int exhibitionId;
+
     private String exhibition_name;
     private Date exhibition_date;
     private String exhibition_desc;
+    public Exhibition() {
+    }
 
+    public Exhibition(String exhibition_name, String exhibition_desc, Date exhibition_date, Artist artist) {
+        this.exhibition_name = exhibition_name;
+        this.exhibition_desc = exhibition_desc;
+        this.exhibition_date = exhibition_date;
+        this.artist = artist;
+    }
+
+    
     public String getExhibition_desc() {
         return exhibition_desc;
     }

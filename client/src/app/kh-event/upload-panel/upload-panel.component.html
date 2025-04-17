@@ -1,63 +1,81 @@
 <div class="wrapper">
 
-    <div class="form-row">
-      <div class="field">
-        <label for="exhibitionName">Utställningsnamn</label>
-        <input type="text" id="exhibitionName" name="exhibitionName" autocomplete="off">
-      </div>
-      
-      <div class="field">
-        <label for="exhibitionDate">Datum</label>
-        <input type="date" id="exhibitionDate" name="exhibitionDate">
-      </div>
+  <div class="form-row">
+    <div class="field">
+      <label for="exhibitionName">Utställningsnamn</label>
+      <input 
+        type="text" 
+        id="exhibitionName" 
+        name="exhibitionName" 
+        [(ngModel)]="exhibitionName" 
+        autocomplete="off"
+      >
     </div>
-  
-    <div class="form-row">
-      <div class="field">
-        <label for="exhibitionTheme">Tema</label>
-        <input type="text" id="exhibitionTheme" name="exhibitionTheme" autocomplete="off">
-      </div>
-      <div class="field">
-        <label for="exhibitionArtist">Konstnär</label>
-        <input type="text" id="exhibitionArtist" name="exhibitionArtist" autocomplete="off">
-      </div>
-    </div>
-  
-    <div class="form-row full-width">
-      <div class="field">
-        <label for="exhibitionDescription">Beskrivning</label>
-        <textarea id="exhibitionDescription" name="exhibitionDescription" rows="3"></textarea>
-      </div>
-    </div>
-  
-    <div class="form-row full-width">
-      <div class="field">
-        <label for="exhibitionPhoto">Ladda upp bilder</label>
-        <div class="file-input-container">
-            <input 
-              type="file" 
-              id="exhibitionPhoto" 
-              accept="image/*" 
-              multiple 
-              (change)="onFilesSelected($event)" 
-              class="file-input">
-            <label for="exhibitionPhoto" class="file-input-btn">Välj filer</label>
-          </div>
-      </div>
-    </div>
-  
-    <div class="preview-container">
-      <img 
-        *ngFor="let image of previewUrls" 
-        [src]="image" 
-        alt="Förhandsvisning" 
-        class="preview-img"
-      />
-    </div>
-  
-    <div class="button-row">
-        <button class="cancel" (click)="onCancelClick()">Avbryt</button>
-      <button class="submit" (click)="uploadEvent()">Ladda upp</button>
+    
+    <div class="field">
+      <label for="exhibitionDate">Datum</label>
+      <input 
+        type="date" 
+        id="exhibitionDate" 
+        name="exhibitionDate"
+        [(ngModel)]="exhibitionDate" 
+      >
     </div>
   </div>
-  
+
+  <div class="form-row full-width">
+    <div class="field">
+      <label for="exhibitionArtist">Konstnär</label>
+      <input 
+        type="text" 
+        id="exhibitionArtist" 
+        name="exhibitionArtist" 
+        [(ngModel)]="exhibitionArtist" 
+        autocomplete="off"
+      >
+    </div>
+  </div>
+
+  <div class="form-row full-width">
+    <div class="field">
+      <label for="exhibitionDescription">Beskrivning</label>
+      <textarea 
+        id="exhibitionDescription" 
+        name="exhibitionDescription" 
+        [(ngModel)]="exhibitionDescription" 
+        rows="3"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="form-row full-width">
+    <div class="field">
+      <label for="exhibitionPhoto">Ladda upp bilder</label>
+      <div class="file-input-container">
+        <input 
+          type="file" 
+          id="exhibitionPhoto" 
+          accept="image/*" 
+          multiple 
+          (change)="onFilesSelected($event)" 
+          class="file-input"
+        >
+        <label for="exhibitionPhoto" class="file-input-btn">Välj filer</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="preview-container">
+    <img 
+      *ngFor="let image of previewUrls" 
+      [src]="image" 
+      alt="Förhandsvisning" 
+      class="preview-img"
+    />
+  </div>
+
+  <div class="button-row">
+    <button class="cancel" (click)="onCancelClick()">Avbryt</button>
+    <button class="submit" (click)="uploadEvent()">Ladda upp</button>
+  </div>
+</div>
