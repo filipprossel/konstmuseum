@@ -78,10 +78,9 @@ hr{
 
 #buttonMenu{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     font-size: 12px;
-    margin-left: 3%;
-    margin-top: 2%;
+    justify-content: flex-start;
     #buttonA{
         display: flex;
         align-items: center;
@@ -177,8 +176,6 @@ hr{
 }
 #buttonMenu{
     display: flex;
-    align-items: center;
-    justify-content: center;
     font-size: 10px;
     margin-left: 3%;
     margin-right: 3%;
@@ -229,8 +226,7 @@ label{
 }
 #profileActivityContainer{
     width: 100%;
-    height: 50vh; /*FIXA DETTA*/
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: start;
@@ -293,8 +289,8 @@ label{
 }
 #aktivitetsContainer{
     width: 100%;
-    height: 150vh; /*FIXA DETTA*/
-    display: none;
+    height: 100%; 
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -333,5 +329,15 @@ label{
     }
     .infoBlock{
         width: 90%;
+    }
+    #omContent{
+        align-items: flex-start;
+        margin-left: 3%;
+    }
+    #buttonMenu{
+        margin-left: 3%;
+    }
+    #profileContainer{
+        margin-left: 3%;
     }
 }

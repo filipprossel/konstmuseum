@@ -24,6 +24,7 @@ export class KhProfileComponent {
   visible2: boolean= false;
   visible3: boolean= false;
   visible4: boolean= false;
+  buttonT = document.getElementById("buttonA")!;
   constructor(authService: AuthService, profileService: KhProfileServiceService) {
     this.authService = authService; 
     this.profileService = profileService;
@@ -31,7 +32,6 @@ export class KhProfileComponent {
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
-    
   }
   showDialog(number: any){
     if(number === 1){

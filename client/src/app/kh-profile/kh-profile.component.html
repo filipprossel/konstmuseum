@@ -10,11 +10,10 @@
                 <p id="omText">Jag är från piteå och gillar konstverk och systembolaget med många bra saker som bord och stolar med gym och laddre till dator</p>
                 <!--<i class="pi pi-pencil"></i>-->
              </div>
-        <i id="cog" class="pi pi-cog"></i>
    </div>
    <hr>
-   <div id="buttonMenu">
-       <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()"ng [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px'}"/>
+   <div id="buttonMenu" [style]="{marginTop:'10px'}">
+       <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()"[style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px'}"/>
        <p-button id = "buttonP" label="Profil" (onClick)="profileButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'} "/>
        <p-button id = "buttonO" label="Om" (onClick)="omButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'}"/>
    </div>
