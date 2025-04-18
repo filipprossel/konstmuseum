@@ -4,6 +4,7 @@ import { ButtonModule } from 'primeng/button';
 import { Carousel } from 'primeng/carousel';
 import { CommonModule } from '@angular/common';
 import {Router} from '@angular/router';
+import { WebsocketService } from '../websocket.service';
 
 
 interface EventItem {
@@ -28,6 +29,9 @@ export class KhHomepageComponent {
   responsiveOptions: any[] = [];
 
   ngOnInit() {
+    this.wsService.connect();
+
+
     this.responsiveOptions = [
       { breakpoint: '1024px', numVisible: 3, numScroll: 3 },
       { breakpoint: '768px', numVisible: 2, numScroll: 2 },
@@ -57,7 +61,7 @@ export class KhHomepageComponent {
       }
     ];
   }
-  constructor(private router: Router) {}
+  constructor(private router: Router, private wsService: WebsocketService) {}
 
   goToExhibition() {
     this.router.navigate(['/exhibition']);
