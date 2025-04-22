@@ -24,9 +24,10 @@
   
         <ngx-scanner-qrcode
           #action="scanner"
-          [config]="config">
+          [config]="config"
+          (event)="onScan($event, action)">
         </ngx-scanner-qrcode>
-        <span>{{json }}</span>
+        <span>{{ action.data.value | json }}</span>
 
        
 

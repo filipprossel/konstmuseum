@@ -1,10 +1,10 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, EventEmitter, NgModule, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarouselComponent } from "./carousel/carousel.component";
 import { Exhibition } from "../kh-event/service/exhibition.model";
 import { ExhibitionService } from "../kh-event/service/exhibtion.service";
 import { CommonModule } from '@angular/common';
-import {NgxScannerQrcodeComponent, LOAD_WASM, ScannerQRCodeConfig, ScannerQRCodeSelectedFiles, NgxScannerQrcodeService } from 'ngx-scanner-qrcode';
+import {NgxScannerQrcodeComponent, LOAD_WASM, ScannerQRCodeConfig, ScannerQRCodeSelectedFiles, NgxScannerQrcodeService, ScannerQRCodeResult } from 'ngx-scanner-qrcode';
 
 
 @Component({
@@ -37,16 +37,17 @@ export class KhEventDetailComponent implements OnInit {
   }
   hasScanned = false;
 
-onScan(result: any) {
-  const value = result?.value;
-  if (!this.hasScanned && value && this.isURL(value)) {
-    this.hasScanned = true;
-    window.open(value, '_blank');
+  @Output() getScanner = new EventEmitter<string>();
 
-    // TillÃ¥t skanning igen efter 5 sekunder
-    setTimeout(() => this.hasScanned = false, 5000);
+
+  onScan(res: ScannerQRCodeResult[], action?: any): void {
+    if (res && res.length) {
+      const { value } = res[0];
+      value && action && action.stop();
+      this.getScanner.emit(value);
+      window.location.href = value;
+    }
   }
-}
 
   isURL(value: string): boolean {
     try {
