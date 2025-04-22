@@ -44,6 +44,9 @@ export class KhEventDetailComponent implements OnInit {
     if (res && res.length) {
       const { value } = res[0];
       value && action && action.stop();
+    
+      this.closeQrcodeDialog();
+
       this.getScanner.emit(value);
       window.location.href = value;
     }
