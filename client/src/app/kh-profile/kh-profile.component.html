@@ -5,8 +5,8 @@
         <div id="activeStatus"></div>
             <div id="text">
                 <p id="profilText">Profil</p>
-                <p id="name">Antung Shung</p> 
-                <p id="om">Om</p>
+                <p id="name">{{this.user.first_name}}</p> 
+                <p id="om">{{this.user.user_description}}</p>
                 <p id="omText">Jag är från piteå och gillar konstverk och systembolaget med många bra saker som bord och stolar med gym och laddre till dator</p>
                 <!--<i class="pi pi-pencil"></i>-->
              </div>
@@ -53,28 +53,28 @@
        
    </div>
    <div id="omContent">
-    <div>
+    <div class="about">
         <p class="header">Förnamn</p>
         <div class="infoValue">
             <p>{{this.user.first_name}}</p>
             <i class="pi pi-pencil" (click)="showDialog(1)" [style]="{color: 'black'}"></i>
         </div>
     </div>
-    <div>
+    <div class="about">
         <p class="header">Efternamn</p>
         <div class="infoValue">
             <p>{{this.user.last_name}}</p>
             <i class="pi pi-pencil" (click)="showDialog(2)" [style]="{color: 'black'}"></i>
         </div>
     </div>
-    <div>
+    <div class="about">
         <p class="header">E-post</p>
         <div class="infoValue">
             <p>{{this.user.email}}</p>
             <i class="pi pi-pencil" (click)="showDialog(3)" [style]="{color: 'black'}"></i>
         </div>
     </div>
-    <div>
+    <div class="about">
         <p class="header">Om</p>
         <div class="infoValue">
             <p>{{this.user.user_description}}</p>
