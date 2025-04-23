@@ -31,4 +31,5 @@ public class UserExhibitionsVisited {
     public void setVisited_date(Date visited_date) {
         this.visited_date = visited_date;
     }
+
 }

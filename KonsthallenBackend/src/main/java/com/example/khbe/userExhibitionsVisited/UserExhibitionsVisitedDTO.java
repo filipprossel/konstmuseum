@@ -1,0 +1,43 @@
+package com.example.khbe.userExhibitionsVisited;
+
+import java.sql.Date;
+
+public class UserExhibitionsVisitedDTO {
+
+    private String exhibition_name;
+    private Date exhibition_date;
+    private String exhibition_desc;
+    private Date visited_date;
+
+    public Date getVisited_date() {
+        return visited_date;
+    }
+
+    public Date getExhibition_date() {
+        return exhibition_date;
+    }
+
+    public String getExhibition_desc() {
+        return exhibition_desc;
+    }
+
+    public String getExhibition_name() {
+        return exhibition_name;
+    }
+
+    public void setVisited_date(Date visited_date) {
+        this.visited_date = visited_date;
+    }
+
+    public void setExhibition_date(Date exhibition_date) {
+        this.exhibition_date = exhibition_date;
+    }
+
+    public void setExhibition_desc(String exhibition_desc) {
+        this.exhibition_desc = exhibition_desc;
+    }
+
+    public void setExhibition_name(String exhibition_name) {
+        this.exhibition_name = exhibition_name;
+    }
+}
