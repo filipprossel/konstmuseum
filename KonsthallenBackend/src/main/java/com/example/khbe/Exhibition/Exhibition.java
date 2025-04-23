@@ -1,4 +1,5 @@
 package com.example.khbe.Exhibition;
+import com.example.khbe.userExhibitionsVisited.UserExhibitionsVisited;
 import jakarta.persistence.*;
 
 import java.sql.Date;
@@ -6,6 +7,7 @@ import java.util.List;
 
 import com.example.khbe.Artphoto.Artphoto;
 import com.example.khbe.Artist.Artist;
+import java.util.Set;
 
 @Entity
 @Table(name="exhibition")
@@ -18,6 +20,7 @@ public class Exhibition {
     private String exhibition_name;
     private Date exhibition_date;
     private String exhibition_desc;
+
     public Exhibition() {
     }
 
@@ -28,7 +31,9 @@ public class Exhibition {
         this.artist = artist;
     }
 
-    
+    @OneToMany(mappedBy = "exhibition")
+    Set<UserExhibitionsVisited> exhibitionVisitedSet;
+
     public String getExhibition_desc() {
         return exhibition_desc;
     }

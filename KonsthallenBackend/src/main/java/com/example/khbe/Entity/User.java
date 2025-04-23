@@ -1,10 +1,10 @@
 package com.example.khbe.Entity;
 
-import java.lang.reflect.Field;
 import java.sql.Date;
-import java.time.OffsetDateTime;
 import java.time.OffsetTime;
+import java.util.Set;
 
+import com.example.khbe.userExhibitionsVisited.UserExhibitionsVisited;
 import jakarta.persistence.*;
 
 
@@ -51,6 +51,8 @@ public class User {
         this.last_online = last_online;
         this.user_pfp = user_pfp;
     }
+    @OneToMany(mappedBy = "user")
+    Set<UserExhibitionsVisited> exhibitionVisitedSet;
 
     public Integer getId(){
         return user_id;
