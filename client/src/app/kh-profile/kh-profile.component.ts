@@ -16,6 +16,7 @@ import { KhProfileServiceService } from './kh-profile-service/kh-profile-service
   providers: [HttpClient]
 })
 export class KhProfileComponent {
+  eventsVisited: any;
   user: any;
   userName: any;
   authService!: AuthService
@@ -32,6 +33,7 @@ export class KhProfileComponent {
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
+    this.eventsVisited = this.profileService.getEventsVisited;
   }
   showDialog(number: any){
     if(number === 1){

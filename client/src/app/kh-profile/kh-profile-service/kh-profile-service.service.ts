@@ -13,4 +13,9 @@ export class KhProfileServiceService {
       first_name, last_name, email, password, user_description
     });
   }
+  getEventsVisited(user_id: number){
+    return this.http.get(
+      `http://localhost:8080/api/users/exhibitions?user_id=${user_id}`
+    );
+  }
 }
