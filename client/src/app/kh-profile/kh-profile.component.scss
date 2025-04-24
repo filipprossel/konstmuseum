@@ -1,4 +1,12 @@
 
+#ProfileImg{
+    overflow: hidden;
+    img{
+        justify-self: center;
+        height: 100%;
+        width: 100%;
+    }
+}
 .pi-pencil:hover{
     cursor: pointer;
    
