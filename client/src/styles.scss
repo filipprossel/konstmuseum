@@ -56,6 +56,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+main {
+  min-height: 100vh;
+
+}
+
 .app-wrapper {
   margin-top: var(--header-height);
   height: calc(100vh - var(--header-height)); 
