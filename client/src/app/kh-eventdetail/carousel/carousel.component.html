@@ -16,7 +16,7 @@
         <img [src]="img" alt="Artwork" />
         </div>
     </div>
-    <div class="controls">
+    <div class="controls" *ngIf="this.images.length > 1">
         <input
             type="range"
             [min]="0"
