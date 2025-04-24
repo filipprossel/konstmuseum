@@ -27,10 +27,15 @@
     </div>    
     
     <div class="carousel-buttons">
-        <button class="nav-btn left" (click)="prev()">
-            <i class="pi pi-angle-left"></i>
+        <button 
+        class="nav-btn left" 
+        [ngClass]="{ 'hide': currentIndex == 0 }" 
+        (click)="prev()">
+        <i class="pi pi-angle-left"></i>
         </button>
-        <button class="nav-btn right" (click)="next()">
+        <button class="nav-btn right" (click)="next()"
+        [ngClass]="{ 'hide': currentIndex == (this.images.length -1) }" 
+        >
             <i class="pi pi-angle-right"></i>
         </button>
     </div>    

@@ -13,7 +13,13 @@ import { Exhibition } from '../../kh-event/service/exhibition.model';
 export class CarouselComponent {
 
   @Input() exhibition!: Exhibition | null;
+
   currentIndex = 0;
+
+  ngOnInit() {
+    this.currentIndex = Math.floor(this.images.length / 2);
+  }
+
 
   get images(): string[] {
     return this.exhibition?.photos?.map(photo => `http://localhost:8080${photo.art_link}`) || [];
@@ -22,6 +28,7 @@ export class CarouselComponent {
   prev() {
     if (this.currentIndex > 0) {
       this.currentIndex--;
+      console.log(this.currentIndex)
     }
   }
 
