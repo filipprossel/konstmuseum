@@ -16,8 +16,8 @@ public class UserExhibitionsVisitedService {
     public List<UserExhibitionsVisitedDTO> getAllExhibitionsVisited(int user_id){
         List<UserExhibitionsVisited> joined = userExhibitionsVisitedRepository.findByUser_Id(user_id);
         List<UserExhibitionsVisitedDTO> exhibitionList = new ArrayList<>();
-        UserExhibitionsVisitedDTO ex = new UserExhibitionsVisitedDTO();
         for(UserExhibitionsVisited uev : joined){
+            UserExhibitionsVisitedDTO ex = new UserExhibitionsVisitedDTO();
             Exhibition exhibition = uev.exhibition;
             ex.setExhibition_name(exhibition.getExhibition_name());
             ex.setExhibition_desc(exhibition.getExhibition_desc());

@@ -37,20 +37,13 @@
     
    </div>
    <div id="profileActivityContainer">
-       <div class="infoBlock">
-           <P class="infoText">Skogens hemligheter</P>
+       <div class="infoBlock" *ngFor="let item of this.eventsVisited">
+           <P class="infoText">{{item.exhibition_name}}</P>
            <div class="stats">
-            <p class="date">20240-04-03</p>
+            <p class="date">{{item.exhibition_date}}</p>
             <p class="avgRate">7.6/10</p>
            </div>
        </div>
-       <div class="infoBlock">
-           <P class="infoText">Isbjörn på fjället</P>
-       </div>
-       <div class="infoBlock">
-           <P class="infoText">Fiskmås</P>
-       </div>
-       
    </div>
    <div id="omContent">
     <div class="about">

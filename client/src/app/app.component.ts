@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { KhFooterComponent } from "./kh-footer/kh-footer.component";
 import { KhPhoneHeaderComponent } from "./kh-phone-header/kh-phone-header.component";
 
+
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, KhHeaderComponent, CommonModule, KhFooterComponent, KhPhoneHeaderComponent],

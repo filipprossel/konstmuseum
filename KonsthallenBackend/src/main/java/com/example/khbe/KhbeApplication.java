@@ -28,8 +28,8 @@ public class KhbeApplication implements CommandLineRunner {
         LocalDate birthDate = LocalDate.of(2004, 12, 12);
         LocalDate joinDate = LocalDate.of(2004, 12, 12); // ändra till dagens datum
 
-        // User user = new User("BOber", "kurva", Date.valueOf(birthDate), "filipprossel@hotmail.com", "passwrod", Date.valueOf(joinDate), "hello im bober", 1,     OffsetTime.parse("12:00:00+02:00"), "Bober png"    );
-        // userService.saveUser(user);
+        //User user = new User("BOber", "kurva", Date.valueOf(birthDate), "filipprossel@hotmail.com", "passwrod", Date.valueOf(joinDate), "hello im bober", 1,     OffsetTime.parse("12:00:00+02:00"), "Bober png"    );
+        //userService.saveUser(user);
         //  System.out.println(user + "hejejejejej");
     }
 

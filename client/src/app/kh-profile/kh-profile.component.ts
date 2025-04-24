@@ -33,7 +33,10 @@ export class KhProfileComponent {
 
   ngOnInit(): void {
     this.user = this.authService.getUser();
-    this.eventsVisited = this.profileService.getEventsVisited;
+    this.profileService.getEventsVisited(1).subscribe((data) => {
+      this.eventsVisited = data;
+    })
+    
   }
   showDialog(number: any){
     if(number === 1){
