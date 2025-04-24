@@ -46,7 +46,7 @@ app-kh-phone-header {
 }
 
 html {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
@@ -54,17 +54,13 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-main {
-  min-height: 100vh;
-
+  height: 100%;
 }
 
 .app-wrapper {
   margin-top: var(--header-height);
-  height: calc(100vh - var(--header-height)); 
-  overflow-y: auto;
+  height: 100%;
+  min-height: calc(100vh + var(--header-height));
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
