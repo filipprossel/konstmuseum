@@ -22,4 +22,8 @@ export class ProfileDropdownComponent {
   logOut() {
     this.authService.logOut();
   }
+
+  navigateToProfile() {
+    this.router.navigate([this.profileLink]);
+  }
 }

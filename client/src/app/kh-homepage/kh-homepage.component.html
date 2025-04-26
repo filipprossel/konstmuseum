@@ -1,68 +1,58 @@
-<p-panel class="hero" header="" [toggleable]="false">
-  <div class="hero-content">
-    <h1 class="welomeTitle">Välkommen till Tornedalen Konsthall</h1>
-    <p class="welcomeMessage">En plats där konst och natur möts.</p>
-    <button pButton type="button" severity="warn" (click)="goToExhibition()" class="exploreButton">Utforska Utställningar</button>
-  </div>
-</p-panel>
+<main>
+  <section class="hero">
+    <div class="text">
+      <h1>Välkommen till Tornedalen Konsthall!</h1>
+      <p>En plats där konst och natur möts</p>
+    </div>
 
-<section class="section">
-  <h2>Kommande Evenemang</h2>
-  <div class="p-grid events">
-    <div class="p-col-12 p-md-6">
-      <p-carousel
-        [value]="Events"
-        [showNavigators]="false"
-        [numVisible]="1"
-        [numScroll]="1"
-        [verticalViewPortHeight]="'auto'"
-        contentClass="flex flex-col items-center"
-      >
-        <ng-template let-event #item>
-          <div class="event-card p-4 border rounded shadow-sm text-center">
-            <img [src]="event.image" [alt]="event.title" class="event-img mb-3" />
-            <div class="event-info">
-              <h3>{{ event.title }}</h3>
-              <p>{{ event.date }}</p>
-              <button pButton type="button" label="Läs mer..." class="p-button-warning p-button-sm mt-2" severity="warn"></button>
+    <a class="test" href="#homepage">
+      <i class="pi pi-angle-down"></i>
+    </a>
+  </section>
+
+  <section class="exhibitions" id="homepage">
+    <h2>Kommande utställningar</h2>
+    <div class="p-grid events">
+        <p-carousel
+          [value]="eventList"
+          [showNavigators]="true"
+          [numVisible]="1"
+          [numScroll]="1"
+          [verticalViewPortHeight]="'auto'"
+          [circular]="true"
+          >
+          
+          <ng-template let-event #item>
+            <div class="event-card">
+              <img [src]="event.photos && event.photos[0]?.art_link ? 'http://localhost:8080' + event.photos[0].art_link : '/assets/default.jpg'" 
+              [alt]="event.title" class="event-img" />
+              <div class="event-wrapper">     
+                <div class="event-info">
+                  <h3>{{ event.exhibition_name }}</h3>
+                  <p>{{ event.exhibition_date }}</p>
+                </div>
+                <button (click)="goToEvent(event.exhibition_id)"> Läs mer!</button>
+              </div> 
             </div>
-          </div>
-        </ng-template>
-      </p-carousel>
+          </ng-template>
+        </p-carousel>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section">
-  <h2>Konstnärer i Fokus</h2>
-  <div class="artist-circle-row">
-    <div class="artist-profile">
-      <img src="assets/artist1.jpg" alt="Anna Karisson">
-      <div class="artist-info">
-        <h3>Anna Karisson</h3>
-        <p>Ergonomisk Konst.</p>
-      </div>
-    </div>
-    <div class="artist-profile">
-      <img src="assets/artist2.jpg" alt="Erik Lindström">
-      <div class="artist-info">
-        <h3>Erik Lindström</h3>
-        <p>Ai Konstnär.</p>
-      </div>
-    </div>
-    <div class="artist-profile">
-      <img src="assets/artist3.jpg" alt="Maria Sjoberg">
-      <div class="artist-info">
-        <h3>Martin Sjoberg</h3>
-        <p>Naturkonst.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="artists">
+      <h2>Konstnärer i fokus</h2>
+      <div class="artist-showcase">
+        <app-kh-artistshowcase *ngFor="let artist of eventList.slice(0, 4)" [artist]="artist.artist"></app-kh-artistshowcase>
+      </div>       
+    </section>
 
-
-<section class="section about">
-  <h2>Om Tornedal Konsthall</h2>
-  <p>
-    Tornedal Konsthall är en plats i norden är den storslagna nordiska naturuen sluts samman med konst för att skapa en unik upplevelse.  </p>
-</section>
+    <section class="about">
+      <div class="text">
+        <h2>Om oss</h2>
+        <p>Tornedal Konsthall är en plats i norden är den storslagna nordiska naturuen sluts samman med konst för att skapa en unik upplevelse.</p>
+      </div>
+      <div class="photodiv">
+        <img src="assets/homepage.png" alt="">
+      </div>
+    </section>
+</main>

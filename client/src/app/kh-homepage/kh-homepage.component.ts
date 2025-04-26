@@ -1,69 +1,61 @@
-import { Component } from '@angular/core';
-import { Panel } from 'primeng/panel';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { Carousel } from 'primeng/carousel';
 import { CommonModule } from '@angular/common';
-import {Router} from '@angular/router';
-import { WebsocketService } from '../websocket.service';
+import { Router } from '@angular/router';
+import { ExhibitionService } from '../kh-event/service/exhibtion.service';
+import { Exhibition } from '../kh-event/service/exhibition.model';
+import { KhArtistshowcaseComponent } from "./kh-artistshowcase/kh-artistshowcase.component";
 
-
-interface EventItem {
-  title: string;
-  date: string;
-  image: string;
-}
 @Component({
   selector: 'app-kh-homepage',
   templateUrl: './kh-homepage.component.html',
   standalone: true,
   imports: [
     CommonModule,
-    Panel,
     ButtonModule,
     Carousel,
-  ],
-  styleUrls: ['./kh-homepage.component.scss']
+    KhArtistshowcaseComponent
+],
+  styleUrls: ['./kh-homepage.component.scss'],
 })
-export class KhHomepageComponent {
-  Events: EventItem[] = [];
+export class KhHomepageComponent implements OnInit {
+  eventList: (Exhibition)[] = [];
   responsiveOptions: any[] = [];
 
-  ngOnInit() {
-    this.wsService.connect();
+  constructor(
+    private router: Router,
+    private exhibitionService: ExhibitionService
+  ) {}
 
-
-    this.responsiveOptions = [
-      { breakpoint: '1024px', numVisible: 3, numScroll: 3 },
-      { breakpoint: '768px', numVisible: 2, numScroll: 2 },
-      { breakpoint: '560px', numVisible: 1, numScroll: 1 }
-    ];
-
-    this.Events = [
-      {
-        title: 'Vårutställning',
-        date: '10 april 2025 13:00',
-        image: 'assets/konstart.png'
+  ngOnInit(): void {
+    this.exhibitionService.getExhibitions().subscribe(
+      (data: Exhibition[]) => {
+        const currentDate = new Date();
+  
+        this.eventList = data
+          .filter(event => new Date(event.exhibition_date) > currentDate)
+          .map((event) => ({
+            exhibition_name: event.exhibition_name,
+            exhibition_date: event.exhibition_date,
+            photos: event.photos.length > 0 ? [{ art_link: event.photos[0].art_link }] : [], 
+            exhibition_id: event.exhibition_id,
+            exhibition_desc: event.exhibition_desc,               
+            artist: event.artist,                   
+            place: event.place
+          }));
       },
-      {
-        title: 'Sommarnattens Magi',
-        date: '15 juni 2025 18:00',
-        image: 'assets/homepage.png'
-      },
-      {
-        title: 'Mörkret och Ljuset',
-        date: '1 september 2025 17:30',
-        image: 'assets/nature.png'
-      },
-      {
-        title: 'Vinterljus',
-        date: '20 december 2025 14:00',
-        image: 'assets/konstart2.png'
+      (error) => {
+        console.error('Error loading exhibitions:', error);
       }
-    ];
-  }
-  constructor(private router: Router, private wsService: WebsocketService) {}
+    );
+  }  
 
   goToExhibition() {
     this.router.navigate(['/exhibition']);
+  }
+
+  goToEvent(exhibition_id: number) {
+    this.router.navigate([`/exhibition/${exhibition_id}`]); 
   }
 }

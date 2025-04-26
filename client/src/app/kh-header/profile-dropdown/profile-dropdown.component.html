@@ -1,6 +1,6 @@
 <div class="wrapper">
-    <button>
-        <a [routerLink]="profileLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Profil</a>
+    <button (click)="navigateToProfile()">
+        <span>Profil</span>
         <i class="pi pi-user" style="color: #888888"></i>
     </button>
     <button (click)="logOut()">

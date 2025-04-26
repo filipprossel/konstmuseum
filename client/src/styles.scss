@@ -46,7 +46,7 @@ app-kh-phone-header {
 }
 
 html {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -59,8 +59,9 @@ body {
 
 .app-wrapper {
   margin-top: var(--header-height);
-  height: 100%;
-  min-height: calc(100vh + var(--header-height));
+  height: calc(100vh - var(--header-height)); 
+  overflow-y: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
