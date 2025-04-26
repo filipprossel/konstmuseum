@@ -64,64 +64,164 @@ main {
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: rgba(0, 0, 0, 0.85);
-        display: flex;
-        justify-content: center;
-        align-items: center;
         z-index: 9999;
-        padding: 1rem;
         overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.9);
       }
+
+      
       
       .lightbox-content {
         background: white;
-        padding: 2rem;
         border-radius: 12px;
         text-align: center;
-        max-width: 90vw;
-        width: 50vw;
-        height: 90vh;
-        max-height: 90vh;
+        width: 80%;
+        height: 80%;
         overflow: auto;
-        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
         animation: fadeIn 0.3s ease;
         position: relative;
+        overflow: hidden;
       
-        img {
-          max-width: 100%;
-          max-height: 60vh;
-          border-radius: 8px;
-          margin-bottom: 1rem;
-          object-fit: contain;
-        }
+        
+       h1 {
+        position: absolute;
+        top: .5rem;
+        white-space: nowrap;
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+      }
+
+       .window {
+        margin-top: 5rem;
+       }
+
+       .scanner-container {
+        width: 100%;
+        position: relative;
+        background: #f0f0f0;
+        border-radius: 8px;
+        overflow: hidden;
       
-        h3 {
-          margin: 0;
-          color: #081235;
-        }
+    }
+
       
-        p {
-          color: #666;
-          margin-bottom: 1rem;
-        }
-      
-        .close-btn {
+
+      ngx-scanner-qrcode {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .scan-frame-Barrier {
+        background-color: red;
+      }
+
+     
+      .skeleton-loader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1s infinite;
+        border-radius: 8px;
+      }
+
+
+       .close-btn {
           position: absolute;
           top: 1rem;
           right: 1rem;
-          background-color: #f59e0b;
+          background-color: #ccc;
           color: white;
-          padding: 0.5rem 1.2rem;
           border: none;
-          border-radius: 30px;
+          border-radius: 999px;
+          aspect-ratio: 1/1;
+           width: 3rem;
+           display: flex;
+           align-items: center;
+           justify-content: center;    
           cursor: pointer;
-          font-size: 1rem;
-          transition: background-color 0.2s ease;
-      
+          transition: .2s ease-in-out;
+
+          i {
+            font-size: 1.3rem !important;
+        }
+          
           &:hover {
-            background-color: #d97706;
+            filter: brightness(1.01);
           }
         }
       }
 
 }
+
+.scan-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    height: 10%; /* Default height, will be adjusted dynamically */
+    animation: scan-pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+  }
+  
+  @keyframes scan-pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Optional: Custom styles for when QR code is detected */
+  .qrcode-polygon {
+    outline: 2px solid red; /* To visualize the QR code polygon */
+  }
+  
+  /* Skeleton loader for ngx-scanner-qrcode loading state */
+  ngx-scanner-qrcode.loading {
+    opacity: 0;
+    height: 0;
+  }
+  
+  /* Tooltip styles for QR code results */
+  .tooltipSCanner {
+    position: absolute;
+    top: 2em;
+    padding: .2em .5em;
+    border-radius: 8px;
+    background-color: #1d1d1f;
+    color: white;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+  }
+  
+  ngx-scanner-qrcode.loading {
+    opacity: 0;
+    height: 0;
+  }
+  @keyframes shimmer {
+    0% {
+      background-position: 100% 0;
+    }
+    100% {
+      background-position: -100% 0;
+    }
+  }
+  

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, NgModule, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, NgModule, OnInit, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarouselComponent } from "./carousel/carousel.component";
 import { Exhibition } from "../kh-event/service/exhibition.model";
@@ -16,6 +16,9 @@ import {NgxScannerQrcodeComponent, LOAD_WASM, ScannerQRCodeConfig, ScannerQRCode
 
 
 export class KhEventDetailComponent implements OnInit {
+  @ViewChild('action', { static: false }) scanner!: NgxScannerQrcodeComponent;
+
+
   eventId: string | null = null;
   exhibition: Exhibition | null = null;
 
@@ -29,9 +32,17 @@ export class KhEventDetailComponent implements OnInit {
 
   public config: ScannerQRCodeConfig = {
     isBeep: false, 
+    canvasStyles: [
+      // Style for QR code outline
+      
+        { lineWidth: 2, strokeStyle: '', fillStyle: '#55f02880' },
+        { opacity:"0" }
+       ],
+      
     constraints: {
       video: {
-        width: window.innerWidth
+        height: window.innerHeight
+
       }      
     },
   }
@@ -40,17 +51,32 @@ export class KhEventDetailComponent implements OnInit {
   @Output() getScanner = new EventEmitter<string>();
 
 
-  onScan(res: ScannerQRCodeResult[], action?: any): void {
-    if (res && res.length) {
-      const { value } = res[0];
-      value && action && action.stop();
-    
-      this.closeQrcodeDialog();
+  // onScan(res: ScannerQRCodeResult[], action?: any): void {
+  //   console.log("first")
+  //   if (res && res.length) {
+  //     const { value } = res[0];
 
-      this.getScanner.emit(value);
-      window.location.href = value;
-    }
+  //     this.getScanner.emit(value);
+  //     console.log(value)
+  //     // window.location.href = value;
+  //   }
+  // }
+
+    onScan(res: ScannerQRCodeResult[], action?: any): void {
+      if (res && res.length) {
+        const { value, points } = res[0];
+        
+        this.scanner.pause();
+
+        setTimeout(() => {
+          window.location.href=value;
+        }, 1000)
+
+       
+      }
+
   }
+
 
   isURL(value: string): boolean {
     try {
@@ -89,9 +115,14 @@ LOAD_WASM('assets/wasm/ngx-scanner-qrcode.wasm').subscribe();
   }
 
   openStateQrCodeDialog: boolean = false;
-
+ 
   openQrcodeDialog(): void {
     this.openStateQrCodeDialog = true;
+    setTimeout(() => {
+      if (this.scanner) {
+        this.scanner.start();
+      }
+    }, 0);
   }
 
   closeQrcodeDialog(): void {
