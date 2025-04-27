@@ -18,14 +18,17 @@ export class AppComponent {
   constructor(public router: Router) {}
 
   title = 'client';
+  hiddenRoutes = ['/login', '/signup']; 
   
   shouldShowHeaderFooter(): boolean {
-    let hiddenRoutes = ['/login', '/signup'];
-    return !hiddenRoutes.includes(this.router.url);
+    return !this.hiddenRoutes.includes(this.router.url);
   }
 
   shouldShowWidgetLiveExhibition() {
-    let hiddenRoutes = ['/login', '/signup', '/exhibition/'];
-    return !hiddenRoutes.includes(this.router.url);
+    if (this.hiddenRoutes.includes(this.router.url) || this.router.url.startsWith('/exhibition/')) {
+      return false;
+    }
+  
+    return true;
   }
 }

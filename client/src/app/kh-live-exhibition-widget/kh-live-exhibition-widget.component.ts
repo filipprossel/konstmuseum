@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './kh-live-exhibition-widget.component.scss'
 })
 export class KhLiveExhibitionWidgetComponent implements OnInit{
-  isWidgetClosed: boolean = true; // ska va false, men så den inte sysn hela tiden
+  isWidgetClosed: boolean = false; // ska va false, men så den inte sysn hela
 
 
   ngOnInit(): void {
