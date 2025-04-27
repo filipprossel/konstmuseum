@@ -16,7 +16,8 @@ export class UploadPanelComponent {
   exhibitionName: string = '';
   exhibitionArtist: string = '';
   exhibitionDescription: string = '';
-  exhibitionDate: Date | null = null;
+  exhibitionDateStart: Date | null = null;
+  exhibitionDateEnd: Date | null = null;
 
   constructor(private exhibitionService: ExhibitionService) { }
 
@@ -51,10 +52,13 @@ export class UploadPanelComponent {
     formData.append('exhibition_desc', this.exhibitionDescription);
   
     // Ensure that exhibitionDate is a valid Date and convert it to ISO string
-    const exhibitionDateFormatted = this.exhibitionDate ? new Date(this.exhibitionDate).toISOString() : '';
+    const exhibitionDateStartFormatted = this.exhibitionDateStart ? new Date(this.exhibitionDateStart).toISOString() : '';
+    const exhibitionDateEndFormatted = this.exhibitionDateEnd ? new Date(this.exhibitionDateEnd).toISOString() : '';
   
-    formData.append('exhibition_date', exhibitionDateFormatted);
-  
+    // Fix the parameter name to 'exhibition_date_start' instead of 'exhition_date_start'
+    formData.append('exhibition_date_start', exhibitionDateStartFormatted); // Corrected
+    formData.append('exhibition_date_end', exhibitionDateEndFormatted); // Corrected
+    
     // Append files
     this.selectedFiles.forEach(file => {
       formData.append('photos', file, file.name);
@@ -74,5 +78,6 @@ export class UploadPanelComponent {
         console.error('Upload failed', err);
       }
     });
-  }  
+  }
+  
 }

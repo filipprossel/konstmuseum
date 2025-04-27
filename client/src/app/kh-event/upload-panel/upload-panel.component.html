@@ -1,7 +1,7 @@
 <div class="wrapper">
 
   <div class="form-row">
-    <div class="field">
+    <div class="field full-width">
       <label for="exhibitionName">Utställningsnamn</label>
       <input 
         type="text" 
@@ -11,17 +11,31 @@
         autocomplete="off"
       >
     </div>
-    
-    <div class="field">
-      <label for="exhibitionDate">Datum</label>
-      <input 
-        type="date" 
-        id="exhibitionDate" 
-        name="exhibitionDate"
-        [(ngModel)]="exhibitionDate" 
-      >
-    </div>
   </div>
+
+
+    <div class="form-row full-width">
+
+      
+      <div class="field">
+        <label for="exhibitionDateStart">Start</label>
+        <input 
+        type="datetime-local" 
+        id="exhibitionDateStart" 
+        name="exhibitionDateStart"
+        [(ngModel)]="exhibitionDateStart" 
+        >
+      </div>
+      <div class="field">
+        <label for="exhibitionDateEnd">Avslutas</label>
+        <input 
+        type="datetime-local" 
+        id="exhibitionDateEnd" 
+        name="exhibitionDateEnd"
+        [(ngModel)]="exhibitionDateEnd" 
+        >
+      </div>
+    </div>
 
   <div class="form-row full-width">
     <div class="field">
