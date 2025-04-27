@@ -3,6 +3,7 @@
 <div class="app-wrapper">
     <main class="app">
         <router-outlet></router-outlet> 
+        <app-kh-live-exhibition-widget *ngIf="shouldShowWidgetLiveExhibition()"></app-kh-live-exhibition-widget>
     </main>
     <app-kh-footer *ngIf="shouldShowHeaderFooter()"></app-kh-footer>
 </div>

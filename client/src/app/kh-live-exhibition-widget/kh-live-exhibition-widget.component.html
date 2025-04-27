@@ -1,0 +1,20 @@
+<div class="liveExhitiionContainer" *ngIf="!isWidgetClosed">
+    <div class="head">
+        <div>
+            Pågående utställning
+        </div>
+        <span (click)="CloseWidget()">
+            <i class="pi pi-times"></i>
+        </span>
+    </div>
+    <div class="bodyContent">
+        <h1>Utställningsnamn</h1>
+        <h5>Idag 10:15 - 15:05</h5>
+        <img src="http://localhost:4200/assets/homepage.png" alt="">
+        
+        <a class="connectButton">
+            <span>Anslut</span>
+            <i class="pi pi-chevron-right"></i>
+        </a>
+    </div>
+</div>
