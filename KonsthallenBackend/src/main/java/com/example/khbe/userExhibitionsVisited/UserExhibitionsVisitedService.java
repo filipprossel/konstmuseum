@@ -21,7 +21,7 @@ public class UserExhibitionsVisitedService {
             Exhibition exhibition = uev.exhibition;
             ex.setExhibition_name(exhibition.getExhibition_name());
             ex.setExhibition_desc(exhibition.getExhibition_desc());
-            ex.setExhibition_date(exhibition.getExhibition_date());
+            ex.setExhibition_start_date(exhibition.getExhibition_date_start());
             ex.setVisited_date(uev.getVisited_date());
             exhibitionList.add(ex);
         }

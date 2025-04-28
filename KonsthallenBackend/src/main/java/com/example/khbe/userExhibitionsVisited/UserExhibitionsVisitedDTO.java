@@ -1,11 +1,12 @@
 package com.example.khbe.userExhibitionsVisited;
 
 import java.sql.Date;
+import java.time.OffsetDateTime;
 
 public class UserExhibitionsVisitedDTO {
 
     private String exhibition_name;
-    private Date exhibition_date;
+    private OffsetDateTime exhibition_start_date;
     private String exhibition_desc;
     private Date visited_date;
 
@@ -13,8 +14,8 @@ public class UserExhibitionsVisitedDTO {
         return visited_date;
     }
 
-    public Date getExhibition_date() {
-        return exhibition_date;
+    public OffsetDateTime getExhibition_date() {
+        return exhibition_start_date;
     }
 
     public String getExhibition_desc() {
@@ -29,8 +30,8 @@ public class UserExhibitionsVisitedDTO {
         this.visited_date = visited_date;
     }
 
-    public void setExhibition_date(Date exhibition_date) {
-        this.exhibition_date = exhibition_date;
+    public void setExhibition_start_date(OffsetDateTime exhibition_date) {
+        this.exhibition_start_date = exhibition_date;
     }
 
     public void setExhibition_desc(String exhibition_desc) {
