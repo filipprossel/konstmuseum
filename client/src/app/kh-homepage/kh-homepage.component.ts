@@ -34,7 +34,7 @@ export class KhHomepageComponent implements OnInit {
         const currentDate = new Date();
   
         this.eventList = data
-          .filter(event => new Date(event.exhibition_date_start) > currentDate)
+          .filter(event => new Date(event.exhibition_date_start) >= currentDate)
           .map((event) => ({
             exhibition_name: event.exhibition_name,
             exhibition_date_start: event.exhibition_date_start,
