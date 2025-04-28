@@ -1,4 +1,4 @@
-<div class="event-card" (click)="infoClick()">
+<a class="event-card" [routerLink]="['/exhibition', exhibition.exhibition_id]">
     <div class="info">
         <div class="background" [style.backgroundImage]="'url(http://localhost:8080' + (exhibition.photos[0].art_link || '/assets/default.jpg') + ')'"></div>
         <div class="title">
@@ -12,10 +12,5 @@
         <div class="theme">
             <p>Tornedalen</p>
         </div>
-        
     </div>
-    <div class="extraInfo" [class.transformed]="cardClick">
-        <p>{{ exhibition.exhibition_desc }}</p>
-        <a [routerLink]="['/exhibition', exhibition.exhibition_id]">Gå till utställning</a>
-    </div>
-</div>
+</a>

@@ -15,13 +15,4 @@ export class KhEventShowcaseComponent {
   cardClick: boolean = false;
 
   @Input() exhibition!: Exhibition;
-
-  infoClick() {
-    if (this.exhibition.photos && this.exhibition.photos.length > 0) {
-      console.log(this.exhibition.photos[0].art_link);
-    } else {
-      console.warn('No photos available.');
-    }
-    this.cardClick = !this.cardClick;
-  }
 }
