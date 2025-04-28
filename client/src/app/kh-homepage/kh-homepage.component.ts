@@ -34,10 +34,11 @@ export class KhHomepageComponent implements OnInit {
         const currentDate = new Date();
   
         this.eventList = data
-          .filter(event => new Date(event.exhibition_date) > currentDate)
+          .filter(event => new Date(event.exhibition_date_start) > currentDate)
           .map((event) => ({
             exhibition_name: event.exhibition_name,
-            exhibition_date: event.exhibition_date,
+            exhibition_date_start: event.exhibition_date_start,
+            exhibition_date_end: event.exhibition_date_end,
             photos: event.photos.length > 0 ? [{ art_link: event.photos[0].art_link }] : [], 
             exhibition_id: event.exhibition_id,
             exhibition_desc: event.exhibition_desc,               

@@ -65,12 +65,12 @@ export class KhEventComponent implements OnInit {
     const today = new Date();
   
     this.filteredEvent = this.eventList.filter(event => {
-      if (!event.exhibition_date) return false;
-  
+      console.log(event)
+      console.log(event.exhibition_date_end)
       if (filter === 2) {
-        return new Date(event.exhibition_date) < today;
+        return new Date(event.exhibition_date_end) < today;
       } else if (filter === 1) {
-        return new Date(event.exhibition_date) >= today;
+        return new Date(event.exhibition_date_end) >= today;
       } else {
         return true;
       }

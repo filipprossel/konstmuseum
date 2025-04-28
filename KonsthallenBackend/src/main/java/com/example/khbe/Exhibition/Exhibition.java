@@ -2,9 +2,7 @@ package com.example.khbe.Exhibition;
 import com.example.khbe.userExhibitionsVisited.UserExhibitionsVisited;
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.time.OffsetDateTime ;
-import java.time.OffsetTime;
 import java.util.List;
 
 import com.example.khbe.Artphoto.Artphoto;
@@ -23,6 +21,8 @@ public class Exhibition {
     private OffsetDateTime  exhibition_date_start;
     private OffsetDateTime  exhibition_date_end;
     private String exhibition_desc;
+
+    public Exhibition() {}
 
     public Exhibition(String exhibition_name, OffsetDateTime exhibition_date_start, String exhibition_desc, Artist artist, OffsetDateTime exhibition_date_end) {
         this.exhibition_name = exhibition_name;

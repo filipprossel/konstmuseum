@@ -13,5 +13,6 @@ export interface Exhibition {
   photos: Photo[];
   artist: Artist;
   place: string;
-  exhibition_date: Date;
+  exhibition_date_end: Date;
+  exhibition_date_start: Date;
 }
