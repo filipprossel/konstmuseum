@@ -1,11 +1,11 @@
 <main>
   <section class="hero">
     <div class="text">
-      <h1>Välkommen till Tornedalen Konsthall!</h1>
+      <h1>Välkommen till Tornedalen Konsthall</h1>
       <p>En plats där konst och natur möts</p>
     </div>
 
-    <a class="test" href="#homepage">
+    <a href="#homepage">
       <i class="pi pi-angle-down"></i>
     </a>
   </section>
@@ -42,17 +42,27 @@
     <section class="artists">
       <h2>Konstnärer i fokus</h2>
       <div class="artist-showcase">
-        <app-kh-artistshowcase *ngFor="let artist of eventList.slice(0, 4)" [artist]="artist.artist"></app-kh-artistshowcase>
+        <app-kh-artistshowcase *ngFor="let artist of eventList.slice(0, 3)" [artist]="artist.artist"></app-kh-artistshowcase>
       </div>       
-    </section>
+    </section> 
 
     <section class="about">
       <div class="text">
         <h2>Om oss</h2>
-        <p>Tornedal Konsthall är en plats i norden är den storslagna nordiska naturuen sluts samman med konst för att skapa en unik upplevelse.</p>
+        <p>Tornedal Konsthall är en plats i norden är den storslagna nordiska naturen sluts samman med konst för att skapa en unik upplevelse.</p>
       </div>
       <div class="photodiv">
         <img src="assets/homepage.png" alt="">
       </div>
     </section>
+    
+    <section class="newsletter">
+      <h2>Vill du prenumerera på våra nyhetsbrev?</h2>
+      <div class="lower">
+        <p>Vill du hålla dig uppdaterad om våra senaste evenemang, utställningar och nyheter? Genom att prenumerera på vårt nyhetsbrev får du exklusiva inbjudningar, spännande artiklar om våra konstnärer och en inblick i vad som händer bakom kulisserna på Tornedalen Konsthall. Låt dig inspireras av konst och kultur – direkt i din inkorg.</p>
+        <button>Prenumerera 
+          <i class="pi pi-bell"></i>
+        </button>
+      </div>
+    </section>    
 </main>
