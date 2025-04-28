@@ -85,12 +85,12 @@ public ResponseEntity<String> uploadFiles(
     Exhibition exhibition = exhibitionService.createExhibition(exhibition_name, exhibitionStartDate, exhibition_desc, artist, exhibitionEndDate); 
     
     try {
-        // Save photos
+        System.out.println(2);
         artphotoService.savePhotos(photos, exhibition);
-        System.out.println("Photos saved successfully.");
+        System.out.println(2);
         return ResponseEntity.ok("Files uploaded and saved successfully.");
     } catch (Exception e) {
-        System.err.println("Error saving photos: " + e.getMessage());
+        System.err.println(3);
         return ResponseEntity.status(500).body("Error saving photos: " + e.getMessage());
     }
 }

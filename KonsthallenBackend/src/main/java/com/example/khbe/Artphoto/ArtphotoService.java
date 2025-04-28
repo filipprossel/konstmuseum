@@ -10,12 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import com.example.khbe.Exhibition.Exhibition;
+import com.example.khbe.artphotoArtist.ArtphotoArtist;
+import com.example.khbe.artphotoArtist.ArtphotoArtistRepository;
 
 @Service
 public class ArtphotoService {
 
     @Autowired
     private ArtphotoRepository artphotoRepository;
+
+    @Autowired ArtphotoArtistRepository artphotoArtistRepository;
 
     private final String uploadDir = "C:/home/username/uploads/"; 
 
@@ -48,10 +52,16 @@ public class ArtphotoService {
                 throw e; 
             }
 
-            Artphoto artphoto = new Artphoto();
+            ArtphotoArtist artphotoArtist = new ArtphotoArtist("test");
+            artphotoArtistRepository.save(artphotoArtist);
+
+            Artphoto artphoto = new Artphoto("/uploads/" + filename,exhibition,artphotoArtist);
+            
+            artphotoRepository.save(artphoto);
+            /*Artphoto artphoto = new Artphoto();
             artphoto.setArt_link("/uploads/" + filename);
             artphoto.setExhibition(exhibition);
-            artphotoRepository.save(artphoto);
+            artphotoRepository.save(artphoto);*/
         }
     }
 }

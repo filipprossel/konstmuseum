@@ -16,4 +16,8 @@ public class ArtphotoController {
     public List<Artphoto> getPhotosByExhibition(@PathVariable int id) {
         return artphotoRepository.findByExhibition_ExhibitionId(id);
     }
+    @GetMapping(("/art/{id}"))
+    public Artphoto getArtphotoById(@PathVariable int id) {
+        return artphotoRepository.findByArt_id(id);
+    }
 }
