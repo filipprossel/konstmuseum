@@ -13,12 +13,19 @@ main {
 
     .info {
         margin: 0 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        width: 100%;
 
         h1 {
             font-size: 48px;
+        }
+
+        h5 {
+          font-style: 1.5rem;
+          opacity: .8;
+          text-decoration: underline;
+        }
+
+        b {
         }
 
         .intresse {

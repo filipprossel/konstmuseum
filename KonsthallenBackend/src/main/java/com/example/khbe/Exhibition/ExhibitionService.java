@@ -7,9 +7,6 @@ import com.example.khbe.Artist.Artist;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import java.sql.Date;
-import java.time.LocalDate;
-import java.time.OffsetDateTime;
 
 @Service
 public class ExhibitionService {
@@ -22,10 +19,14 @@ public class ExhibitionService {
     }
 
     public Exhibition getExhibitionById(int id) {
+        Exhibition test = exhibitionRepository.findByExhibitionId(id);
+        System.out.println(test.getExhibition_date_start());
+        System.out.println("HEHEHEHHEEH");
+
         return exhibitionRepository.findByExhibitionId(id);
     }
 
-    public Exhibition createExhibition(String exhibition_name, OffsetDateTime sqlStartDate, String exhibition_desc, Artist artist, OffsetDateTime sqlEndDate) {
+    public Exhibition createExhibition(String exhibition_name, String sqlStartDate, String exhibition_desc, Artist artist, String sqlEndDate) {
         // Create a new Exhibition object with both start and end dates
         Exhibition exhibition = new Exhibition(exhibition_name, sqlStartDate, exhibition_desc, artist, sqlEndDate);
         

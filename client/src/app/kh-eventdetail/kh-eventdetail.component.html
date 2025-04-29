@@ -1,14 +1,12 @@
 <main *ngIf="exhibition">
+   
     <section class="carousel"> 
       <app-carousel [exhibition]="exhibition"></app-carousel>
     </section>
   
     <section class="info">
       <h1>{{ exhibition.exhibition_name }}</h1>
-      <div class="intresse">
-        <p>Intresserad?</p>
-        <button>Intresse anmäl!</button>
-      </div>
+      <h5>Utställning startar kl <b>{{ exhibition.exhibition_date_start }}</b> till <b>{{ exhibition.exhibition_date_end }}</b></h5>
     </section>
   
     <section class="text">
@@ -51,32 +49,6 @@
 
         </div>
         <div class="skeleton-loader" *ngIf="action.isLoading"></div>
-        <!-- <span>{{ action.data.value | json }}</span> -->
-
-       
-
-        <!-- <p *ngIf="action.isLoading">⌛ Laddar...</p> -->
-  
-        <!-- <button (click)="action.isStart ? action.stop() : action.start()">
-          {{ action.isStart ? 'Stoppa' : 'Starta' }}
-        </button>
-   -->
-        <!-- <input
-          #file
-          type="file"
-          (change)="onSelects(file.files)"
-          multiple
-          accept=".jpg, .png, .gif, .jpeg"
-        />
-  
-        <div *ngFor="let item of qrCodeResult">
-          <ngx-scanner-qrcode
-            #actionFile="scanner"
-            [src]="item.url"
-            [config]="config">
-          </ngx-scanner-qrcode>
-          <p *ngIf="actionFile.data">{{ actionFile.data.value }}</p>
-        </div> -->
   
         <button (click)="closeQrcodeDialog()" class="close-btn"><i class="pi pi-times"></i></button>
       </div>

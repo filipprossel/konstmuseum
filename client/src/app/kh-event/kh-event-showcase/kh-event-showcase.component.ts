@@ -10,9 +10,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './kh-event-showcase.component.html',
   styleUrls: ['./kh-event-showcase.component.scss']
 })
-export class KhEventShowcaseComponent {
+export class KhEventShowcaseComponent implements OnInit {
 
-  cardClick: boolean = false;
 
   @Input() exhibition!: Exhibition;
+
+  ngOnInit() {
+    console.log(this.exhibition);
+  }
+
 }
