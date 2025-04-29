@@ -62,11 +62,6 @@ public ResponseEntity<String> uploadFiles(
         return ResponseEntity.status(400).body("Invalid date format.");
     }
 
-<<<<<<< Updated upstream
-
-
-=======
->>>>>>> Stashed changes
     // Convert String  to java.sql.Date
 
     // Create Artist

@@ -2,6 +2,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExhibitionService } from '../service/exhibtion.service';
 import { FormsModule } from '@angular/forms';
+import { Console } from 'node:console';
+import { read } from 'node:fs';
 
 @Component({
   selector: 'app-upload-panel',
@@ -10,18 +12,17 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './upload-panel.component.scss'
 })
 export class UploadPanelComponent {
-  previewUrls: string[] = [];
-  selectedFiles: File[] = [];
-
   exhibitionName: string = '';
   exhibitionArtist: string = '';
+  exhibitionOrganizer: string = '';
   exhibitionDescription: string = '';
   exhibitionDateStart: Date | null = null;
   exhibitionDateEnd: Date | null = null;
+  artDescription: String | null = null;
 
   constructor(private exhibitionService: ExhibitionService) { }
 
-  onFilesSelected(event: Event) {
+  /*onFilesSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     const files = input.files;
     if (files) {
@@ -37,6 +38,26 @@ export class UploadPanelComponent {
         reader.readAsDataURL(file);
       });
     }
+  }*/
+  previewImage: string | null = null;
+  selectedFiles: File | null = null;
+  artworks: { file: File; name: string; desc: string }[] = [];
+
+  onPhotoSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const photo = input.files?.[0];
+
+    if (!photo) { 
+      return; }
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.previewImage = reader.result as string;
+    }
+
+    this.selectedFiles = photo
+
+    reader.readAsDataURL(photo);
   }
 
   @Output() cancel = new EventEmitter<void>();
@@ -46,6 +67,29 @@ export class UploadPanelComponent {
   }
 
   uploadEvent() {
+    this.artworks.forEach((artwork, index) => {
+      console.log(`Artwork ${index + 1}:`);
+      console.log('  File:', artwork.file);
+      console.log('  Name:', artwork.name);
+      console.log('  Description:', artwork.desc);
+    });
+  }
+
+  removeImage() {}
+
+  uploadImage() {
+    this.previewImage = null;
+    if (!this.selectedFiles) { 
+      console.log("HÄR")
+      return }
+    this.artworks.push({
+      file: this.selectedFiles,
+      name: 'test',
+      desc: 'test'
+    })
+  }
+
+  /*uploadEvent() {
     const formData = new FormData();
     formData.append('exhibition_name', this.exhibitionName);
     formData.append('exhibition_artist', this.exhibitionArtist);
@@ -78,6 +122,6 @@ export class UploadPanelComponent {
         console.error('Upload failed', err);
       }
     });
-  }
+  }*/
   
 }

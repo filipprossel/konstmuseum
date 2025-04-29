@@ -1,7 +1,6 @@
-<div class="wrapper">
-
-  <div class="form-row">
-    <div class="field full-width">
+<!--<div class="wrapper">
+  <div>
+    <div>
       <label for="exhibitionName">Utställningsnamn</label>
       <input 
         type="text" 
@@ -13,82 +12,164 @@
     </div>
   </div>
 
-
-    <div class="form-row full-width">
-
-      
-      <div class="field">
-        <label for="exhibitionDateStart">Start</label>
-        <input 
+  <div>
+    <div>
+      <label for="exhibitionDateStart">Start</label>
+      <input 
         type="datetime-local" 
         id="exhibitionDateStart" 
         name="exhibitionDateStart"
         [(ngModel)]="exhibitionDateStart" 
-        >
-      </div>
-      <div class="field">
-        <label for="exhibitionDateEnd">Avslutas</label>
-        <input 
+      >
+    </div>
+    <div>
+      <label for="exhibitionDateEnd">Avslutas</label>
+      <input 
         type="datetime-local" 
         id="exhibitionDateEnd" 
         name="exhibitionDateEnd"
         [(ngModel)]="exhibitionDateEnd" 
-        >
-      </div>
+      >
     </div>
+  </div>
 
-  <div class="form-row full-width">
-    <div class="field">
-      <label for="exhibitionArtist">Konstnär</label>
+  <div>
+    <div>
+      <label for="exhibitionOrganizer">Arrangör</label>
       <input 
         type="text" 
-        id="exhibitionArtist" 
-        name="exhibitionArtist" 
-        [(ngModel)]="exhibitionArtist" 
+        id="exhibitionOrganizer" 
+        name="exhibitionOrganizer" 
+        [(ngModel)]="exhibitionOrganizer" 
         autocomplete="off"
       >
     </div>
   </div>
 
-  <div class="form-row full-width">
-    <div class="field">
+  <div>
+    <div>
       <label for="exhibitionDescription">Beskrivning</label>
       <textarea 
         id="exhibitionDescription" 
         name="exhibitionDescription" 
         [(ngModel)]="exhibitionDescription" 
-        rows="3"
+        rows="5"
+        style="resize: none;"
       ></textarea>
     </div>
   </div>
 
-  <div class="form-row full-width">
-    <div class="field">
+  <div>
+    <div>
       <label for="exhibitionPhoto">Ladda upp bilder</label>
-      <div class="file-input-container">
+      <div>
         <input 
           type="file" 
           id="exhibitionPhoto" 
           accept="image/*" 
-          (change)="onFilesSelected($event)" 
-          class="file-input"
-        >
-        <label for="exhibitionPhoto" class="file-input-btn">Välj filer</label>
+          (change)="onPhotoSelected($event)">
+        <label for="exhibitionPhoto">Välj filer</label>
       </div>
     </div>
   </div>
 
-  <div class="preview-container">
+  <div *ngIf="previewImage">
     <img 
-      *ngFor="let image of previewUrls" 
-      [src]="image" 
-      alt="Förhandsvisning" 
-      class="preview-img"
+      [src]="previewImage" 
+      alt="Förhandsvisning"
     />
-  </div>
 
-  <div class="button-row">
-    <button class="cancel" (click)="onCancelClick()">Avbryt</button>
-    <button class="submit" (click)="uploadEvent()">Ladda upp</button>
+    <div>
+      <div>
+        <label for="artDescription">Beskrivning</label>
+        <textarea 
+          id="artDescription" 
+          name="artDescription" 
+          [(ngModel)]="artDescription" 
+          rows="5"
+          style="resize: none;"
+        ></textarea>
+      </div>
+    </div>
+  </div>  
+
+  <div>
+    <button (click)="onCancelClick()">Avbryt</button>
+    <button (click)="uploadEvent()">Ladda upp</button>
   </div>
+</div> -->
+
+<div class="wrapper">
+  <section class="row">
+    <label for="exhibitionName">Utställningsnamn</label>
+    <input 
+        type="text" 
+        id="exhibitionName" 
+        name="exhibitionName" 
+        [(ngModel)]="exhibitionName" 
+        autocomplete="off">
+  </section>
+
+  <section class="row">
+    <label for="exhibitionOrganizer">Arrangör</label>
+    <input 
+      type="text" 
+      id="exhibitionOrganizer" 
+      name="exhibitionOrganizer" 
+      [(ngModel)]="exhibitionOrganizer" 
+      autocomplete="off">
+  </section>
+
+  <section class="row-date">
+    <div>
+      <label for="exhibitionDateStart">Start</label>
+      <input 
+        type="datetime-local" 
+        id="exhibitionDateStart" 
+        name="exhibitionDateStart"
+        [(ngModel)]="exhibitionDateStart">
+    </div>
+
+    <div>
+      <label for="exhibitionDateEnd">Avslutas</label>
+      <input 
+        type="datetime-local" 
+        id="exhibitionDateEnd" 
+        name="exhibitionDateEnd"
+        [(ngModel)]="exhibitionDateEnd">
+    </div>
+  </section>
+
+  <section class="row">
+    <label for="exhibitionDescription">Beskrivning</label>
+    <textarea 
+      id="exhibitionDescription" 
+      name="exhibitionDescription" 
+      [(ngModel)]="exhibitionDescription" 
+      rows="5"
+      style="resize: none;"></textarea>
+  </section>
+
+  <section class="row-choosephoto" *ngIf="!previewImage">
+    <label for="exhibitionPhoto">Ladda upp bilder</label>
+    <input 
+        type="file" 
+        id="exhibitionPhoto" 
+        accept="image/*" 
+        (change)="onPhotoSelected($event)">
+  </section>
+
+  <section class="preview-image" *ngIf="previewImage">
+    <label>Vald bild</label>
+    <img 
+      [src]="previewImage" 
+      alt="Förhandsvisning"/>
+
+    <div class="button-row">
+      <button (click)="removeImage()">Ta bort</button>
+      <button (click)="uploadImage()" (click)="onPhotoSelected($event)">Välj</button>
+    </div>
+  </section>
+
+  <button (click)="uploadEvent()">Ladda UPP</button>
 </div>

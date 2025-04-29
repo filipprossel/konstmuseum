@@ -10,136 +10,91 @@
     gap: 10px;
     position: relative;
     max-height: 80dvh;
-    overflow-y: scroll;
-  
-    .form-row {
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .row-date {
       display: flex;
-      gap: 12px;
-  
-      .field {
-        flex: 1;
+      flex-direction: row;
+      gap: 20px;
+
+      div {
+        width: 100%;
         display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
         flex-direction: column;
-  
+
         label {
-          font-size: 16px;
+          margin-right: 4px;
         }
-  
-        input, textarea {
-          background-color: #f9f9f9;
-          border-radius: 12px;
-          padding: 10px;
-          border: 1px solid #ddd;
-          font-size: 1rem;
-          transition: all 0.2s ease;
-          color: #333;
-  
-          &:hover {
-            background-color: #f1f1f1;
-          }
-  
-          &:focus {
-            outline: none;
-            background-color: #fff;
-            border-color: #888;
-          }
-        }
-  
-        textarea {
-          resize: vertical;
-          min-height: 100px;
-        }
-  
-        .file-input-container {
-          position: relative;
-          display: inline-flex;
+
+        input {
           width: 100%;
-          
-          input[type="file"] {
-            display: none;
-          }
-  
-          .file-input-btn {
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            padding: 10px 20px;
-            text-align: center;
-            border: 2px solid #ddd;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-            width: 100%;
-            display: inline-block;
-  
-            &:hover {
-              background-color: #f1f1f1;
-              border-color: #888;
-            }
-  
-            &.active {
-              background-color: #eee;
-              border-color: #888;
-            }
-          }
-        }
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 16px;
+          background-color: #f9f9f9;
+          color: #333;
+        }        
       }
     }
-  
-    .preview-container {
+
+    .row-choosephoto {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-  
-      .preview-img {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 1rem;
+    
+      input[type="file"] {
+        display: none;
+      }
+    
+      label[for="exhibitionPhoto"] {
+        display: inline-block;
+        padding: 0.6rem 1.2rem;
+        background-color: var(--kh-primary-color);
+        color: white;
         border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border: 2px solid #ccc;
+        font-weight: 500;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    
+        &:hover,&:active {
+          background-color: var(--kh-secondary-color);
+        }
       }
+    }    
+
+    .preview-image {
+      width: 100%;
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+
+      img {
+        border-radius: 16px;
+        width: 100%;
+      }
+
+      
     }
   
-    .button-row {
+    .row {
       display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-  
-      button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 30px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: background-color 0.2s ease, color 0.2s ease;
-        background-color: #fff;
-        text-align: center;
-        width: auto;
-  
-        &.cancel {
-          color: #000;
-          border: 2px solid #D25C5C;
-          font-weight: 600;
-          transition: background-color 0.3s ease, color 0.3s ease;
-  
-          &:hover {
-            background-color: #D25C5C;
-            color: #fff;
-          }
-        }
-  
-        &.submit {
-          color: #000;
-          background-color: #fff;
-          border: 2px solid var(--kh-primary-color);
-          font-weight: 600;
-          transition: background-color 0.3s ease, color 0.3s ease;
-  
-          &:hover {
-            background-color: var(--kh-primary-color);
-            color: #fff;
-          }
-        }
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      label {
+        width: 100%;
+      }
+
+      textarea,input {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid #afafaf;
       }
     }
   }
