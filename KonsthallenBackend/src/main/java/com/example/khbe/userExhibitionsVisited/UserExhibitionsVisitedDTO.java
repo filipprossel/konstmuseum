@@ -1,7 +1,7 @@
 package com.example.khbe.userExhibitionsVisited;
 
 import java.sql.Date;
-import java.time.String;
+
 
 public class UserExhibitionsVisitedDTO {
 

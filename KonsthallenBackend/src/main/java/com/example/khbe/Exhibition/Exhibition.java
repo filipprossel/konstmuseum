@@ -2,7 +2,7 @@ package com.example.khbe.Exhibition;
 import com.example.khbe.userExhibitionsVisited.UserExhibitionsVisited;
 import jakarta.persistence.*;
 
-import java.time.String ;
+
 import java.util.List;
 
 import com.example.khbe.Artphoto.Artphoto;

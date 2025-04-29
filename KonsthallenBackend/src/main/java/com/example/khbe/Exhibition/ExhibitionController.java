@@ -2,7 +2,7 @@ package com.example.khbe.Exhibition;
 
 import java.sql.Date;
 import java.time.Instant;
-import java.time.String ;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,14 +61,7 @@ public ResponseEntity<String> uploadFiles(
     } catch (Exception e) {
         return ResponseEntity.status(400).body("Invalid date format.");
     }
-    
 
-    System.out.println("heheheheeheheh");
-    System.out.println("Exhibition Name: " + exhibition_name);
-    System.out.println("Exhibition Artist: " + exhibition_artist);
-    System.out.println("Exhibition Description: " + exhibition_desc);
-    System.out.println("Exhibition Start Date (String): " + exhibitionStartDate);
-    System.out.println("Exhibition End Date (String): " + exhibitionEndDate);
 
 
     // Convert String  to java.sql.Date
