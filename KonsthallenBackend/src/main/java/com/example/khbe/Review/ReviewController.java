@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -13,8 +14,13 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @PostMapping("/setScore")
+    @PostMapping("/createReview")
     public HttpStatus ReviewAndScore (@RequestBody HashMap<String, String> reviewData){
         return reviewService.setReviewAndScore(reviewData);
+    }
+    @GetMapping
+    public List<ReviewDTO> getReviews(@RequestParam int user_id){
+        System.out.println("Hej" + user_id);
+        return reviewService.getAllReviews(user_id);
     }
 }

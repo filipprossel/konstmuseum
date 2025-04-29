@@ -9,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class ReviewService {
@@ -38,5 +40,20 @@ public class ReviewService {
         newReview.setReview(reviewData.get("review"));
         reviewRepository.save(newReview);
         return HttpStatus.CREATED;
+    }
+    public List<ReviewDTO> getAllReviews(int userId){
+        User user = userRepository.getReferenceById(userId);
+        List<Review> reviewList = reviewRepository.findAllByUser(user);
+        List<ReviewDTO> reviewDTOList = new ArrayList<>();
+        for(Review review : reviewList){
+            ReviewDTO reviewDTO = new ReviewDTO();
+            reviewDTO.setReview_id(review.getReview_id());
+            reviewDTO.setArt_id(review.getArtphoto().getArt_id());
+            reviewDTO.setGrade(review.getGrade());
+            reviewDTO.setReview(review.getReview());
+            reviewDTOList.add(reviewDTO);
+        }
+
+        return reviewDTOList;
     }
 }
