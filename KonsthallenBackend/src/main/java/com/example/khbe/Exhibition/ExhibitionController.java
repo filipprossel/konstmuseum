@@ -62,15 +62,18 @@ public ResponseEntity<String> uploadFiles(
         return ResponseEntity.status(400).body("Invalid date format.");
     }
 
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
     // Convert String  to java.sql.Date
 
     // Create Artist
     Artist artist = artistService.createArtist(exhibition_artist);
 
     // Create Exhibition
-    Exhibition exhibition = exhibitionService.createExhibition(exhibition_name, exhibitionStartDate, exhibition_desc, artist, exhibitionEndDate); 
+    Exhibition exhibition = exhibitionService.createExhibition(exhibition_name, exhibition_date_start, exhibition_desc, artist, exhibition_date_end); 
     
     try {
         System.out.println(2);
