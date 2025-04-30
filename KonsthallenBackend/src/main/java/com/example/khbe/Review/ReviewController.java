@@ -20,7 +20,6 @@ public class ReviewController {
     }
     @GetMapping
     public List<ReviewDTO> getReviews(@RequestParam int user_id){
-        System.out.println("Hej" + user_id);
         return reviewService.getAllReviews(user_id);
     }
 }

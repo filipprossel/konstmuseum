@@ -13,10 +13,10 @@ import java.util.List;
 public class UserExhibitionsVisitedService {
     @Autowired
     private UserExhibitionsVisitedRepository userExhibitionsVisitedRepository;
-    public List<UserExhibitionsVisitedDTO> getAllExhibitionsVisited(int user_id){
+    public List<UserExhibitionsVisitedDTO> getAllExhibitionsVisited(int user_id){//Metod för att skapa och populera en lista med vila uställningar användaren har varit på.
         List<UserExhibitionsVisited> joined = userExhibitionsVisitedRepository.findByUser_Id(user_id);
         List<UserExhibitionsVisitedDTO> exhibitionList = new ArrayList<>();
-        for(UserExhibitionsVisited uev : joined){
+        for(UserExhibitionsVisited uev : joined){ //För varje utställning användaren har varit på, tas data från den för och sätts för objektet uev.
             UserExhibitionsVisitedDTO ex = new UserExhibitionsVisitedDTO();
             Exhibition exhibition = uev.exhibition;
             ex.setExhibition_name(exhibition.getExhibition_name());
