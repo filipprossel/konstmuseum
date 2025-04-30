@@ -20,8 +20,11 @@
     margin-right: 40vw;
 }
 #stars{
+    margin-top: -10px;
+    margin-bottom: 20px;
+    flex-direction: row-reverse;
     display: flex;
-    flex-direction: row;
+
     justify-content: space-between;
     align-items: center;
     width:150px;
@@ -29,14 +32,67 @@
     padding: 5px;
     border-radius: 10px;
 }
+#s5:hover{
+    background-color: black;
+}
+#s4:hover{
+    background-color: black;
+}
+#s3:hover{
+    background-color: black;
+}
+#s2:hover{
+    background-color: black;
+}
+#s1:hover{
+    background-color: black;
+}
+
+#s4:hover + #s5{
+    background-color: black;
+}
+#s3:hover + #s4{
+    background-color: black;
+}
+#s3:hover ~ #s5{
+    background-color: black;
+}
+
+
+#s2:hover + #s3{
+    background-color: black;
+}
+#s2:hover ~ #s5{
+    background-color: black;
+}
+#s2:hover ~ #s4{
+    background-color: black;
+}
+
+#s1:hover + #s2{
+    background-color: black;
+}
+#s1:hover ~ #s5{
+    background-color: black;
+}
+#s1:hover ~ #s3{
+    background-color: black;
+}
+#s1:hover ~ #s4{
+    background-color: black;
+}
+
+
 
 h2{
     font-weight: 300;
     color: darkgrey;
     font-size: 1rem;
+    margin-bottom: 10px;
 }
 #beskrivning{
     max-width: 400px;
+    margin-bottom: 20px;
 }
 #imgContainer{
     margin-right: 100px;
