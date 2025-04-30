@@ -1,68 +1,69 @@
-<main>
+<main *transloco="let t">
+  <app-language-switcher></app-language-switcher>
+  <button (click)="testLanguageSwitch()">Testa språkväxling</button>
   <section class="hero">
     <div class="text">
-      <h1>Välkommen till Tornedalen Konsthall</h1>
-      <p>En plats där konst och natur möts</p>
+      <h1>{{ t('welcomeTitle') }}</h1>
+      <p>{{ t('welcomeSubtitle') }}</p>
     </div>
-
     <a href="#homepage">
       <i class="pi pi-angle-down"></i>
     </a>
   </section>
 
   <section class="exhibitions" id="homepage">
-    <h2>Kommande utställningar</h2>
+    <h2>{{ t('upcomingExhibitions') }}</h2>
     <div class="p-grid events">
-        <p-carousel
-          [value]="eventList"
-          [showNavigators]="true"
-          [numVisible]="1"
-          [numScroll]="1"
-          [verticalViewPortHeight]="'auto'"
-          [circular]="true"
-          >
-          
-          <ng-template let-event #item>
-            <div class="event-card">
-              <img [src]="event.photos && event.photos[0]?.art_link ? 'http://localhost:8080' + event.photos[0].art_link : '/assets/default.jpg'" 
-              [alt]="event.title" class="event-img" />
-              <div class="event-wrapper">     
-                <div class="event-info">
-                  <h3>{{ event.exhibition_name }}</h3>
-                  <p>{{ event.exhibition_date_start | date:'dd/MM-yy' }}</p>
-                </div>
-                <button (click)="goToEvent(event.exhibition_id)"> Läs mer!</button>
-              </div> 
+      <p-carousel
+        [value]="eventList"
+        [showNavigators]="true"
+        [numVisible]="1"
+        [numScroll]="1"
+        [verticalViewPortHeight]="'auto'"
+        [circular]="true"
+      >
+        <ng-template let-event #item>
+          <div class="event-card">
+            <img [src]="event.photos && event.photos[0]?.art_link ? 'http://localhost:8080' + event.photos[0].art_link : '/assets/default.jpg'"
+                 [alt]="event.title" class="event-img" />
+            <div class="event-wrapper">
+              <div class="event-info">
+                <h3>{{ event.exhibition_name }}</h3>
+                <p>{{ event.exhibition_date_start | date:'dd/MM-yy' }}</p>
+              </div>
+              <button (click)="goToEvent(event.exhibition_id)">{{ t('readMore') }}</button>
             </div>
-          </ng-template>
-        </p-carousel>
+          </div>
+        </ng-template>
+      </p-carousel>
     </div>
   </section>
 
-    <section class="artists">
-      <h2>Konstnärer i fokus</h2>
-      <div class="artist-showcase">
-        <app-kh-artistshowcase *ngFor="let artist of eventList.slice(0, 3)" [artist]="artist.artist"></app-kh-artistshowcase>
-      </div>       
-    </section> 
+  <section class="artists">
+    <h2>{{ t('featuredArtists') }}</h2>
+    <div class="artist-showcase">
+      <app-kh-artistshowcase *ngFor="let artist of eventList.slice(0, 3)" [artist]="artist.artist"></app-kh-artistshowcase>
+    </div>
+  </section>
 
-    <section class="about">
-      <div class="text">
-        <h2>Om oss</h2>
-        <p>Tornedal Konsthall är en plats i norden är den storslagna nordiska naturen sluts samman med konst för att skapa en unik upplevelse.</p>
-      </div>
-      <div class="photodiv">
-        <img src="assets/homepage.png" alt="">
-      </div>
-    </section>
-    
-    <section class="newsletter">
-      <h2>Vill du prenumerera på våra nyhetsbrev?</h2>
-      <div class="lower">
-        <p>Vill du hålla dig uppdaterad om våra senaste evenemang, utställningar och nyheter? Genom att prenumerera på vårt nyhetsbrev får du exklusiva inbjudningar, spännande artiklar om våra konstnärer och en inblick i vad som händer bakom kulisserna på Tornedalen Konsthall. Låt dig inspireras av konst och kultur – direkt i din inkorg.</p>
-        <button>Prenumerera 
-          <i class="pi pi-bell"></i>
-        </button>
-      </div>
-    </section>    
+  <section class="about">
+    <div class="text">
+      <h2>{{ t('aboutUsTitle') }}</h2>
+      <p>{{ t('aboutUsText') }}</p>
+    </div>
+    <div class="photodiv">
+      <img src="assets/homepage.png" alt="">
+    </div>
+  </section>
+
+  <section class="newsletter">
+    <h2>{{ t('newsletterTitle') }}</h2>
+    <div class="lower">
+      <p>{{ t('newsletterText') }}</p>
+      <button>
+        {{ t('subscribe') }}
+        <i class="pi pi-bell"></i>
+      </button>
+    </div>
+  </section>
 </main>

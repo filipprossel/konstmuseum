@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { ExhibitionService } from '../kh-event/service/exhibtion.service';
 import { Exhibition } from '../kh-event/service/exhibition.model';
 import { KhArtistshowcaseComponent } from "./kh-artistshowcase/kh-artistshowcase.component";
+import {TranslocoDirective, TranslocoService} from '@jsverse/transloco';
+import {LanguageSwitcherComponent} from '../language-switcher/language-switcher.component';
+
 
 @Component({
   selector: 'app-kh-homepage',
@@ -15,7 +18,10 @@ import { KhArtistshowcaseComponent } from "./kh-artistshowcase/kh-artistshowcase
     CommonModule,
     ButtonModule,
     Carousel,
-    KhArtistshowcaseComponent
+    KhArtistshowcaseComponent,
+    TranslocoDirective,
+    LanguageSwitcherComponent,
+
 ],
   styleUrls: ['./kh-homepage.component.scss'],
 })
@@ -25,24 +31,25 @@ export class KhHomepageComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private exhibitionService: ExhibitionService
+    private exhibitionService: ExhibitionService,
+     private translocoService: TranslocoService
   ) {}
 
   ngOnInit(): void {
     this.exhibitionService.getExhibitions().subscribe(
       (data: Exhibition[]) => {
         const currentDate = new Date();
-  
+
         this.eventList = data
           .filter(event => new Date(event.exhibition_date_start) >= currentDate)
           .map((event) => ({
             exhibition_name: event.exhibition_name,
             exhibition_date_start: event.exhibition_date_start,
             exhibition_date_end: event.exhibition_date_end,
-            photos: event.photos.length > 0 ? [{ art_link: event.photos[0].art_link }] : [], 
+            photos: event.photos.length > 0 ? [{ art_link: event.photos[0].art_link }] : [],
             exhibition_id: event.exhibition_id,
-            exhibition_desc: event.exhibition_desc,               
-            artist: event.artist,                   
+            exhibition_desc: event.exhibition_desc,
+            artist: event.artist,
             place: event.place
           }));
       },
@@ -50,13 +57,20 @@ export class KhHomepageComponent implements OnInit {
         console.error('Error loading exhibitions:', error);
       }
     );
-  }  
+  }
 
   goToExhibition() {
     this.router.navigate(['/exhibition']);
   }
 
   goToEvent(exhibition_id: number) {
-    this.router.navigate([`/exhibition/${exhibition_id}`]); 
+    this.router.navigate([`/exhibition/${exhibition_id}`]);
+  }
+
+  testLanguageSwitch() {
+    const currentLang = this.translocoService.getActiveLang();
+    const newLang = currentLang === 'swe' ? 'en' : 'swe';
+    this.translocoService.setActiveLang(newLang);
+    console.log(`Språk växlat till: ${newLang}`);
   }
 }
