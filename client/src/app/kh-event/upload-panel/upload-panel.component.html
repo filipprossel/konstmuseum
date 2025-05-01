@@ -151,7 +151,7 @@
   </section>
 
   <section class="row-choosephoto" *ngIf="!previewImage">
-    <label for="exhibitionPhoto">Ladda upp bilder</label>
+    <label for="exhibitionPhoto">Välj bild för uppladdning</label>
     <input 
         type="file" 
         id="exhibitionPhoto" 
@@ -160,14 +160,16 @@
   </section>
 
   <section class="preview-image" *ngIf="previewImage">
-    <label>Vald bild</label>
+    <div class="title">
+      <label>Vald bild</label>
+    </div>
     <img 
       [src]="previewImage" 
       alt="Förhandsvisning"/>
 
     <div class="input-row">
       <section class="row">
-        <label for="artworkName">Utställningsnamn</label>
+        <label for="artworkName">Konstverks namn</label>
         <input 
             type="text" 
             id="artworkName" 
@@ -175,6 +177,17 @@
             [(ngModel)]="artworkName" 
             autocomplete="off">
       </section>
+
+      <section class="row">
+        <label for="artDescription">Konstverks beskrivning</label>
+        <textarea 
+          id="artDescription" 
+          name="artDescription" 
+          [(ngModel)]="artDescription" 
+          rows="5"
+          style="resize: none;"></textarea>
+      </section>
+
     </div>
 
     <div class="button-row">
@@ -200,8 +213,8 @@
   </section>
   
 
-  <section class="row">
-    <button (click)="uploadEvent()">Ladda Upp</button>
+  <section class="button-row">
+    <button (click)="uploadEvent()">Ladda upp uppställning</button>
     <button (click)="cancelUpload()">Avbryt</button>
   </section>
 </div>
