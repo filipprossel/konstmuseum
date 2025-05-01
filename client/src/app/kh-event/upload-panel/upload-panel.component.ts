@@ -2,8 +2,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExhibitionService } from '../service/exhibtion.service';
 import { FormsModule } from '@angular/forms';
-import { Console } from 'node:console';
-import { read } from 'node:fs';
 
 @Component({
   selector: 'app-upload-panel',
@@ -13,32 +11,14 @@ import { read } from 'node:fs';
 })
 export class UploadPanelComponent {
   exhibitionName: string = '';
-  exhibitionArtist: string = '';
   exhibitionOrganizer: string = '';
   exhibitionDescription: string = '';
   exhibitionDateStart: Date | null = null;
   exhibitionDateEnd: Date | null = null;
   artDescription: string = '';
   artworkName: string = '';
-  constructor(private exhibitionService: ExhibitionService) { }
+  constructor(private exhibitionService: ExhibitionService) {}
 
-  /*onFilesSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    const files = input.files;
-    if (files) {
-      this.selectedFiles = Array.from(files);
-      this.previewUrls = [];
-      Array.from(files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = () => {
-          if (typeof reader.result === 'string') {
-            this.previewUrls.push(reader.result);
-          }
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-  }*/
   previewImage: string | null = null;
   selectedFiles: File | null = null;
   artworks: { file: File; name: string; desc: string; url: string }[] = [];
@@ -63,22 +43,48 @@ export class UploadPanelComponent {
   @Output() cancel = new EventEmitter<void>();
 
   cancelUpload() {
+    this.nullify();
+    this.artworks = [];
+    this.exhibitionName = '';
+    this.exhibitionOrganizer = '';
+    this.exhibitionDescription = '';
+    this.exhibitionDateStart = null;
+    this.exhibitionDateEnd = null;
     this.cancel.emit();
-  }
-
-  uploadEvent() {
-    this.artworks.forEach((artwork, index) => {
-      console.log(`Artwork ${index + 1}:`);
-      console.log('  File:', artwork.file);
-      console.log('  Name:', artwork.name);
-      console.log('  Description:', artwork.desc);
-    });
   }
 
   removeImage(artworkToRemove: { file: File; name: string; desc: string }) {
     this.artworks = this.artworks.filter(artwork => artwork !== artworkToRemove);
   }
   
+  nullify() {
+    this.artworkName = '';
+    this.artDescription = '';
+    this.selectedFiles = null;
+    this.previewImage = null;
+  }
+
+  isImageFormValid(): boolean {
+    return (
+      this.artworkName.trim() !== '' &&
+      this.artDescription.trim() !== ''
+    );
+  }
+
+  isFormValid(): boolean {
+    return (
+      this.exhibitionName.trim() !== '' &&
+      this.exhibitionOrganizer.trim() !== '' &&
+      this.exhibitionDescription.trim() !== '' &&
+      this.exhibitionDateStart !== null &&
+      this.exhibitionDateEnd !== null &&
+      this.artworks.length > 0
+    );
+  }  
+
+  removeUpload() {
+    this.nullify();
+  }
 
   uploadImage() {
     if (!this.selectedFiles) { return }
@@ -92,7 +98,36 @@ export class UploadPanelComponent {
       desc: this.artDescription,
       url: url
     })
-    this.previewImage = null;
+
+    this.nullify();
+  }
+
+  uploadEvent() {
+    const formData = new FormData();
+    formData.append('exhibition_name', this.exhibitionName);
+    formData.append('exhibition_organizer', this.exhibitionOrganizer);
+    formData.append('exhibition_desc', this.exhibitionDescription);
+
+    const exhibitionDateStartFormatted = this.exhibitionDateStart ? new Date(this.exhibitionDateStart).toISOString() : '';
+    const exhibitionDateEndFormatted = this.exhibitionDateEnd ? new Date(this.exhibitionDateEnd).toISOString() : '';
+
+    formData.append('exhibition_date_start', exhibitionDateStartFormatted);
+    formData.append('exhibition_date_end', exhibitionDateEndFormatted);
+
+    this.artworks.forEach((artwork, index) => {
+      formData.append('artfile', artwork.file, artwork.name); // Multiple files
+      formData.append(`artname[${index}]`, artwork.name);
+      formData.append(`artdesc[${index}]`, artwork.desc);
+    });
+
+    this.exhibitionService.uploadFiles(formData).subscribe({
+      next: (res) => {
+        console.log('Success', res);
+      },
+      error: (err) => {
+        console.error('Fail', err);
+      }
+    })
   }
 
   /*uploadEvent() {

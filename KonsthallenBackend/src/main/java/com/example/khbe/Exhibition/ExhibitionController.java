@@ -2,8 +2,11 @@ package com.example.khbe.Exhibition;
 
 import java.sql.Date;
 import java.time.Instant;
-
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -38,47 +41,47 @@ public class ExhibitionController {
         return exhibitionService.getExhibitionById(id);
     }
 
-   @PostMapping("/upload")
+
+ @PostMapping("/upload")
 public ResponseEntity<String> uploadFiles(
-    @RequestParam("exhibition_name") String exhibition_name,
-    @RequestParam("exhibition_artist") String exhibition_artist,
-    @RequestParam("exhibition_desc") String exhibition_desc,
-    @RequestParam("exhibition_date_start") String exhibition_date_start,
-    @RequestParam("exhibition_date_end") String exhibition_date_end,
-    @RequestParam("photos") List<MultipartFile> photos) 
+    @RequestParam("exhibition_name") String exhibitionName,
+    @RequestParam("exhibition_organizer") String exhibitionOrganizer,
+    @RequestParam("exhibition_desc") String exhibitionDesc,
+    @RequestParam("exhibition_date_start") String exhibitionDateStart,
+    @RequestParam("exhibition_date_end") String exhibitionDateEnd,
+    @RequestParam("artfile") List<MultipartFile> artfiles,
+    @RequestParam Map<String, String> allRequestParams)
 {
 
-    System.out.println(exhibition_date_start);
-    System.out.println(exhibition_date_end);
-    System.out.println("____");
+    System.out.println("ExhibitionController: uploadFiles called");
 
-    // Parse date strings to String 
+    Artist artist = artistService.createArtist(exhibitionOrganizer);
+
+    DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+LocalDateTime startDateTime;
+    LocalDateTime endDateTime;
     try {
-        // Parse date strings with time zone
-        // Ensure the dates have time zone information
-        System.out.println("Start Date (with time zone): " + exhibition_date_start);
-        System.out.println("End Date (with time zone): " + exhibition_date_end);
-    } catch (Exception e) {
-        return ResponseEntity.status(400).body("Invalid date format.");
+        startDateTime = LocalDateTime.parse(exhibitionDateStart, formatter);
+        endDateTime = LocalDateTime.parse(exhibitionDateEnd, formatter);
+    } catch (DateTimeParseException e) {
+        return ResponseEntity.badRequest().body("Invalid date format. Expected format: YYYY-MM-DDTHH:MM:SS");
     }
 
-    // Convert String  to java.sql.Date
+    Exhibition exhibition = exhibitionService.createExhibition(exhibitionName, startDateTime, exhibitionDesc, artist, endDateTime);
 
-    // Create Artist
-    Artist artist = artistService.createArtist(exhibition_artist);
-
-    // Create Exhibition
-    Exhibition exhibition = exhibitionService.createExhibition(exhibition_name, exhibition_date_start, exhibition_desc, artist, exhibition_date_end); 
-    
-    try {
-        System.out.println(2);
-        artphotoService.savePhotos(photos, exhibition);
-        System.out.println(2);
-        return ResponseEntity.ok("Files uploaded and saved successfully.");
-    } catch (Exception e) {
-        System.err.println(3);
-        return ResponseEntity.status(500).body("Error saving photos: " + e.getMessage());
+    for (int i = 0; i < artfiles.size(); i++) {
+        MultipartFile file = artfiles.get(i);
+        String nameKey = "artname[" + i + "]";
+        String descKey = "artdesc[" + i + "]";
+        String name = allRequestParams.get(nameKey);
+        String desc = allRequestParams.get(descKey);
+        
+        try {
+            artphotoService.savePhoto(file, exhibition, name, desc);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error uploading file: " + e.getMessage());
+        }
     }
-}
-
+    return ResponseEntity.ok("Files uploaded and saved successfully.");
+    }
 }

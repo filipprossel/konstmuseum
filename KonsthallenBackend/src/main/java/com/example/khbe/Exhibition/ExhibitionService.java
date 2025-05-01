@@ -6,6 +6,7 @@ import com.example.khbe.Artist.Artist;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -26,11 +27,9 @@ public class ExhibitionService {
         return exhibitionRepository.findByExhibitionId(id);
     }
 
-    public Exhibition createExhibition(String exhibition_name, String sqlStartDate, String exhibition_desc, Artist artist, String sqlEndDate) {
-        // Create a new Exhibition object with both start and end dates
+    public Exhibition createExhibition(String exhibition_name, LocalDateTime sqlStartDate, String exhibition_desc, Artist artist, LocalDateTime sqlEndDate) {
         Exhibition exhibition = new Exhibition(exhibition_name, sqlStartDate, exhibition_desc, artist, sqlEndDate);
-        
-        // Save the exhibition to the database and return the saved entity
+        System.out.println("ExhibitionService: createExhibition called");
         return exhibitionRepository.save(exhibition);
     }
     

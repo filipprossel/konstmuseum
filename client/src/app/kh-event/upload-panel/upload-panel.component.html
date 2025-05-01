@@ -191,8 +191,8 @@
     </div>
 
     <div class="button-row">
-      <!--<button (click)="removeImage()">Ta bort bild</button>-->
-      <button (click)="uploadImage()" (click)="onPhotoSelected($event)">Ladda upp bild</button>
+      <button (click)="uploadImage()" [disabled]="!isImageFormValid()" [class.disabled]="!isImageFormValid()">Ladda upp bild</button>
+      <button (click)="removeUpload()">Ta bort bild</button>
     </div>
   </section>
 
@@ -214,7 +214,7 @@
   
 
   <section class="button-row">
-    <button (click)="uploadEvent()">Ladda upp uppställning</button>
+    <button (click)="uploadEvent()" [disabled]="!isFormValid()" [class.disabled]="!isFormValid()">Ladda upp uppställning</button>
     <button (click)="cancelUpload()">Avbryt</button>
   </section>
 </div>
