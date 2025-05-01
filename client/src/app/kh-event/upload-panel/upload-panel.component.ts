@@ -82,8 +82,6 @@ export class UploadPanelComponent {
 
   uploadImage() {
     if (!this.selectedFiles) { return }
-    console.log(this.exhibitionName)
-    console.log(this.artworkName)
     if (!this.artworkName) { return }
 
     const url = this.previewImage as string;
@@ -91,7 +89,7 @@ export class UploadPanelComponent {
     this.artworks.push({
       file: this.selectedFiles,
       name: this.artworkName,
-      desc: 'test',
+      desc: this.artDescription,
       url: url
     })
     this.previewImage = null;
