@@ -18,8 +18,8 @@ export class UploadPanelComponent {
   exhibitionDescription: string = '';
   exhibitionDateStart: Date | null = null;
   exhibitionDateEnd: Date | null = null;
-  artDescription: String | null = null;
-
+  artDescription: string = '';
+  artworkName: string = '';
   constructor(private exhibitionService: ExhibitionService) { }
 
   /*onFilesSelected(event: Event) {
@@ -41,7 +41,7 @@ export class UploadPanelComponent {
   }*/
   previewImage: string | null = null;
   selectedFiles: File | null = null;
-  artworks: { file: File; name: string; desc: string }[] = [];
+  artworks: { file: File; name: string; desc: string; url: string }[] = [];
 
   onPhotoSelected(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -62,7 +62,7 @@ export class UploadPanelComponent {
 
   @Output() cancel = new EventEmitter<void>();
 
-  onCancelClick() {
+  cancelUpload() {
     this.cancel.emit();
   }
 
@@ -75,18 +75,26 @@ export class UploadPanelComponent {
     });
   }
 
-  removeImage() {}
+  removeImage(artworkToRemove: { file: File; name: string; desc: string }) {
+    this.artworks = this.artworks.filter(artwork => artwork !== artworkToRemove);
+  }
+  
 
   uploadImage() {
-    this.previewImage = null;
-    if (!this.selectedFiles) { 
-      console.log("HÄR")
-      return }
+    if (!this.selectedFiles) { return }
+    console.log(this.exhibitionName)
+    console.log(this.artworkName)
+    if (!this.artworkName) { return }
+
+    const url = this.previewImage as string;
+
     this.artworks.push({
       file: this.selectedFiles,
-      name: 'test',
-      desc: 'test'
+      name: this.artworkName,
+      desc: 'test',
+      url: url
     })
+    this.previewImage = null;
   }
 
   /*uploadEvent() {

@@ -141,7 +141,7 @@
   </section>
 
   <section class="row">
-    <label for="exhibitionDescription">Beskrivning</label>
+    <label for="exhibitionDescription">Utställnings beskrivning</label>
     <textarea 
       id="exhibitionDescription" 
       name="exhibitionDescription" 
@@ -165,11 +165,43 @@
       [src]="previewImage" 
       alt="Förhandsvisning"/>
 
+    <div class="input-row">
+      <section class="row">
+        <label for="artworkName">Utställningsnamn</label>
+        <input 
+            type="text" 
+            id="artworkName" 
+            name="artworkName" 
+            [(ngModel)]="artworkName" 
+            autocomplete="off">
+      </section>
+    </div>
+
     <div class="button-row">
-      <button (click)="removeImage()">Ta bort</button>
-      <button (click)="uploadImage()" (click)="onPhotoSelected($event)">Välj</button>
+      <!--<button (click)="removeImage()">Ta bort bild</button>-->
+      <button (click)="uploadImage()" (click)="onPhotoSelected($event)">Ladda upp bild</button>
     </div>
   </section>
 
-  <button (click)="uploadEvent()">Ladda UPP</button>
+  <section class="upload-container">
+    <div *ngFor="let artwork of artworks" class="image-card">
+
+      <i class="pi pi-times" (click)="removeImage(artwork)"></i>
+
+      <img 
+        [src]="artwork.url" 
+        alt="Förhandsvisning" 
+        class="preview-img"
+      />
+      <div class="artwork-info">
+        <h3>{{artwork.name}}</h3>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="row">
+    <button (click)="uploadEvent()">Ladda Upp</button>
+    <button (click)="cancelUpload()">Avbryt</button>
+  </section>
 </div>
