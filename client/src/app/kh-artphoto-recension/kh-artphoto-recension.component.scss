@@ -33,56 +33,54 @@
     border-radius: 10px;
 }
 #s5:hover{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s4:hover{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s3:hover{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s2:hover{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s1:hover{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 
 #s4:hover + #s5{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s3:hover + #s4{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s3:hover ~ #s5{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 
 
 #s2:hover + #s3{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s2:hover ~ #s5{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s2:hover ~ #s4{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 
 #s1:hover + #s2{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s1:hover ~ #s5{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s1:hover ~ #s3{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
 #s1:hover ~ #s4{
-    background-color: black;
+    color: rgb(49, 31, 216);
 }
-
-
 
 h2{
     font-weight: 300;

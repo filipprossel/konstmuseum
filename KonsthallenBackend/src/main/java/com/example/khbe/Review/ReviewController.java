@@ -16,6 +16,7 @@ public class ReviewController {
 
     @PostMapping("/createReview")
     public HttpStatus ReviewAndScore (@RequestBody HashMap<String, String> reviewData){
+        System.out.println(reviewData.get("grade"));
         return reviewService.setReviewAndScore(reviewData);
     }
     @GetMapping

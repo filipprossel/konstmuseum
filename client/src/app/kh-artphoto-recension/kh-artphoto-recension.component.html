@@ -7,14 +7,15 @@
         <p id="beskrivning">Tornedalens konsthall bjuder in till en unik utställning där konst, kultur och natur möts i ett tidlöst uttryck. Här blandas samtida verk med traditionella influenser, i en visuell resa genom Tornedalens själ. Precis som ett typografiskt provark från 1500-talet... mer</p>
         <h2>Betygsätt (1/5)</h2>
         <div id="stars">
-            <i class="pi pi-star" id="s1"></i>
-            <i class="pi pi-star" id="s2"></i>
-            <i class="pi pi-star" id="s3"></i>
-            <i class="pi pi-star" id="s4"></i>
-            <i class="pi pi-star" id="s5"></i>
+            <i class="pi pi-star" id="s1" (click)="setRating(5)"></i>
+            <i class="pi pi-star" id="s2" (click)="setRating(4)"></i>
+            <i class="pi pi-star" id="s3" (click)="setRating(3)"></i>
+            <i class="pi pi-star" id="s4" (click)="setRating(2)"></i>
+            <i class="pi pi-star" id="s5" (click)="setRating(1)"></i>
         </div>
         <h2>Anteckningar & Recension</h2>
         <textarea style="background-color: white;"></textarea>
+        <button (click)="sendReview()">button</button>
     </div>
     <div id="imgContainer" style="background-color: black; height: 200px; width: 200px;">
         <img src="" alt="">
