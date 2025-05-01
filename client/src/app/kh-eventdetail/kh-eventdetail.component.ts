@@ -5,6 +5,7 @@ import { Exhibition } from "../kh-event/service/exhibition.model";
 import { ExhibitionService } from "../kh-event/service/exhibtion.service";
 import { CommonModule } from '@angular/common';
 import {NgxScannerQrcodeComponent, LOAD_WASM, ScannerQRCodeConfig, ScannerQRCodeSelectedFiles, NgxScannerQrcodeService, ScannerQRCodeResult } from 'ngx-scanner-qrcode';
+import { formatDate } from '../utils/Timeformater';
 
 
 @Component({
@@ -21,6 +22,8 @@ export class KhEventDetailComponent implements OnInit {
 
   eventId: string | null = null;
   exhibition: Exhibition | null = null;
+  ehibition_start_date: string | null = null;
+  ehibition_end_date: string | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -106,6 +109,9 @@ LOAD_WASM('assets/wasm/ngx-scanner-qrcode.wasm').subscribe();
       this.exhibitionService.getExhibitionById(id).subscribe({
         next: (data) => {
           this.exhibition = data;
+          this.ehibition_start_date = formatDate(this.exhibition.exhibition_date_start);
+          this.ehibition_end_date = formatDate(this.exhibition.exhibition_date_end);
+          console.log(formatDate(this.exhibition.exhibition_date_start))
         },
         error: (err) => {
           console.error('Failed to load exhibition', err);
