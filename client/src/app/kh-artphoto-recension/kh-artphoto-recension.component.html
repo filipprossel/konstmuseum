@@ -1,10 +1,10 @@
 <div id="content">
 <div id="card">
     <div id="textContainer">
-        <strong>ID: #23123</strong>
-        <h1>Konstverkets namn</h1>
+        <strong>ID: #{{artwork.art_id}}</strong>
+        <h1>{{artwork.artphotoartist.artphotoartist_name}}</h1>
         <h2>Konstverkesbeskrivning</h2>
-        <p id="beskrivning">Tornedalens konsthall bjuder in till en unik utställning där konst, kultur och natur möts i ett tidlöst uttryck. Här blandas samtida verk med traditionella influenser, i en visuell resa genom Tornedalens själ. Precis som ett typografiskt provark från 1500-talet... mer</p>
+        <p id="beskrivning">{{artwork.art_desc}}</p>
         <h2>Betygsätt (1/5)</h2>
         <div id="stars">
             <i class="pi pi-star" id="s1" (click)="setRating(5)"></i>
@@ -18,7 +18,7 @@
         <button (click)="sendReview()">button</button>
     </div>
     <div id="imgContainer" style="background-color: black; height: 200px; width: 200px;">
-        <img src="" alt="">
+        <img [src]="'http://localhost:8080' + (artwork.art_link || '/assets/default.jpg')" alt="">
     </div>
 </div>
 </div>

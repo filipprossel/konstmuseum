@@ -71,12 +71,6 @@ main {
     i {
       font-size: 32px;
     }
-
-    &::after {
-      position: absolute;
-      content: 'Utforska?';
-      top: -20px;
-    }
   }
 }
 

@@ -48,7 +48,11 @@ public class Artphoto {
 
     public void setExhibition(Exhibition exhibition) {
         this.exhibition = exhibition;
-    }    
+    } 
+    
+    public int getExhibition_id() {
+        return exhibition.getExhibition_id();
+    }
 
     @ManyToOne
     @JoinColumn(name = "artphotoartist_id", nullable = false)

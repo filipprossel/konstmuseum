@@ -17,6 +17,7 @@ import com.example.khbe.Artist.Artist;
 import com.example.khbe.Artist.ArtistService;
 import com.example.khbe.Artphoto.ArtphotoService;
 
+
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/exhibitions")
@@ -43,45 +44,54 @@ public class ExhibitionController {
 
 
  @PostMapping("/upload")
-public ResponseEntity<String> uploadFiles(
-    @RequestParam("exhibition_name") String exhibitionName,
-    @RequestParam("exhibition_organizer") String exhibitionOrganizer,
-    @RequestParam("exhibition_desc") String exhibitionDesc,
-    @RequestParam("exhibition_date_start") String exhibitionDateStart,
-    @RequestParam("exhibition_date_end") String exhibitionDateEnd,
-    @RequestParam("artfile") List<MultipartFile> artfiles,
-    @RequestParam Map<String, String> allRequestParams)
-{
-
-    System.out.println("ExhibitionController: uploadFiles called");
-
-    Artist artist = artistService.createArtist(exhibitionOrganizer);
-
-    DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
-LocalDateTime startDateTime;
-    LocalDateTime endDateTime;
-    try {
-        startDateTime = LocalDateTime.parse(exhibitionDateStart, formatter);
-        endDateTime = LocalDateTime.parse(exhibitionDateEnd, formatter);
-    } catch (DateTimeParseException e) {
-        return ResponseEntity.badRequest().body("Invalid date format. Expected format: YYYY-MM-DDTHH:MM:SS");
-    }
-
-    Exhibition exhibition = exhibitionService.createExhibition(exhibitionName, startDateTime, exhibitionDesc, artist, endDateTime);
-
-    for (int i = 0; i < artfiles.size(); i++) {
-        MultipartFile file = artfiles.get(i);
-        String nameKey = "artname[" + i + "]";
-        String descKey = "artdesc[" + i + "]";
-        String name = allRequestParams.get(nameKey);
-        String desc = allRequestParams.get(descKey);
-        
-        try {
-            artphotoService.savePhoto(file, exhibition, name, desc);
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("Error uploading file: " + e.getMessage());
-        }
-    }
-    return ResponseEntity.ok("Files uploaded and saved successfully.");
-    }
-}
+ public ResponseEntity<Map<String, String>> uploadFiles(
+     @RequestParam("exhibition_name") String exhibitionName,
+     @RequestParam("exhibition_organizer") String exhibitionOrganizer,
+     @RequestParam("exhibition_desc") String exhibitionDesc,
+     @RequestParam("exhibition_date_start") String exhibitionDateStart,
+     @RequestParam("exhibition_date_end") String exhibitionDateEnd,
+     @RequestParam("artfile") List<MultipartFile> artfiles,
+     @RequestParam Map<String, String> allRequestParams)
+ {
+     System.out.println("ExhibitionController: uploadFiles called");
+ 
+     Artist artist = artistService.createArtist(exhibitionOrganizer);
+ 
+     DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+     LocalDateTime startDateTime;
+     LocalDateTime endDateTime;
+     try {
+         startDateTime = LocalDateTime.parse(exhibitionDateStart, formatter);
+         endDateTime = LocalDateTime.parse(exhibitionDateEnd, formatter);
+     } catch (DateTimeParseException e) {
+         return ResponseEntity.badRequest().body(Map.of(
+             "status", "error",
+             "message", "Invalid date format. Expected format: YYYY-MM-DDTHH:MM:SS"
+         ));
+     }
+ 
+     Exhibition exhibition = exhibitionService.createExhibition(exhibitionName, startDateTime, exhibitionDesc, artist, endDateTime);
+ 
+     for (int i = 0; i < artfiles.size(); i++) {
+         MultipartFile file = artfiles.get(i);
+         String nameKey = "artname[" + i + "]";
+         String descKey = "artdesc[" + i + "]";
+         String name = allRequestParams.get(nameKey);
+         String desc = allRequestParams.get(descKey);
+         
+         try {
+             artphotoService.savePhoto(file, exhibition, name, desc);
+         } catch (Exception e) {
+             return ResponseEntity.status(500).body(Map.of(
+                 "status", "error",
+                 "message", "Error uploading file: " + e.getMessage()
+             ));
+         }
+     }
+ 
+     return ResponseEntity.ok(Map.of(
+         "status", "success",
+         "message", "Files uploaded and saved successfully."
+     ));
+ }
+} 

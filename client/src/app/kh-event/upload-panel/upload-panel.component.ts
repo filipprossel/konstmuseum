@@ -22,6 +22,7 @@ export class UploadPanelComponent {
   previewImage: string | null = null;
   selectedFiles: File | null = null;
   artworks: { file: File; name: string; desc: string; url: string }[] = [];
+  feedbackMessage: string = '';
 
   onPhotoSelected(event: Event) {
     const input = event.target as HTMLInputElement;
@@ -78,9 +79,14 @@ export class UploadPanelComponent {
       this.exhibitionDescription.trim() !== '' &&
       this.exhibitionDateStart !== null &&
       this.exhibitionDateEnd !== null &&
+      new Date(this.exhibitionDateEnd) > new Date(this.exhibitionDateStart) &&
       this.artworks.length > 0
     );
   }  
+
+  closePanel() {
+    this.cancel.emit();
+  }
 
   removeUpload() {
     this.nullify();
@@ -123,6 +129,12 @@ export class UploadPanelComponent {
     this.exhibitionService.uploadFiles(formData).subscribe({
       next: (res) => {
         console.log('Success', res);
+        this.feedbackMessage = 'Utställningen har laddats upp!';
+
+        setTimeout(() => {
+          this.feedbackMessage = '';
+          this.cancelUpload();
+        }, 2000);        
       },
       error: (err) => {
         console.error('Fail', err);

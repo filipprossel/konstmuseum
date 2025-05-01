@@ -1,13 +1,13 @@
-<div class="headerWrapper">
+<div class="headerWrapper" *transloco="let t">
     <header>
         <div class="logoWrapper">
             <h2><a [routerLink]="homeLink">Konsthall Tornedalen</a></h2>
         </div>
         <nav>
-            <a [routerLink]="exploreLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Utforska</a>
-            <a [routerLink]="eventLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Evenemang</a>
-            <a [routerLink]="utstallLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Utställningar</a>
-            <a [routerLink]="forumLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Forum</a>
+            <a [routerLink]="exploreLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ t('explore') }}</a>
+            <a [routerLink]="eventLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ t('events') }}</a>
+            <a [routerLink]="utstallLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ t('exhibitions') }}</a>
+            <a [routerLink]="forumLink" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ t('forum') }}</a>
         </nav>
         <div class="profileButtons">
             <div class="extra">
@@ -18,10 +18,11 @@
                     <i class="pi pi-comment" style="font-size: 22.5px"></i>
                 </div>
                 <div class="profileButton">
-                    <button class="language">
+                    <button class="language" (click)="testLanguageSwitch()">
                         <i class="pi pi-globe"></i>
                     </button>
                 </div>
+                <span class="language-text">{{ currentLanguage }}</span>
             </div>
             <div class="profile">
                 <app-profile-dropdown class="dropdown"></app-profile-dropdown>

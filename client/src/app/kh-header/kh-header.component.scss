@@ -34,6 +34,7 @@
       a {
         text-decoration: none;
         color: #000;
+        text-transform: capitalize;
 
         &:hover, &.active {
           color: var(--kh-primary-color);
@@ -143,4 +144,8 @@
   .headerWrapper header nav {
     gap: 5px;
   }
+}
+
+.language-text {
+  text-transform: uppercase;
 }

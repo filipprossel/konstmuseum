@@ -28,8 +28,6 @@ export class KhLoginComponent {
 
   onSubmit(): void {
       let {email, password} = this;
-      email = "ErikLindstrom@gmail.com"
-      password = "password";
       this.KhLoginServiceService.loginUser(email, password).subscribe((data) => {
         console.log(data);
         this.user = data;

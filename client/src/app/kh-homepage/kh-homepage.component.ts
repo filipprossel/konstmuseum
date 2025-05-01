@@ -20,8 +20,6 @@ import {LanguageSwitcherComponent} from '../language-switcher/language-switcher.
     Carousel,
     KhArtistshowcaseComponent,
     TranslocoDirective,
-    LanguageSwitcherComponent,
-
 ],
   styleUrls: ['./kh-homepage.component.scss'],
 })
@@ -65,12 +63,5 @@ export class KhHomepageComponent implements OnInit {
 
   goToEvent(exhibition_id: number) {
     this.router.navigate([`/exhibition/${exhibition_id}`]);
-  }
-
-  testLanguageSwitch() {
-    const currentLang = this.translocoService.getActiveLang();
-    const newLang = currentLang === 'swe' ? 'en' : 'swe';
-    this.translocoService.setActiveLang(newLang);
-    console.log(`Språk växlat till: ${newLang}`);
   }
 }

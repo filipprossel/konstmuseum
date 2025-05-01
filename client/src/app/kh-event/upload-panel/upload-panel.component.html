@@ -1,105 +1,7 @@
-<!--<div class="wrapper">
-  <div>
-    <div>
-      <label for="exhibitionName">Utställningsnamn</label>
-      <input 
-        type="text" 
-        id="exhibitionName" 
-        name="exhibitionName" 
-        [(ngModel)]="exhibitionName" 
-        autocomplete="off"
-      >
-    </div>
-  </div>
-
-  <div>
-    <div>
-      <label for="exhibitionDateStart">Start</label>
-      <input 
-        type="datetime-local" 
-        id="exhibitionDateStart" 
-        name="exhibitionDateStart"
-        [(ngModel)]="exhibitionDateStart" 
-      >
-    </div>
-    <div>
-      <label for="exhibitionDateEnd">Avslutas</label>
-      <input 
-        type="datetime-local" 
-        id="exhibitionDateEnd" 
-        name="exhibitionDateEnd"
-        [(ngModel)]="exhibitionDateEnd" 
-      >
-    </div>
-  </div>
-
-  <div>
-    <div>
-      <label for="exhibitionOrganizer">Arrangör</label>
-      <input 
-        type="text" 
-        id="exhibitionOrganizer" 
-        name="exhibitionOrganizer" 
-        [(ngModel)]="exhibitionOrganizer" 
-        autocomplete="off"
-      >
-    </div>
-  </div>
-
-  <div>
-    <div>
-      <label for="exhibitionDescription">Beskrivning</label>
-      <textarea 
-        id="exhibitionDescription" 
-        name="exhibitionDescription" 
-        [(ngModel)]="exhibitionDescription" 
-        rows="5"
-        style="resize: none;"
-      ></textarea>
-    </div>
-  </div>
-
-  <div>
-    <div>
-      <label for="exhibitionPhoto">Ladda upp bilder</label>
-      <div>
-        <input 
-          type="file" 
-          id="exhibitionPhoto" 
-          accept="image/*" 
-          (change)="onPhotoSelected($event)">
-        <label for="exhibitionPhoto">Välj filer</label>
-      </div>
-    </div>
-  </div>
-
-  <div *ngIf="previewImage">
-    <img 
-      [src]="previewImage" 
-      alt="Förhandsvisning"
-    />
-
-    <div>
-      <div>
-        <label for="artDescription">Beskrivning</label>
-        <textarea 
-          id="artDescription" 
-          name="artDescription" 
-          [(ngModel)]="artDescription" 
-          rows="5"
-          style="resize: none;"
-        ></textarea>
-      </div>
-    </div>
-  </div>  
-
-  <div>
-    <button (click)="onCancelClick()">Avbryt</button>
-    <button (click)="uploadEvent()">Ladda upp</button>
-  </div>
-</div> -->
-
 <div class="wrapper">
+
+  <i class="pi pi-times" (click)="closePanel()"></i>
+
   <section class="row">
     <label for="exhibitionName">Utställningsnamn</label>
     <input 
@@ -211,6 +113,11 @@
       </div>
     </div>
   </section>
+
+  <section *ngIf="feedbackMessage" class="feedback-message">
+    {{ feedbackMessage }}
+  </section>
+
   
 
   <section class="button-row">
