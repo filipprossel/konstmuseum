@@ -139,7 +139,9 @@ export class UploadPanelComponent {
         setTimeout(() => {
           this.feedbackMessage = '';
           this.cancelUpload();
-        }, 2000);        
+          location.reload(); 
+        }, 2000);
+            
       },
       error: (err) => {
         console.error('Fail', err);
