@@ -20,9 +20,10 @@ export class KhArtphotoRecensionComponent {
   star3: any = document.getElementById("s3");
   star4: any = document.getElementById("s4");
   star5: any = document.getElementById("s5");
+  stars: HTMLElement[] = [];
   artwork!: ArtWork;
 
-  //stars: HTMLElement[] = [this.star1, this.star2, this.star3, this.star4, this.star5];
+  //
   constructor(khArtphotoService: KhArtphotoService, authService: AuthService, private route: ActivatedRoute, private router: Router) {
     this.khArtphotoService = khArtphotoService;
     this.authService = authService; 
@@ -30,7 +31,18 @@ export class KhArtphotoRecensionComponent {
   }
   ngOnInit(){
     this.star1 = document.getElementById("s1");
-
+    this.star2 = document.getElementById("s2");
+    this.star3 = document.getElementById("s3");
+    this.star4 = document.getElementById("s4");
+    this.star5 = document.getElementById("s5");
+    this.stars.push(this.star5);
+    this.stars.push(this.star4);
+    this.stars.push(this.star3);
+    this.stars.push(this.star2);
+    this.stars.push(this.star1);
+   
+    
+    
 
     const artId = Number(this.route.snapshot.paramMap.get('artId'));
     const exhibitionId = Number(this.route.snapshot.paramMap.get('exhibitionId'));
@@ -54,11 +66,19 @@ export class KhArtphotoRecensionComponent {
     if(this.rating === rating){
       this.rating = -1;
       
-     // for(let star of this.stars){
-      //  star.style.color="none"
-     // }
+     for(let star of this.stars){
+      star.style.color="black";
+    }
     }
     else{
+      if(this.rating > rating){
+        for(let star of this.stars){
+          star.style.color="black";
+        }
+      }
+      for(let i = 0; i < rating; i++){
+          this.stars[i].style.color = "blue";
+      }
       this.rating = rating;
     }
   }
