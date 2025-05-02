@@ -3,16 +3,17 @@ import { KhArtphotoService } from './kh-artphoto-service/kh-artphoto.service';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ArtWork } from './kh-artphoto-service/artwork.model';
+import { CommonModule } from '@angular/common';
 import { get } from 'http';
 
 @Component({
   selector: 'app-kh-artphoto-recension',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './kh-artphoto-recension.component.html',
   styleUrl: './kh-artphoto-recension.component.scss'
 })
 export class KhArtphotoRecensionComponent {
-  rating: number = -1;
+  rating: number = 0;
   khArtphotoService!: KhArtphotoService;
   authService!: AuthService;
   user: any;
@@ -48,7 +49,6 @@ export class KhArtphotoRecensionComponent {
    
     
     
-
     const artId = Number(this.route.snapshot.paramMap.get('artId'));
     const exhibitionId = Number(this.route.snapshot.paramMap.get('exhibitionId'));
     console.log(artId);
@@ -68,30 +68,21 @@ export class KhArtphotoRecensionComponent {
 
     console.log(this.rating);
   }
-  setRating(rating: number){
-    if(this.rating === rating){
-      this.rating = -1;
-      
-     for(let star of this.stars){
-      star.style.color="black";
-    }
-    }
-    else{
-      if(this.rating > rating){
-        for(let star of this.stars){
-          star.style.color="black";
-        }
-      }
-      for(let i = 0; i < rating; i++){
-          this.stars[i].style.color = "blue";
-      }
-      this.rating = rating;
+
+  setRating(value: number): void {
+    if (this.rating === value) {
+      this.rating = 0;
+    } else {
+      this.rating = value;
     }
   }
+
   sendReview(){
     this.khArtphotoService.createReview(this.user.id, this.route.snapshot.paramMap.get('artId')!.toString(), this.rating.toString(), this.reviewBox.value).subscribe((data) => {
      console.log(data);
     });
   }
+
+  clearReview() {}
 
 }

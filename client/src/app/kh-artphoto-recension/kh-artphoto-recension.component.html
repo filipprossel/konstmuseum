@@ -1,25 +1,51 @@
-<div id="content">
-<div id="card">
-    <div id="textContainer">
-        <strong>ID: #{{artwork.art_id}}</strong>
-        <h1>{{artwork.art_name}}</h1>
-        <h2>Konstverkesbeskrivning</h2>
-        <p id="beskrivning">{{artwork.art_desc}}</p>
-        <h2>Betygsätt (1/5)</h2>
-        <div id="stars">
-            <i class="pi pi-star" id="s1" (click)="setRating(5)"></i>
-            <i class="pi pi-star" id="s2" (click)="setRating(4)"></i>
-            <i class="pi pi-star" id="s3" (click)="setRating(3)"></i>
-            <i class="pi pi-star" id="s4" (click)="setRating(2)"></i>
-            <i class="pi pi-star" id="s5" (click)="setRating(1)"></i>
+<div id="wrapper">
+    <div id="card">
+        <div id="left-wrapper">
+            <section class="info-container">
+                <label><strong>ID: #{{artwork.art_id}}</strong></label>
+
+                <label for="artwork_name">Konstverkets namn</label>
+                <h1 class="artwork_name">{{artwork.art_name}}</h1>
+                
+                <label for="art_desc">Beskrivning av konstverket</label>
+                <p class="art_desc">{{artwork.art_desc}}</p>
+            </section>
+
+            <section class="rating-section">
+                <label for="stars">Betygsätt (1/5)</label>
+                <div id="stars">
+                  <i
+                    *ngFor="let star of [5, 4, 3, 2, 1]; let i = index"
+                    class="star pi"
+                    [ngClass]="{
+                      'pi-star-fill': (5 - i) <= rating,
+                      'pi-star': (5 - i) > rating
+                    }"
+                    (click)="setRating(5 - i)"
+                  ></i>
+                </div>
+            </section>              
+
+            <section class="review-section">
+                <label for="review">Anteckningar & Recension</label>
+                <textarea id="review" placeholder="Skriv din recension här..."></textarea>
+            </section>
         </div>
-        <h2>Anteckningar & Recension</h2>
-        <textarea id="review" style="background-color: white;"></textarea>
-        <button (click)="sendReview()">Spara</button>
-    </div>
-    <div id="imgContainer" style="background-color: black; height: 200px; width: 200px;">
-        <img [src]="'http://localhost:8080' + (artwork.art_link || '/assets/default.jpg')" alt="">
-    </div>
-</div>
+
+        <div id="right-wrapper">
+            <div>
+                <div class="img-container">
+                    <img [src]="'http://localhost:8080' + (artwork.art_link || '/assets/default.jpg')" alt="">
+                </div>
+                <div>
+                    <label>Konstnär</label>
+                    <h2>{{artwork.artphotoartist.artphotoartist_name}}</h2>
+                </div>
+            </div>
+            <div class="buttons">
+                <button (click)="sendReview()">Skicka in recension</button>
+                <button (click)="clearReview()">Rensa text</button>
+            </div>
+        </div>
 </div>
     
