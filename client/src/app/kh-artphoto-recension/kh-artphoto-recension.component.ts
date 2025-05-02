@@ -46,9 +46,10 @@ export class KhArtphotoRecensionComponent {
 
     const artId = Number(this.route.snapshot.paramMap.get('artId'));
     const exhibitionId = Number(this.route.snapshot.paramMap.get('exhibitionId'));
-
+    console.log(artId);
     this.khArtphotoService.getArtworkById(artId).subscribe((data: ArtWork) => {
       this.artwork = data;
+      console.log(this.artwork);
       if (!this.artwork) {
         this.router.navigate(['/']);
       }
