@@ -9,4 +9,5 @@ export interface ArtWork {
   art_desc: string;
   artphotoartist: ArtphotoArtist;
   exhibition_id: number;
+  art_name: string;
 }

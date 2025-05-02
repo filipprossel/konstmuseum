@@ -9,11 +9,12 @@ public class Artphoto {
 
     public Artphoto() {}
 
-    public Artphoto(String art_link,Exhibition exhibition,ArtphotoArtist artphotoArtist,String art_desc) {
+    public Artphoto(String art_link,Exhibition exhibition,ArtphotoArtist artphotoArtist,String art_desc,String art_name) {
         this.art_link = art_link;
         this.exhibition = exhibition;
         this.artphotoArtist = artphotoArtist;
         this.art_desc = art_desc;
+        this.art_name = art_name;
     }
 
     @Id
@@ -21,6 +22,15 @@ public class Artphoto {
     private int art_id;
     private String art_link;
     private String art_desc;
+    private String art_name;
+
+    public void setArt_name(String art_name) {
+        this.art_name = art_name;
+    }
+
+    public String getArt_name() {
+        return art_name;
+    }
 
     public String getArt_desc() {
         return art_desc;

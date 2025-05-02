@@ -23,7 +23,7 @@ public class ArtphotoService {
 
     private final String uploadDir = "C:/home/username/uploads/"; 
 
-    public void savePhoto(MultipartFile photo, Exhibition exhibition, String artphotoArtistName, String artDesc) throws IOException {
+    public void savePhoto(MultipartFile photo, Exhibition exhibition, String artName, String artDesc, String artphotoArtistName) throws IOException {
         if (photo == null || photo.isEmpty()) return;
     
         String originalFilename = photo.getOriginalFilename();
@@ -51,7 +51,7 @@ public class ArtphotoService {
         ArtphotoArtist artphotoArtist = new ArtphotoArtist(artphotoArtistName);
         artphotoArtistRepository.save(artphotoArtist);
     
-        Artphoto artphoto = new Artphoto("/uploads/" + filename, exhibition, artphotoArtist, artDesc);
+        Artphoto artphoto = new Artphoto("/uploads/" + filename, exhibition, artphotoArtist, artDesc, artName);
         artphotoRepository.save(artphoto);
     }    
 }

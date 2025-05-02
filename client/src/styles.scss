@@ -21,19 +21,21 @@ app-kh-phone-header {
   display: none;
 }
 
-@media (max-width: 768px){
-  :root{
-    --header-height: 60px;
-    --main-padding: 0px;
-    --header-footer-margin: 25px;
-  }
-
+@media (max-width: 1100px) {
   app-kh-header {
     display: none;
   }
 
   app-kh-phone-header {
     display: block;
+  }
+}
+
+@media (max-width: 768px){
+  :root{
+    --header-height: 60px;
+    --main-padding: 0px;
+    --header-footer-margin: 25px;
   }
 }
 

@@ -71,12 +71,22 @@
 
     <div class="input-row">
       <section class="row">
-        <label for="artworkName">Konstnärens namn</label>
+        <label for="artworkName">Konstverk namn</label>
         <input 
             type="text" 
             id="artworkName" 
             name="artworkName" 
             [(ngModel)]="artworkName" 
+            autocomplete="off">
+      </section>
+
+      <section class="row">
+        <label for="artworkArtistName">Konstnärens namn</label>
+        <input 
+            type="text" 
+            id="artworkArtistName" 
+            name="artworkArtistName" 
+            [(ngModel)]="artworkArtistName" 
             autocomplete="off">
       </section>
 

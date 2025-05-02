@@ -76,11 +76,13 @@ public class ExhibitionController {
          MultipartFile file = artfiles.get(i);
          String nameKey = "artname[" + i + "]";
          String descKey = "artdesc[" + i + "]";
+         String artistNameKey = "artistname[" + i + "]";
          String name = allRequestParams.get(nameKey);
          String desc = allRequestParams.get(descKey);
+         String artistName = allRequestParams.get(artistNameKey);
          
          try {
-             artphotoService.savePhoto(file, exhibition, name, desc);
+             artphotoService.savePhoto(file, exhibition, name, desc, artistName);
          } catch (Exception e) {
              return ResponseEntity.status(500).body(Map.of(
                  "status", "error",

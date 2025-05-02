@@ -17,11 +17,12 @@ export class UploadPanelComponent {
   exhibitionDateEnd: Date | null = null;
   artDescription: string = '';
   artworkName: string = '';
+  artworkArtistName: string = '';
   constructor(private exhibitionService: ExhibitionService) {}
 
   previewImage: string | null = null;
   selectedFiles: File | null = null;
-  artworks: { file: File; name: string; desc: string; url: string }[] = [];
+  artworks: { file: File; name: string; desc: string; url: string, artist_name: string }[] = [];
   feedbackMessage: string = '';
 
   onPhotoSelected(event: Event) {
@@ -61,6 +62,7 @@ export class UploadPanelComponent {
   nullify() {
     this.artworkName = '';
     this.artDescription = '';
+    this.artworkArtistName = '';
     this.selectedFiles = null;
     this.previewImage = null;
   }
@@ -68,7 +70,8 @@ export class UploadPanelComponent {
   isImageFormValid(): boolean {
     return (
       this.artworkName.trim() !== '' &&
-      this.artDescription.trim() !== ''
+      this.artDescription.trim() !== '' &&
+      this.artworkArtistName.trim() !== ''
     );
   }
 
@@ -102,6 +105,7 @@ export class UploadPanelComponent {
       file: this.selectedFiles,
       name: this.artworkName,
       desc: this.artDescription,
+      artist_name: this.artworkArtistName,
       url: url
     })
 
@@ -121,9 +125,10 @@ export class UploadPanelComponent {
     formData.append('exhibition_date_end', exhibitionDateEndFormatted);
 
     this.artworks.forEach((artwork, index) => {
-      formData.append('artfile', artwork.file, artwork.name); // Multiple files
+      formData.append('artfile', artwork.file, artwork.name); 
       formData.append(`artname[${index}]`, artwork.name);
       formData.append(`artdesc[${index}]`, artwork.desc);
+      formData.append(`artistname[${index}]`, artwork.artist_name);
     });
 
     this.exhibitionService.uploadFiles(formData).subscribe({
