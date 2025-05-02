@@ -54,32 +54,19 @@ export class KhEventDetailComponent implements OnInit {
   @Output() getScanner = new EventEmitter<string>();
 
 
-  // onScan(res: ScannerQRCodeResult[], action?: any): void {
-  //   console.log("first")
-  //   if (res && res.length) {
-  //     const { value } = res[0];
+  onScan(res: ScannerQRCodeResult[], action?: any): void {
+    if (res && res.length) {
+      const { value, points } = res[0];
+      
+      this.scanner.pause();
 
-  //     this.getScanner.emit(value);
-  //     console.log(value)
-  //     // window.location.href = value;
-  //   }
-  // }
+      setTimeout(() => {
+        window.location.href=value;
+      }, 1000)
 
-    onScan(res: ScannerQRCodeResult[], action?: any): void {
-      if (res && res.length) {
-        const { value, points } = res[0];
-        
-        this.scanner.pause();
-
-        setTimeout(() => {
-          window.location.href=value;
-        }, 1000)
-
-       
-      }
-
+      
+    }
   }
-
 
   isURL(value: string): boolean {
     try {

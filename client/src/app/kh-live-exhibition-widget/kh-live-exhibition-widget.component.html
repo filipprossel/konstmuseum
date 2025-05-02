@@ -1,4 +1,4 @@
-<div class="liveExhitiionContainer" *ngIf="!isWidgetClosed">
+<div class="liveExhitiionContainer" *ngIf="isWidgetOpened">
     <div class="head">
         <div>
             Pågående utställning
@@ -8,11 +8,11 @@
         </span>
     </div>
     <div class="bodyContent">
-        <h1>Utställningsnamn</h1>
-        <h5>Idag 10:15 - 15:05</h5>
-        <img src="http://localhost:4200/assets/homepage.png" alt="">
+        <h1>{{ liveExhibition.exhibition_name }}</h1>
+        <h5>{{ dateStr }}</h5>
+        <div class="img" [style.backgroundImage]="'url(http://localhost:8080' + (liveExhibition.photos[0].art_link || '/assets/default.jpg') + ')'"></div>
         
-        <a class="connectButton">
+        <a class="connectButton" [href]="'/exhibition/' + liveExhibition.exhibition_id">
             <span>Anslut</span>
             <i class="pi pi-chevron-right"></i>
         </a>
