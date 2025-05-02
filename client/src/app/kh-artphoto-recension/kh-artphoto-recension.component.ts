@@ -3,6 +3,7 @@ import { KhArtphotoService } from './kh-artphoto-service/kh-artphoto.service';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ArtWork } from './kh-artphoto-service/artwork.model';
+import { get } from 'http';
 
 @Component({
   selector: 'app-kh-artphoto-recension',
@@ -14,22 +15,25 @@ export class KhArtphotoRecensionComponent {
   rating: number = -1;
   khArtphotoService!: KhArtphotoService;
   authService!: AuthService;
-  user: any; 
+  user: any;
   star1: any;
   star2: any = document.getElementById("s2");
   star3: any = document.getElementById("s3");
   star4: any = document.getElementById("s4");
   star5: any = document.getElementById("s5");
+  reviewBox: any;
   stars: HTMLElement[] = [];
   artwork!: ArtWork;
 
-  //
+
   constructor(khArtphotoService: KhArtphotoService, authService: AuthService, private route: ActivatedRoute, private router: Router) {
     this.khArtphotoService = khArtphotoService;
     this.authService = authService; 
     
   }
   ngOnInit(){
+    this.user = this.authService.getUser();
+    console.log(this.user.id);
     this.star1 = document.getElementById("s1");
     this.star2 = document.getElementById("s2");
     this.star3 = document.getElementById("s3");
@@ -40,6 +44,7 @@ export class KhArtphotoRecensionComponent {
     this.stars.push(this.star3);
     this.stars.push(this.star2);
     this.stars.push(this.star1);
+    this.reviewBox = document.getElementById("review")
    
     
     
@@ -84,8 +89,8 @@ export class KhArtphotoRecensionComponent {
     }
   }
   sendReview(){
-    this.khArtphotoService.createReview("1", "54", this.rating.toString(), "Reviewtext").subscribe((data) => {
-      console.log(data);
+    this.khArtphotoService.createReview(this.user.id, this.route.snapshot.paramMap.get('artId')!.toString(), this.rating.toString(), this.reviewBox.value).subscribe((data) => {
+     console.log(data);
     });
   }
 

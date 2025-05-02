@@ -24,7 +24,8 @@ public class ReviewService {
     private UserRepository userRepository;
     public HttpStatus setReviewAndScore(HashMap<String, String> reviewData){//Skapar en review med hjälp av datan från hashmapen.
         Review newReview = new Review();
-        if(reviewData.get("user_id").isEmpty() || reviewData.get("art_id").isEmpty()){//Ifall värden som är nödvändiga inte skickas med, returneras en HTTPStatus.BAD_REQUEST.
+        if(reviewData.get("user_id") == null || reviewData.get("art_id") == null){//Ifall värden som är nödvändiga inte skickas med, returneras en HTTPStatus.BAD_REQUEST.
+            System.out.println(reviewData.get("user_id"));
             return HttpStatus.BAD_REQUEST;
         }
         try{
