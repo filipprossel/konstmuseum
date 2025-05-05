@@ -1,0 +1,6 @@
+<div class="wrapper">
+    <div *ngFor="let lang of languages" (click)="changeLang(lang.value)"> 
+        <img [src]="'assets/languageFlags/' + lang.imgLink" alt="">
+        <span>{{ lang.label }}</span>  
+    </div>
+</div>

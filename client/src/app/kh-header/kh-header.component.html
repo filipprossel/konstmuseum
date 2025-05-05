@@ -17,13 +17,23 @@
                 <div class="profileButton">
                     <i class="pi pi-comment" style="font-size: 22.5px"></i>
                 </div>
-                <div class="profileButton">
+                <!-- <div class="profileButton" id="languageSelector">
                     <button class="language" (click)="testLanguageSwitch()">
                         <i class="pi pi-globe"></i>
                     </button>
-                </div>
-                <span class="language-text">{{ currentLanguage }}</span>
+                    <span class="language-text">{{ currentLanguage }}</span>
+                </div> -->
             </div>
+           
+            <div class="profile">
+                <app-kh-language-selector class="dropdown"></app-kh-language-selector>
+                <div class="profileButton">
+                    <img *ngIf="userPfp" [src]="currentLangImg" alt="User Profile Picture" class="user-pfp"/>
+                </div>
+            </div>
+           
+           
+           
             <div class="profile">
                 <app-profile-dropdown class="dropdown"></app-profile-dropdown>
                 <p>{{ userName }}</p>

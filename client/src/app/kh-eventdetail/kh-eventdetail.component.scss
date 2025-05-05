@@ -11,6 +11,17 @@ main {
         border-bottom: 1px solid var(--kh-secondary-color);
     }
 
+    .activeExhibitionBanner {
+      padding: .275rem .75rem;
+      background-color: rgba(48, 235, 35, 0.354);
+      border-radius: 30px;
+      color: #2FC425;
+      font-size: 1rem;
+      font-weight:600;
+      border: 2px solid rgba(48, 196, 37, 0.54);
+
+    }
+
     .info {
         width: 100%;
 

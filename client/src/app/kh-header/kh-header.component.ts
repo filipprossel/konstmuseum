@@ -3,11 +3,13 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
 import { ProfileDropdownComponent } from "./profile-dropdown/profile-dropdown.component";
+import { KhLanguageSelectorComponent } from './kh-language-selector/kh-language-selector/kh-language-selector.component';
 import {TranslocoDirective, TranslocoService} from '@jsverse/transloco';
+import { getLanguageImagePath } from './kh-language-selector/kh-language-selector/language.config';
 
 @Component({
   selector: 'app-kh-header',
-  imports: [RouterModule, CommonModule, ProfileDropdownComponent,TranslocoDirective],
+  imports: [RouterModule, CommonModule, ProfileDropdownComponent,TranslocoDirective, KhLanguageSelectorComponent],
   templateUrl: './kh-header.component.html',
   styleUrls: ['./kh-header.component.scss']
 })
@@ -17,7 +19,8 @@ export class KhHeaderComponent implements OnInit {
   eventLink = "/b";
   forumLink = "/forms";
   utstallLink = "/exhibition";
-  currentLanguage = 'swe';
+  currentLangImg: string | null | undefined;
+  currentLanguage:any;
 
   userPfp: string = ''; 
   userName: string = '';
@@ -29,12 +32,28 @@ export class KhHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.addEventListener('localLanguageChange', (event: any) => {
+      const newLang = event.detail?.newLang;
+      console.log('Language change', newLang);
+      this.translocoService.setActiveLang(newLang);
+      this.currentLangImg = getLanguageImagePath(newLang);
+    });
+    
     const user = this.authService.getUser(); 
     if (user) {
       this.userPfp = user.user_pfp; 
       this.userName = user.first_name;
     }
+  console.log(this.currentLangImg);
+
+  if (typeof window !== 'undefined' && localStorage) {
+    const savedLang = localStorage.getItem("language") ?? "swe";
+    this.currentLangImg = getLanguageImagePath(savedLang);
+    this.translocoService.setActiveLang(savedLang);
   }
+
+  }
+
 
   testLanguageSwitch() {
     const currentLang = this.translocoService.getActiveLang();

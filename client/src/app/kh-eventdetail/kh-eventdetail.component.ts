@@ -19,11 +19,11 @@ import { formatDate } from '../utils/Timeformater';
 export class KhEventDetailComponent implements OnInit {
   @ViewChild('action', { static: false }) scanner!: NgxScannerQrcodeComponent;
 
-
-  eventId: string | null = null;
+  eventId: any;
   exhibition: Exhibition | null = null;
   ehibition_start_date: string | null = null;
   ehibition_end_date: string | null = null;
+  exhibihitionIsActive: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -56,7 +56,7 @@ export class KhEventDetailComponent implements OnInit {
 
   onScan(res: ScannerQRCodeResult[], action?: any): void {
     if (res && res.length) {
-      const { value, points } = res[0];
+      const { value } = res[0];
       
       this.scanner.pause();
 
@@ -83,26 +83,33 @@ export class KhEventDetailComponent implements OnInit {
       this.qrCodeResult = res;
     });
   }
-
-  
-  isActive = true;
   
   ngOnInit(): void {
-LOAD_WASM('assets/wasm/ngx-scanner-qrcode.wasm').subscribe();
+    LOAD_WASM('assets/wasm/ngx-scanner-qrcode.wasm').subscribe();
 
     this.eventId = this.route.snapshot.paramMap.get('id');
     if (this.eventId) {
       const id = Number(this.eventId);
+      
+      const normalizeDate = (str: string) => {
+        return str.replace(/T(\d{2}:\d{2}):(\d{1})(?!\d)/, 'T$1:0$2');
+      };
+
       this.exhibitionService.getExhibitionById(id).subscribe({
-        next: (data) => {
-          this.exhibition = data;
-          this.ehibition_start_date = formatDate(this.exhibition.exhibition_date_start);
-          this.ehibition_end_date = formatDate(this.exhibition.exhibition_date_end);
-          console.log(formatDate(this.exhibition.exhibition_date_start))
-        },
-        error: (err) => {
-          console.error('Failed to load exhibition', err);
-        }
+          next: (data) => {
+            this.exhibition = data;
+            this.ehibition_start_date = formatDate(this.exhibition.exhibition_date_start);
+            this.ehibition_end_date = formatDate(this.exhibition.exhibition_date_end);
+
+            const start = new Date(normalizeDate(this.exhibition.exhibition_date_start.toString()));
+            const end = new Date(normalizeDate(this.exhibition.exhibition_date_end.toString()));
+          
+            const now = new Date();
+            if (start <= now && now <= end) {
+              this.exhibihitionIsActive = true;
+              console.log(this.exhibihitionIsActive)
+            }
+          }
       });
     }
   }

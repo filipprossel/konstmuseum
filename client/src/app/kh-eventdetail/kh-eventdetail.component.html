@@ -5,15 +5,16 @@
     </section>
   
     <section class="info">
+      <span class="activeExhibitionBanner" *ngIf="exhibihitionIsActive">Pågående Utställning</span>
       <h1>{{ exhibition.exhibition_name }}</h1>
-      <h5>Utställningsperiod: {{ ehibition_start_date }} till <b>{{ ehibition_end_date }}</b></h5>
+      <h5>{{ ehibition_start_date }} till <b>{{ ehibition_end_date }}</b></h5>
     </section>
   
     <section class="text">
       <p>{{ exhibition.exhibition_desc }}</p>
     </section>
   
-    <div class="qrScannerIcon" (click)="openQrcodeDialog()">
+    <div class="qrScannerIcon" (click)="openQrcodeDialog()" *ngIf="exhibihitionIsActive">
       <i class="pi pi-qrcode"></i>
     </div>
   
@@ -33,7 +34,6 @@
                   <path d="M6 154 Q6 194 46 194" />
                   <path d="M194 154 Q194 194 154 194" />
                 </svg>
-              
               
   
                 

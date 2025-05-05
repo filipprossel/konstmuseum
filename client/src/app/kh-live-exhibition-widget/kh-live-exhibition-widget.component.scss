@@ -10,7 +10,19 @@
     backdrop-filter: saturate(180%) blur(20px);
     z-index: 99;
 
+    opacity: 0;
+    visibility: hidden;
+    animation: fadeIn 1s ease-in 1s forwards;
 }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
 .liveExhitiionContainer .head {
     display: flex;
     width: 100%;
