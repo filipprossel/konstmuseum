@@ -30,7 +30,7 @@ export class KhProfileComponent {
     this.authService = authService; 
     this.profileService = profileService;
   }
-
+  //När sidan initiliseras, hämtas användaren via authService samt så hämtas alla events och sätts i en........ 
   ngOnInit(): void {
     this.user = this.authService.getUser();
     this.profileService.getEventsVisited(1).subscribe((data) => {
@@ -38,6 +38,8 @@ export class KhProfileComponent {
     })
     
   }
+
+  //Sätter visibleX till true, för att en dialog för att redigera användarinformation ska synas på skrämen.
   showDialog(number: any){
     if(number === 1){
       this.visible1 = true;
@@ -53,6 +55,8 @@ export class KhProfileComponent {
     }
     
   }
+
+  //Beroende på vad variabeln edit är, ändras uppgiften genom en POST till databasen via profileService, användaren returneras sedan tillbaka till frontend-delen för att uppdatera användaren i localstorage.
   sendEdit(edit: String){
     let lastname = document.getElementById("last_name") as HTMLInputElement;
     let firstname = document.getElementById("first_name") as HTMLInputElement;
@@ -62,7 +66,6 @@ export class KhProfileComponent {
     let password = this.user.password;
     console.log(this.user);
     if(edit === 'first_name'){
-      console.log('log')
       this.profileService.editUser(firstname.value, '', oldEmail, password, '').subscribe((data) => {
         this.user = data;
         localStorage.setItem("user", JSON.stringify(this.user));
@@ -81,7 +84,6 @@ export class KhProfileComponent {
       });
     }
     if(edit === 'user_description'){
-      console.log('Terqwewqe')
       console.log('Test:', oldEmail, password, userDescription.value);
       this.profileService.editUser('', '', oldEmail, password, userDescription.value).subscribe((data) => {
         this.user = data;
@@ -89,7 +91,7 @@ export class KhProfileComponent {
       });
     }
   }
-
+//För att ändra utseendet på knapparna i den lokala menyn beroende på vilken knapp som just nu är tryckt. 
   disable(nextDocument: any): void{ 
       let aktivitetContent = document.getElementById("aktivitetsContainer")!;
       let profileContent: HTMLElement = document.getElementById("profileActivityContainer")!;
