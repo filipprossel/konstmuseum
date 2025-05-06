@@ -17,6 +17,19 @@
     <div class="qrScannerIcon" (click)="openQrcodeDialog()" *ngIf="exhibihitionIsActive">
       <i class="pi pi-qrcode"></i>
     </div>
+
+    <div class="buttonGroup">
+
+      <div class="button" *ngIf="exhibihitionIsActive">
+        Dina reccessioner 
+        <i class="pi pi-star"></i>
+      </div>
+      
+      <div class="button" id="blue" *ngIf="exhibihitionIsActive">
+        Gå med i live diksussion  
+        <i class="pi pi-comment"></i>
+      </div>
+    </div>
   
     <div class="lightbox" *ngIf="openStateQrCodeDialog" (click)="closeQrcodeDialog()">
       <div class="lightbox-content" (click)="$event.stopPropagation()">
@@ -46,10 +59,8 @@
             </div>
           </ngx-scanner-qrcode>
           <p class="tooltipSCanner" *ngIf="action.isStart">Hitta en QR-Kod att skanna</p>
-
         </div>
         <div class="skeleton-loader" *ngIf="action.isLoading"></div>
-  
         <button (click)="closeQrcodeDialog()" class="close-btn"><i class="pi pi-times"></i></button>
       </div>
     </div>
