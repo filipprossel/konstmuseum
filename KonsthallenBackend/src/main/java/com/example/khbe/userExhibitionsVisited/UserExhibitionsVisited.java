@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 import java.sql.Date;
 
-@Entity
+@Entity//Klass för att representera en utställning som en användare har besökt.
 @Table(name="user_exhibitions_visited")
 public class UserExhibitionsVisited {
     @EmbeddedId

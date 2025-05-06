@@ -1,7 +1,7 @@
 <div id= "backgroundGradient">
 
     <div id="profileContainer">
-        <div id="ProfileImg">
+        <div id="ProfileImg"><!--Profilbild som hämtas från objektet user-->
             <img src="{{this.user.user_pfp}}" alt="Profilbild">
         </div>
         <div id="activeStatus"></div>
@@ -10,10 +10,10 @@
                 <p id="name">{{this.user.first_name}}</p> 
                 <p id="om">{{this.user.user_description}}</p>
                 <p id="omText">Jag är från piteå och gillar konstverk och systembolaget med många bra saker som bord och stolar med gym och laddre till dator</p>
-                <!--<i class="pi pi-pencil"></i>-->
              </div>
    </div>
    <hr>
+   <!--Knappmenyn.  Vid klick på en knapp körs metoderna efte (onClick)-->
    <div id="buttonMenu" [style]="{marginTop:'10px'}">
        <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()"[style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px'}"/>
        <p-button id = "buttonP" label="Profil" (onClick)="profileButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'} "/>
@@ -38,7 +38,7 @@
     </div>
     
    </div>
-   <div id="profileActivityContainer">
+   <div id="profileActivityContainer"><!--För varje utställning som användaren har besökt ska den göra en av div:en under och hämta namnet och datumet för utställningen-->
        <div class="infoBlock" *ngFor="let item of this.eventsVisited">
            <P class="infoText">{{item.exhibition_name}}</P>
            <div class="stats">
@@ -51,7 +51,7 @@
     <div class="about">
         <p class="header">Förnamn</p>
         <div class="infoValue">
-            <p>{{this.user.first_name}}</p>
+            <p>{{this.user.first_name}}</p><!--Vid klick på symbolen som visar en penna ska metoden showDialog() köras. Beroende på vilken penna användaren klickar på skickas olika siffror med, för att metoden ska veta vad som ska ändras-->
             <i class="pi pi-pencil" (click)="showDialog(1)" [style]="{color: 'black'}"></i>
         </div>
     </div>
@@ -76,6 +76,7 @@
             <i class="pi pi-pencil" (click)="showDialog(4)" [style]="{color: 'black'}"></i>
         </div>
     </div>
+    <!--Dialogen som visas när användaren klickar på en penna för redigera fältet. Beroende på vilken penna som klickas på, visas olika dialoger-->
     <p-dialog header="Redigera Informaiton" [modal]="true" [(visible)]="visible1" [style]="{ width: '25rem' }">
         <span class="p-text-secondary block mb-8">Uppdatera ditt Förnamn</span>
         <div class="flex items-center gap-4 mb-4">
@@ -125,4 +126,4 @@
     </p-dialog>
 </div>
 </div>
-<!--<p-button label="Submit" /> [style]="{backgroundColor: 'blue'}-->
+
