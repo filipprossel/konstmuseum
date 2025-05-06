@@ -32,14 +32,14 @@ export class KhHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(isPlatformBrowser(this.platformId)) {
-      document.addEventListener('localLanguageChange', (event: any) => {
-        const newLang = event.detail?.newLang;
-        console.log('Language change', newLang);
-        this.translocoService.setActiveLang(newLang);
-        this.currentLangImg = getLanguageImagePath(newLang);
-      });
-    }
+      if(isPlatformBrowser(this.platformId)) {
+        window.addEventListener('localLanguageChange', (event: any) => {
+          const newLang = event.detail?.newLang;
+          console.log('Language change', newLang);
+          this.translocoService.setActiveLang(newLang);
+          this.currentLangImg = getLanguageImagePath(newLang);
+        });
+      }
     
     const user = this.authService.getUser(); 
     if (user) {
