@@ -16,7 +16,7 @@
    <!--Knappmenyn.  Vid klick på en knapp körs metoderna efte (onClick)-->
    <div id="buttonMenu" [style]="{marginTop:'10px'}">
        <p-button id = "buttonA" label="Aktivitet" (onClick)="aktivitetButton()"[style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px'}"/>
-       <p-button id = "buttonP" label="Profil" (onClick)="profileButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'} "/>
+       <p-button id = "buttonP" label="Besök" (onClick)="profileButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'} "/>
        <p-button id = "buttonO" label="Om" (onClick)="omButton()" [style]="{backgroundColor: 'transparent', color: 'black', fontSize: '2em', border: 'none', borderRadius: '50px', paddingBottom:'1px', padding:'3px', textDecoration: 'none'}"/>
    </div>
    <div id="aktivitetsContainer">
@@ -42,7 +42,7 @@
        <div class="infoBlock" *ngFor="let item of this.eventsVisited">
            <P class="infoText">{{item.exhibition_name}}</P>
            <div class="stats">
-            <p class="date">{{item.exhibition_date}}</p>
+            <p class="date">{{item.visited_date}}</p>
             <p class="avgRate">7.6/10</p>
            </div>
        </div>
