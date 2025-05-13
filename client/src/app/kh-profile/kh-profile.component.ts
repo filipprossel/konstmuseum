@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
   providers: [HttpClient]
 })
 export class KhProfileComponent {
-  eventsVisited: any;
+  eventsVisited: any = 0;
   user: any;
   userName: any;
   authService!: AuthService;
