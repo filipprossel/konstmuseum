@@ -39,6 +39,7 @@ export class KhProfileComponent {
     this.user = this.authService.getUser();
     this.profileService.getEventsVisited(this.user.id).subscribe((data) => {
       this.eventsVisited = data;
+      console.log(data);
     })
    
   }

@@ -39,7 +39,8 @@
     
    </div>
    <div id="profileActivityContainer"><!--För varje utställning som användaren har besökt ska den göra en av div:en under och hämta namnet och datumet för utställningen-->
-       <div class="infoBlock" *ngFor="let item of this.eventsVisited">
+       <p id="noPreviousVisitsText" *ngIf="this.eventsVisited.length === 0">Inga tidigare besök</p>
+        <div class="infoBlock" *ngFor="let item of this.eventsVisited">
            <div class="navToExhibition" (click)="navigateToExhbition(item.exhibition_id)">
             <P class="infoText">{{item.exhibition_name}}</P>
            <div class="stats">
