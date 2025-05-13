@@ -12,7 +12,6 @@
     
 }
 
-
 #backgroundGradient{
     margin-top: 5vh;
     display: flex;
@@ -246,7 +245,13 @@ label{
     align-items: center;
     justify-content: start;
 }
-.infoBlock{
+.navToExhibition:hover{
+    cursor: pointer;
+    border-color: rgb(122, 122, 122);
+    background-color: rgb(252, 252, 252);
+}
+.navToExhibition{
+    
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
@@ -258,7 +263,6 @@ label{
     width: 80%;
     border-radius: 10px;
     .stats{
-        
         display: flex;
         width: 170px;
         justify-content: space-between;

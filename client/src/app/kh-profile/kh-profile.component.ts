@@ -7,6 +7,7 @@ import { PanelModule } from 'primeng/panel';
 import { AuthService } from '../auth.service';
 import { DialogModule } from 'primeng/dialog';
 import { KhProfileServiceService } from './kh-profile-service/kh-profile-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-kh-profile',
   standalone: true,
@@ -19,24 +20,31 @@ export class KhProfileComponent {
   eventsVisited: any;
   user: any;
   userName: any;
-  authService!: AuthService
-  profileService!: KhProfileServiceService
+  authService!: AuthService;
+  router!: Router;
+  profileService!: KhProfileServiceService;
   visible1: boolean= false;
   visible2: boolean= false;
   visible3: boolean= false;
   visible4: boolean= false;
   buttonT = document.getElementById("buttonA")!;
-  constructor(authService: AuthService, profileService: KhProfileServiceService) {
+  constructor(authService: AuthService, profileService: KhProfileServiceService, router: Router) {
     this.authService = authService; 
     this.profileService = profileService;
+    this.router = router;
   }
   //När sidan initiliseras, hämtas användaren via authService samt så hämtas alla events och sätts i en........ 
   ngOnInit(): void {
+    
     this.user = this.authService.getUser();
-    this.profileService.getEventsVisited(1).subscribe((data) => {
+    this.profileService.getEventsVisited(this.user.id).subscribe((data) => {
       this.eventsVisited = data;
     })
-    
+   
+  }
+  //Funktion för att navigera till utställlningen som användaren har varit på.
+  navigateToExhbition(exhibition_id: number){
+    this.router.navigate(['/exhibition', 68]);
   }
 
   //Sätter visibleX till true, för att en dialog för att redigera användarinformation ska synas på skrämen.
