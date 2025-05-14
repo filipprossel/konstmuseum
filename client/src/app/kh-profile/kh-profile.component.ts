@@ -45,7 +45,7 @@ export class KhProfileComponent {
   }
   //Funktion för att navigera till utställlningen som användaren har varit på.
   navigateToExhbition(exhibition_id: number){
-    this.router.navigate(['/exhibition', 68]);
+    this.router.navigate(['/exhibition', exhibition_id]);
   }
 
   //Sätter visibleX till true, för att en dialog för att redigera användarinformation ska synas på skrämen.

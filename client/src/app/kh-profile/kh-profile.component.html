@@ -42,10 +42,14 @@
        <p id="noPreviousVisitsText" *ngIf="this.eventsVisited.length === 0">Inga tidigare besök</p>
         <div class="infoBlock" *ngFor="let item of this.eventsVisited">
            <div class="navToExhibition" (click)="navigateToExhbition(item.exhibition_id)">
-            <P class="infoText">{{item.exhibition_name}}</P>
-           <div class="stats">
-            <p class="date">{{item.visited_date}}</p>
-           </div>
+            <table>
+                <tr>
+                    <td> <P class="infoText">{{item.exhibition_name + item.exhibition_id}}</P></td>
+                </tr>
+                <tr>
+                    <td> <p class="date">{{item.visited_date}}</p></td>
+                </tr>
+            </table>
             </div>
        </div>
    </div>
