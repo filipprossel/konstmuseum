@@ -136,7 +136,9 @@ hr{
 
 
 @media (max-width: 768px){
+
 #backgroundGradient{
+    padding-top: 60px;
     margin-top: 0vh;
     display: flex;
     flex-direction: column;
@@ -233,6 +235,7 @@ hr{
         border: solid 1px transparent;
         /*border-color: #cccccc75;*/
     }
+  
 }
 
 label{

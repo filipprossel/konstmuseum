@@ -21,8 +21,6 @@ public class UserService {
 
 
     public User saveUser(User user){
-        System.out.println("Test");
-        //Förslag på felhantering?
         try{
             return userRepository.save(user);
         }
