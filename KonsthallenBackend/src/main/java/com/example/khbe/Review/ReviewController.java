@@ -19,8 +19,15 @@ public class ReviewController {
         System.out.println(reviewData.get("grade"));
         return reviewService.setReviewAndScore(reviewData);
     }
+
     @GetMapping
-    public List<ReviewDTO> getReviews(@RequestParam int user_id){
+    public List<ReviewDTO> getAllReviewsByUser(@RequestParam int user_id) {
         return reviewService.getAllReviews(user_id);
+    }
+
+    @GetMapping("/exhibition")
+    public List<Review> getReviewsByUserAndExhibition(@RequestParam int user_id, @RequestParam int exhibition_id) {
+        List<Review> reviews = reviewService.getReviewsByUserAndExhibition(user_id, exhibition_id);
+        return reviews;
     }
 }

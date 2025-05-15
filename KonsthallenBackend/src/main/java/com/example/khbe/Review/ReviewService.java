@@ -4,6 +4,9 @@ package com.example.khbe.Review;
 import com.example.khbe.Artphoto.ArtphotoRepository;
 import com.example.khbe.Entity.User;
 import com.example.khbe.Entity.UserRepository;
+import com.example.khbe.Exhibition.Exhibition;
+import com.example.khbe.Exhibition.ExhibitionRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -54,5 +57,19 @@ public class ReviewService {
         }
 
         return reviewDTOList;
+    }
+
+    public List<Review> getReviewsByUserAndExhibition(int userId, int exhibitionId) {
+        List<Review> reviews = reviewRepository.findAllByUser(userRepository.getReferenceById(userId));
+        List<Review> filteredReviews = new ArrayList<>();
+
+        System.out.println("1");
+
+        for (Review review : reviews) {
+            if (review.getArtphoto().getExhibition_id() == exhibitionId) {
+                filteredReviews.add(review);
+            }
+        }
+        return filteredReviews;
     }
 }

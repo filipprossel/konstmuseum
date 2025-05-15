@@ -22,23 +22,20 @@
 }
 
 #backgroundGradient{
-    margin-top: 5vh;
     display: flex;
     flex-direction: column;
     justify-content: start;
     border-radius: 2vw;
-    width: 100%;
-    height: fit-content;
-    padding-bottom: 50px;
+    height: 100%;
     background: rgb(255,238,180);
     background: linear-gradient(0deg, rgba(255,238,180,0.1912045889101338) 21%, rgba(50,95,255,0.07) 49%);
+    border: 20px solid #fff;
     i{
         padding-top: 20px;
         padding-right: 20px;
     }
 }
 #profileContainer{
-    margin-left: 40px;
     display: flex;
     justify-content: start;
     align-items: center;
@@ -138,7 +135,7 @@ hr{
 @media (max-width: 768px){
 
 #backgroundGradient{
-    padding-top: 60px;
+    border: 0px;
     margin-top: 0vh;
     display: flex;
     flex-direction: column;
@@ -345,6 +342,7 @@ label{
    
 }
 @media (min-width: 768px){
+
     #aktivitetsContainer{
         align-items: flex-start;
         margin-left: 3%;

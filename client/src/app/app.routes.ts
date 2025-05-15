@@ -11,6 +11,7 @@ import { KhEventDetailComponent } from './kh-eventdetail/kh-eventdetail.componen
 import {KhArtPostComponent} from './kh-art-post/kh-art-post.component';
 import { KhArtphotoRecensionComponent } from './kh-artphoto-recension/kh-artphoto-recension.component';
 import { KhLiveChatComponent } from './kh-live-chat/kh-live-chat.component';
+import { KhYourReviewsComponent } from './kh-your-reviews/kh-your-reviews.component';
 
 export const routes: Routes = [
     {path: 'login', component: KhLoginComponent },
@@ -23,4 +24,5 @@ export const routes: Routes = [
     {path: 'exhibition/:id', component: KhEventDetailComponent, canActivate: [authGuard]},
     {path: 'art', component: KhArtPostComponent, canActivate: [authGuard]},
     {path: 'exhibition/:exhibitionId/art/:artId', component: KhArtphotoRecensionComponent, canActivate: [authGuard]},
+    {path: 'exhibition/:exhibitionId/reviews', component: KhYourReviewsComponent, canActivate: [authGuard]}
 ];

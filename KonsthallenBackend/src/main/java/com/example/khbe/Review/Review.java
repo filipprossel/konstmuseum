@@ -3,6 +3,7 @@ package com.example.khbe.Review;
 import com.example.khbe.Artphoto.Artphoto;
 import jakarta.persistence.*;
 import com.example.khbe.Entity.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="reviews")
@@ -18,6 +19,7 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    @JsonIgnore
     private User user;
     private int grade;
 

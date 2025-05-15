@@ -1,5 +1,5 @@
 import { Component, EventEmitter, NgModule, OnInit, Output, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CarouselComponent } from "./carousel/carousel.component";
 import { Exhibition } from "../kh-event/service/exhibition.model";
 import { ExhibitionService } from "../kh-event/service/exhibtion.service";
@@ -28,7 +28,8 @@ export class KhEventDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private exhibitionService: ExhibitionService,
-    private qrcode: NgxScannerQrcodeService
+    private qrcode: NgxScannerQrcodeService,
+    private router: Router,
   ) {}
 
   public qrCodeResult: ScannerQRCodeSelectedFiles[] = [];
@@ -112,6 +113,13 @@ export class KhEventDetailComponent implements OnInit {
           }
       });
     }
+  }
+
+  goToReviews() {
+    console.log("test")
+    this.router.navigate(['/exhibition', this.exhibition?.exhibition_id, 'reviews'], {
+      state: { exhibition: this.exhibition }
+    });
   }
 
   openStateQrCodeDialog: boolean = false;
