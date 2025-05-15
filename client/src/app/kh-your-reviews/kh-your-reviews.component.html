@@ -1,9 +1,9 @@
 <main>
     <section class="title">
+        <h3>Dina recensioner <i class="pi pi-star"></i></h3>
+        <h1>{{exhibition?.exhibition_name}}</h1>
     </section>
-
-    <div *ngFor="let review of reviews">
-         <h1>{{review.Art.art_name}}</h1>
-         <h2>{{review.grade}}</h2>
+    <div class="card-wrapper">
+        <app-review-card *ngFor="let review of reviews" [review]="review"></app-review-card>
     </div>
 </main>

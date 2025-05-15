@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="left">
+        <div class="upper">
+            <label for="artwork_name">Konstverkets namn</label>
+            <h1 class="artwork_name">{{review.Art.art_name}}</h1>
+            <label for="artist_name">Av:</label>
+            <h2 class="artist_name">{{review.Art.artphotoartist.artphotoartist_name}}</h2>
+            <label for="artwork_desc">Konstverkets Beskrivning</label>
+            <p class="artwork_desc">{{review.Art.art_desc}}</p>
+        </div> 
+        <div class="lower">
+            <label for="stars">Betyg (1/5)</label>
+            <div class="stars">
+                <i 
+                  *ngFor="let i of [].constructor(5); let index = index"
+                  [ngClass]="{
+                    'pi pi-star-fill': index < review.grade
+                  }">
+                </i>
+            </div>
+            <label for="review">Recension</label>
+            <p class="review-box">{{review.review}}</p>
+        </div>
+    </div>
+    <div class="right">
+        <div class="img-container">
+            <img [src]="'http://localhost:8080' + (review.Art.art_link)" alt="">
+        </div>
+    </div>
+</div>
