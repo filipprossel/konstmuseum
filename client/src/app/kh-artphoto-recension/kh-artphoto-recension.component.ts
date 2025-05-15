@@ -25,6 +25,7 @@ export class KhArtphotoRecensionComponent {
   reviewBox: any;
   stars: HTMLElement[] = [];
   artwork!: ArtWork;
+  debounce: boolean = false;
 
 
   constructor(khArtphotoService: KhArtphotoService, authService: AuthService, private route: ActivatedRoute, private router: Router) {
@@ -78,11 +79,19 @@ export class KhArtphotoRecensionComponent {
   }
 
   sendReview(){
+    if (this.debounce) {
+      return;
+    }
+    this.debounce = true;
     this.khArtphotoService.createReview(this.user.id, this.route.snapshot.paramMap.get('artId')!.toString(), this.rating.toString(), this.reviewBox.value).subscribe((data) => {
      console.log(data);
     });
+    
+    setTimeout(() => {
+      this.debounce = false;
+      this.router.navigate(['/exhibition', this.artwork.exhibition_id]);
+    }, 2000);
   }
-
+  
   clearReview() {}
-
 }

@@ -23,6 +23,7 @@ public class UserExhibitionsVisitedService {
             ex.setExhibition_desc(exhibition.getExhibition_desc());
             ex.setExhibition_start_date(exhibition.getExhibition_date_start());
             ex.setVisited_date(uev.getVisited_date());
+            ex.setExhibition_id(exhibition.getExhibition_id());
             exhibitionList.add(ex);
         }
         return exhibitionList;

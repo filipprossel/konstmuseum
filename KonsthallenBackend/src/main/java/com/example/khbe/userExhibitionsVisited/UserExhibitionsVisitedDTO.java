@@ -1,7 +1,6 @@
 package com.example.khbe.userExhibitionsVisited;
 
 import java.sql.Date;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -11,6 +10,7 @@ public class UserExhibitionsVisitedDTO {
     private LocalDateTime exhibition_start_date;
     private String exhibition_desc;
     private Date visited_date;
+    private int exhibition_id;
 
     public Date getVisited_date() {
         return visited_date;
@@ -42,5 +42,12 @@ public class UserExhibitionsVisitedDTO {
 
     public void setExhibition_name(String exhibition_name) {
         this.exhibition_name = exhibition_name;
+    }
+    public void setExhibition_id(int exhibition_id) {
+        this.exhibition_id = exhibition_id;
+    }
+
+    public int getExhibition_id() {
+        return exhibition_id;
     }
 }

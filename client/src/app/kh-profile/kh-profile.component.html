@@ -39,12 +39,18 @@
     
    </div>
    <div id="profileActivityContainer"><!--För varje utställning som användaren har besökt ska den göra en av div:en under och hämta namnet och datumet för utställningen-->
-       <div class="infoBlock" *ngFor="let item of this.eventsVisited">
-           <P class="infoText">{{item.exhibition_name}}</P>
-           <div class="stats">
-            <p class="date">{{item.visited_date}}</p>
-            <p class="avgRate">7.6/10</p>
-           </div>
+       <p id="noPreviousVisitsText" *ngIf="this.eventsVisited.length === 0">Inga tidigare besök</p>
+        <div class="infoBlock" *ngFor="let item of this.eventsVisited">
+           <div class="navToExhibition" (click)="navigateToExhbition(item.exhibition_id)">
+            <table>
+                <tr>
+                    <td> <P class="infoText">{{item.exhibition_name + item.exhibition_id}}</P></td>
+                </tr>
+                <tr>
+                    <td> <p class="date">{{item.visited_date}}</p></td>
+                </tr>
+            </table>
+            </div>
        </div>
    </div>
    <div id="omContent">
@@ -81,7 +87,7 @@
         <span class="p-text-secondary block mb-8">Uppdatera ditt Förnamn</span>
         <div class="flex items-center gap-4 mb-4">
             <label for="first_name" class="font-semibold w-24" [style]="{textDecoration: 'none', fontWeight: '800'}">Nytt förnamn:</label>
-            <input pInputText id="first_name" class="flex-auto" autocomplete="off"/>
+            <input pInputText id="first_name" class="flex-auto" autocomplete="off" [style]="{borderBottom: '1px solid', marginBottom: '10px'}"/>
         </div>
         <div class="flex justify-end gap-2">
             <p-button label="Cancel" severity="secondary" (click)="visible1 = false" />
@@ -93,7 +99,7 @@
         <span class="p-text-secondary block mb-8">Uppdatera ditt efternamn</span>
         <div class="flex items-center gap-4 mb-4">
             <label for="last_name" class="font-semibold w-24" [style]="{textDecoration: 'none', fontWeight: '800'}">Nytt efternamn:</label>
-            <input pInputText id="last_name" class="flex-auto" autocomplete="off"/>
+            <input pInputText id="last_name" class="flex-auto" autocomplete="off" [style]="{borderBottom: '1px solid', marginBottom: '10px'}"/>
         </div>
         <div class="flex justify-end gap-2">
             <p-button label="Cancel" severity="secondary" (click)="visible2 = false" />
@@ -105,7 +111,7 @@
         <span class="p-text-secondary block mb-8">Uppdatera din e-post</span>
         <div class="flex items-center gap-4 mb-4">
             <label for="email" class="font-semibold w-24" [style]="{textDecoration: 'none', fontWeight: '800'}">Ny e-post:</label>
-            <input pInputText id="email" class="flex-auto" autocomplete="off"/>
+            <input pInputText id="email" class="flex-auto" autocomplete="off" [style]="{borderBottom: '1px solid', marginBottom: '10px'}"/>
         </div>
         <div class="flex justify-end gap-2">
             <p-button label="Cancel" severity="secondary" (click)="visible3 = false" />
@@ -117,7 +123,7 @@
         <span class="p-text-secondary block mb-8">Uppdatera din beskrivning</span>
         <div class="flex items-center gap-4 mb-4">
             <label for="user_description" class="font-semibold w-24" [style]="{textDecoration: 'none', fontWeight: '800'}">Ny beskrivning:</label>
-            <input pInputText id="user_description" class="flex-auto" autocomplete="off"/>
+            <input pInputText id="user_description" class="flex-auto" autocomplete="off" [style]="{borderBottom: '1px solid', marginBottom: '10px'}"/>
         </div>
         <div class="flex justify-end gap-2">
             <p-button label="Cancel" severity="secondary" (click)="visible4 = false" />

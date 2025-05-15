@@ -42,6 +42,10 @@
                     <h2>{{artwork.artphotoartist.artphotoartist_name}}</h2>
                 </div>
             </div>
+            <div class="message" *ngIf="debounce">
+                <p class="success-message">Tack för din recension!</p>
+                <p class="navigatingback-message">Navigerar dig tillbaka...</p>
+            </div>
             <div class="buttons">
                 <button (click)="sendReview()">Skicka in recension</button>
                 <button (click)="clearReview()">Rensa text</button>
