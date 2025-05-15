@@ -1,0 +1,25 @@
+<div class="liveChat">
+    <div class="header">
+        <h3>Live diksussion</h3>
+        <i class="pi pi-times"></i>
+    </div>
+    <div class="chats">
+        <div class="noMessages" *ngIf="messages.length === 0">
+
+            <p>
+                Inga medelanden, bli först {{ text }}
+            </p>
+        </div>
+    </div>
+    <div class="input" [ngClass]="{ 'active': text.length > 0 }">
+        <textarea
+            [(ngModel)]="text"
+            placeholder="Skicka ett meddelande"
+            (keydown)="handleKeydown($event)"
+        ></textarea>
+              <div class="icon"><!-- active class lägg till-->
+            <i class="pi pi-arrow-up"></i>
+        </div>
+    </div>
+
+</div>

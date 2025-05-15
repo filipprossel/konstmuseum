@@ -56,12 +56,12 @@ export class KhArtphotoRecensionComponent {
       this.artwork = data;
       console.log(this.artwork);
       if (!this.artwork) {
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       }
       if ( this.artwork.exhibition_id !== exhibitionId) {
         console.log(this.artwork.exhibition_id);
         console.log(exhibitionId);
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       }
     });    
 

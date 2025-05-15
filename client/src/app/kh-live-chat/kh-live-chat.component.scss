@@ -1,0 +1,86 @@
+.liveChat {
+    position: fixed;
+    height: 80vh;
+    width: 40vw;
+    padding: 4em;
+    padding: 1em 1rem;
+    border-radius: 8px;
+    border: 2px solid rgba(204, 204, 204, 0.675);
+    background-color: rgba(240, 240, 240, 0.9);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    right: 1em;
+    z-index: 999;
+    bottom: 4em;
+    display: none; /* ta bort sen */
+}
+
+.liveChat .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1em;
+    border-bottom:  2px solid rgba(204, 204, 204, 0.675);
+
+    i {
+        background-color: rgba(218, 67, 67, 0.75);
+        height: 40px;
+        width: 40px;
+        border-radius: 9999px;
+        display: grid;
+        place-items: center;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+
+.noMessages {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.chats {
+    height: 80%;
+    background-color: red;
+}
+.input {
+    width: 100%;
+
+    
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        padding: 1em .5em;
+        transition: 0.3s ease-in-out;
+        border-radius: 12px;
+        width: 100%;
+        border-bottom:  2px solid rgba(204, 204, 204, 0.675);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        display: flex;
+    textarea {
+        resize: none;
+        width: calc(100% - 40px);
+    }
+
+    .icon {
+        background-color: rgb(10, 205, 10);
+        width: 40px;
+        height: 40px;
+        display: grid;
+        place-items: center;
+        cursor: default;
+        opacity: .6;
+        color: white;
+        border-radius: 999px;
+
+    }
+}
+.active {
+    .icon {
+        opacity: 1;
+        cursor: pointer;
+    }
+}
+

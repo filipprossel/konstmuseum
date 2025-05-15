@@ -11,6 +11,9 @@ export const authGuard: CanActivateFn = (route, state) => {
   if (user) {
     return true;
   } else {
+    // Lägg till sessionstorage för senaste routen
+    // Hämta sneaste routen
+    // lägg till useeffect likande när route ändras 
     router.navigate(['login']);
     return false;
   }

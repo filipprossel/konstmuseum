@@ -20,16 +20,19 @@
 
     <div class="buttonGroup">
 
-      <div class="button" *ngIf="exhibihitionIsActive">
+      <a class="button" *ngIf="exhibihitionIsActive" href="exhibition/69/art/1">
         Dina reccessioner 
         <i class="pi pi-star"></i>
-      </div>
+      </a>
       
-      <div class="button" id="blue" *ngIf="exhibihitionIsActive">
+      <a class="button" id="blue" *ngIf="exhibihitionIsActive">
         Gå med i live diksussion  
         <i class="pi pi-comment"></i>
-      </div>
+      </a>
     </div>
+
+    <app-kh-live-chat></app-kh-live-chat>
+
   
     <div class="lightbox" *ngIf="openStateQrCodeDialog" (click)="closeQrcodeDialog()">
       <div class="lightbox-content" (click)="$event.stopPropagation()">

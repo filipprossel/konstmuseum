@@ -6,13 +6,13 @@ import { ExhibitionService } from "../kh-event/service/exhibtion.service";
 import { CommonModule } from '@angular/common';
 import {NgxScannerQrcodeComponent, LOAD_WASM, ScannerQRCodeConfig, ScannerQRCodeSelectedFiles, NgxScannerQrcodeService, ScannerQRCodeResult } from 'ngx-scanner-qrcode';
 import { formatDate } from '../utils/Timeformater';
-
+import { KhLiveChatComponent } from '../kh-live-chat/kh-live-chat.component';
 
 @Component({
   selector: 'app-kh-event-detail',
   templateUrl: './kh-eventdetail.component.html',
   styleUrls: ['./kh-eventdetail.component.scss'],
-  imports: [CarouselComponent, CommonModule, NgxScannerQrcodeComponent]
+  imports: [CarouselComponent, KhLiveChatComponent, CommonModule, NgxScannerQrcodeComponent]
 })
 
 
