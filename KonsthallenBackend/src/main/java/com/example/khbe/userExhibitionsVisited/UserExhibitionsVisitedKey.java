@@ -5,7 +5,7 @@ import jakarta.persistence.Embeddable;
 
 import java.io.Serializable;
 
-@Embeddable//Denna klass representerar den sammansatta nyckeln tabellen i databasen.
+@Embeddable//Denna klass representerar den sammansatta nyckeln i tabellen från databasen.
 public class UserExhibitionsVisitedKey implements Serializable {
     @Column(name = "user_id")
     int user_id;

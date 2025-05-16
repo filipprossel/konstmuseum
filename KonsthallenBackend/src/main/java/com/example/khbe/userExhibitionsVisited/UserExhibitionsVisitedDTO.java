@@ -3,7 +3,7 @@ package com.example.khbe.userExhibitionsVisited;
 import java.sql.Date;
 import java.time.LocalDateTime;
 
-
+//Klass för att representera en kombination av data från andra klasser/tabeller
 public class UserExhibitionsVisitedDTO {
 
     private String exhibition_name;

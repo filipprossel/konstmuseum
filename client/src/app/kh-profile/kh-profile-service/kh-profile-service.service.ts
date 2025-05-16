@@ -6,7 +6,7 @@ import { Console } from 'console';
   providedIn: 'root'
 })
 export class KhProfileServiceService {
-  
+  //Service för att hämta och skicka data från backend:en
   constructor(private http: HttpClient) {}
   editUser(first_name: string, last_name: string, email: string, password: string, user_description: string) {
     return this.http.post("http://localhost:8080/api/users/edit", {

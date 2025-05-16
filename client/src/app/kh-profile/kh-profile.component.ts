@@ -33,13 +33,12 @@ export class KhProfileComponent {
     this.profileService = profileService;
     this.router = router;
   }
-  //När sidan initiliseras, hämtas användaren via authService samt så hämtas alla events och sätts i en........ 
+  //När sidan initiliseras, hämtas användaren via authService samt så hämtas alla events.
   ngOnInit(): void {
     
     this.user = this.authService.getUser();
     this.profileService.getEventsVisited(this.user.id).subscribe((data) => {
       this.eventsVisited = data;
-      console.log(data);
     })
    
   }
@@ -48,7 +47,7 @@ export class KhProfileComponent {
     this.router.navigate(['/exhibition', exhibition_id]);
   }
 
-  //Sätter visibleX till true, för att en dialog för att redigera användarinformation ska synas på skrämen.
+  //Sätter visibleX till true, för att en dialog för att redigera användarinformation ska synas på skrämen. Siffran är för att rätt dialog ska visas utifrån vad för fält/information användaren ska ändra.
   showDialog(number: any){
     if(number === 1){
       this.visible1 = true;
@@ -65,7 +64,7 @@ export class KhProfileComponent {
     
   }
 
-  //Beroende på vad variabeln edit är, ändras uppgiften genom en POST till databasen via profileService, användaren returneras sedan tillbaka till frontend-delen för att uppdatera användaren i localstorage.
+  //Beroende på vad variabeln "edit" är, ändras uppgiften genom en POST till databasen via profileService, användaren returneras sedan tillbaka till frontend-delen för att uppdatera användaren i localstorage.
   sendEdit(edit: String){
     let lastname = document.getElementById("last_name") as HTMLInputElement;
     let firstname = document.getElementById("first_name") as HTMLInputElement;

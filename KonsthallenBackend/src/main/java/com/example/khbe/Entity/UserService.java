@@ -37,7 +37,8 @@ public class UserService {
         return userRepository.findByEmailAndPassword(email, password);
     }
 
-    public User editUser(HashMap<String, String> newData){
+    public User editUser(HashMap<String, String> newData){//Metod för att ändra information gällande en användare.
+        //Metoden undersöker vilken nyckel som har ett värde för att bestämma vad för information som ska ändras.
 
             User oldUser = userRepository.findByEmailAndPassword(newData.get("email"), newData.get("password"));
 
