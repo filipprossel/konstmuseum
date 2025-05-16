@@ -46,6 +46,12 @@
         border: solid 1px rgb(211, 210, 210);
         border-radius: 10px;
         overflow: hidden;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
     }
 
     .review-box {
@@ -56,4 +62,21 @@
         min-height: 150px;
         background-color: #fff;
     }
+}
+
+@media (max-width: 1300px) {
+  .left .review-box {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1000px){
+  .card {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .left .review-box {
+    width: 100%;
+  }
 }
